@@ -7,6 +7,7 @@ class MuscleGroup(db.Model):
     name = db.Column(db.String(50), nullable=False, unique=True)
     image = db.Column(db.String(255))
 
+    exercises = db.relationship("Exercise", back_populates="muscle_group")
 
     def to_dict(self):
         return {
