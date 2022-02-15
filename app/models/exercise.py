@@ -2,7 +2,7 @@ from datetime import datetime
 from .db import db
 
 class Exercise(db.Model):
-    __tablename__ = 'exercise'
+    __tablename__ = 'exercises'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
