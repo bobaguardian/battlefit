@@ -34,7 +34,7 @@ def add_exercise():
             user_id = current_user.get_id(),
             muscle_group_id = muscle_group_id,
             name = form.data['name'],
-            description = form.data['description']
+            description = form.data['description'],
             image = form.data['image']
         )
 
