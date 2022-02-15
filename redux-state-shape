@@ -1,0 +1,34 @@
+{
+    session: {
+        user: {
+            id,
+            username,
+            email,
+            hashed_password
+        }
+    },
+
+    exercises: {
+        byId: {
+            exerciseId1: {
+                id,
+                user_id,
+                muscle_group_id,
+                name,
+                description,
+                image
+            }, ...
+        }
+    },
+
+    logs: { (specific to the session user)
+        byId: {
+            id,
+            exercise_id,
+            unit_id,
+            date,
+            comment,
+            unit_count
+        }, ...
+    }
+}
