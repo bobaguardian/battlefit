@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .muscle_groups import seed_muscle_groups, undo_muscle_groups
+from .units import seed_units, undo_units
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -12,6 +13,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_muscle_groups()
+    seed_units()
     # Add other seed functions here
 
 
@@ -20,4 +22,5 @@ def seed():
 def undo():
     undo_users()
     undo_muscle_groups()
+    undo_units()
     # Add other undo functions here
