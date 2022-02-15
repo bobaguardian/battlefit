@@ -1,7 +1,6 @@
 from app.models import db, MuscleGroup
 
 
-# Adds a demo user, you can add other users here if you want
 def seed_muscle_groups():
     ms1 = MuscleGroup(name="Abs")
     ms2 = MuscleGroup(name="Back")
@@ -32,11 +31,6 @@ def seed_muscle_groups():
     db.session.commit()
 
 
-# Uses a raw SQL query to TRUNCATE the users table.
-# SQLAlchemy doesn't have a built in function to do this
-# TRUNCATE Removes all the data from the table, and RESET IDENTITY
-# resets the auto incrementing primary key, CASCADE deletes any
-# dependent entities
 def undo_muscle_groups():
     db.session.execute('TRUNCATE muscle_groups RESTART IDENTITY CASCADE;')
     db.session.commit()
