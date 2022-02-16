@@ -4,6 +4,9 @@
 }
 
 .login-signup {
+    background-color: var(--max-blue-purple);
+    color: var(--jet);
+    font-weight: bold;
     border: 1px solid black;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
@@ -11,7 +14,7 @@
 
 .login-signup:hover {
     color: white;
-    background-color: gray;
+    background-color: var(--dim-gray);
     cursor: pointer;
 }
 

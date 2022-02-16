@@ -19,14 +19,21 @@
 
 :root {
 	--base-font: "Helvetica", sans-serif;
-
 	--jet: #2f2d2e;
 	--dim-gray: #686963;
 	--max-blue-purple: #a7acd9;
 	--french-violet: #7A28CB;
 	--lavender-blush: #F7EDF0;
-	/* --light-goldenrod-yellow: #F1F0CC; */
+	--light-goldenrod-yellow: #F1F0CC;
 }
+
+/* h1,
+h2,
+h3 {
+	font-family: 'Carter One', cursive;
+	font-weight: normal;
+
+} */
 
 *,
 body,
@@ -37,4 +44,6 @@ html {
 	text-decoration: none;
 	list-style-type: none;
     font-family: var(--base-font);
+	background-color: var(--jet);
+	color: var(--lavender-blush);
 }

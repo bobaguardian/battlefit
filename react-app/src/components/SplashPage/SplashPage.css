@@ -1,9 +1,9 @@
 .splash-main-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .splash-nav {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +20,7 @@
 
 
 .splash-main-content {
-    border: 2px solid blue;
+    border: 2px solid var(--french-violet);
     margin: 10% auto;
     margin-left: 10%;
     margin-right: 10%;
@@ -37,21 +37,21 @@
 }
 
 #splash-ready {
-    border: 1px solid gray;
+    background-color: var(--french-violet);
     padding: 15px 20px;
     border-radius: 3px;
-    transition: all 0.2s ease-in-out;
     margin-bottom: 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 #splash-ready:hover {
-    color: white;
-    background-color: gray;
+    color: var(--lavender-blush);
+    background-color: var(--dim-gray);
     cursor: pointer;
 }
 
 footer {
-    border: 2px solid black;
+    border-top: 1px solid var(--lavender-blush);
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -74,12 +74,12 @@ footer {
 
 .about-links a, p {
     text-decoration: none;
-    color: black;
+    color: var(--lavender-blush);
     padding: 5px;
     padding-left: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .about-links a:hover {
-    color: gray;
+    color: var(--french-violet);
 }
