@@ -4,6 +4,7 @@ import { getAllMuscles } from "../../store/muscles";
 import AddExerciseFormModal from "./AddExerciseFormModal";
 import MuscleGroups from "./MuscleGroups";
 import './ExercisesPage.css';
+import './ExerciseForm.css';
 
 const ExercisesPage = () => {
     const dispatch = useDispatch();

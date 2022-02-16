@@ -44,8 +44,8 @@ const AddExerciseForm = ({ showModal }) => {
 			setErrors(errors);
 			return;
         }
-		if (location.pathname !== "/exercises") {
-			history.push("/exercises");
+		if (location.pathname !== `/exercises/${muscle_group}`) {
+			history.push(`/exercises/${muscle_group}`);
 		}
 
 		showModal(false);

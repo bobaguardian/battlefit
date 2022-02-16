@@ -8,7 +8,6 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
-
 	const sessionUser = useSelector((state) => state.session.user);
 
 	const [errors, setErrors] = useState({});
@@ -45,6 +44,10 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 			setErrors(errors);
 			return;
         }
+
+		if (location.pathname !== `/exercises/${muscle_group}`) {
+			history.push(`/exercises/${muscle_group}`);
+		}
 
 		showModal(false);
         return;
