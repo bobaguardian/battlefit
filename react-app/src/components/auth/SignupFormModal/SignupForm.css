@@ -1,3 +1,16 @@
 #signup {
     padding: 15px 20px;
 }
+
+.signup-form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+
+.signup-form h2 {
+    padding-bottom: 30px;
+}

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
@@ -43,53 +44,54 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className="signup-form" onSubmit={onSignUp}>
+      <h2>Sign Up</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div className="form-group">
         <input
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
           required={true}
+          placeholder="Username"
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className="form-group">
         <input
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
+          placeholder="Email"
           required={true}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className="form-group">
         <input
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
+          placeholder="Password"
           required={true}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+      <div className="form-group">
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
+          placeholder="Confirm Password"
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='login-submit-btn' type='submit'>Sign Up</button>
     </form>
   );
 };
