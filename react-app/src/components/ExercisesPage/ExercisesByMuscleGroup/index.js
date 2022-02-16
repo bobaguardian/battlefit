@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
+
 
 import Exercise from "../Exercise";
+import ErrorPage from "../../ErrorPage";
 import { getAllExercises } from "../../../store/exercises";
 
 
 const ExercisesByMuscleGroup = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { muscle } = useParams();
     const exercisesbyId = useSelector(state => state.exercises.byId);
     const exercises = Object.values(exercisesbyId)
@@ -18,7 +21,7 @@ const ExercisesByMuscleGroup = () => {
 
     return (
         <div>
-            <h2>Exercises By Muscle Group</h2>
+            <h2>Exercises For {muscle}</h2>
             {exercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
                 <Exercise key={`exercise-${index}`}
                 id={id}

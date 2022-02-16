@@ -39,10 +39,12 @@ export const getAllExercises = (muscle) => async (dispatch) => {
     const response = await fetch(`/api/exercises/${muscle}`);
     if (response.ok) {
         const data = await response.json();
-        if (data.errors) {
-            return;
-        }
         dispatch(readExercises(data["exercises"]))
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     }
 }
 
