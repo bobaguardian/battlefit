@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
-import { addExercise } from '../../../store/exercises';
+import { editExercise } from '../../../store/exercises';
 
-const AddExerciseForm = ({ showModal }) => {
+const EditExerciseForm = ({ showModal, exercise }) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
@@ -12,23 +12,24 @@ const AddExerciseForm = ({ showModal }) => {
 	const sessionUser = useSelector((state) => state.session.user);
 
 	const [errors, setErrors] = useState({});
-	const [name, setName] = useState("");
-	const [description, setDescription] = useState("");
-	const [image, setImage] = useState(null);
-	const [muscle_group, setMuscleGroup] = useState("Abs");
+	const [name, setName] = useState(exercise.name);
+	const [description, setDescription] = useState(exercise.description);
+	const [image, setImage] = useState(exercise.image);
+	const [muscle_group, setMuscleGroup] = useState(exercise.muscle_group.name);
 
 
     useEffect(() => {
         const errors = {};
         if (name.length > 100)
             errors["name"] = "Exercise name must be less than 100 characters.";
-        setErrors(errors);
+        setErrors(errors)
     }, [name])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-        const data = await dispatch(addExercise(
+        const data = await dispatch(editExercise(
+            exercise.id,
             name,
             muscle_group,
             description,
@@ -39,7 +40,7 @@ const AddExerciseForm = ({ showModal }) => {
             const errors = {};
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
-				errors[error[0]] = error[1]
+				errors[error[0]] = error[1];
 			}
 			setErrors(errors);
 			return;
@@ -49,6 +50,7 @@ const AddExerciseForm = ({ showModal }) => {
 		}
 
 		showModal(false);
+        return;
 	};
 
 
@@ -70,7 +72,7 @@ const AddExerciseForm = ({ showModal }) => {
 
 	return (
 		<form className="form-container exercise-form" onSubmit={handleSubmit}>
-			<h3 className="">Add a New Exercise</h3>
+			<h3 className="">Edit Your Exercise</h3>
 			<div className="form-input-container">
 				<div className="form-element">
 					<label className="form-label" htmlFor="name">
@@ -143,4 +145,4 @@ const AddExerciseForm = ({ showModal }) => {
 	);
 };
 
-export default AddExerciseForm;
+export default EditExerciseForm;

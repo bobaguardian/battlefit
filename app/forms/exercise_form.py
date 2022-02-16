@@ -9,8 +9,13 @@ def muscle_group_exists(form, field):
     if not muscle_group:
         raise ValidationError("Muscle group specified doesn't exist in the database.")
 
+def name_within_length(form, field):
+    name = field.data
+    if len(name) > 100:
+        raise ValidationError("Exercise name must be less than 100 characters.")
+
 class ExerciseForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired(), name_within_length])
     # muscle_group = SelectField("muscle-group", choices=[muscle.name for muscle in MuscleGroup.query.all()])
     muscle_group = StringField('muscle-group', validators=[DataRequired(), muscle_group_exists])
     description = TextAreaField('description')

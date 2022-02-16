@@ -7,6 +7,21 @@ import SplashPage from './components/SplashPage';
 import ErrorPage from "./components/ErrorPage";
 import Dashboard from './components/Dashboard';
 
+const musclePaths = [
+  "/exercises/Abs",
+  "/exercises/Back",
+  "/exercises/Biceps",
+  "/exercises/Calves",
+  "/exercises/Cardio",
+  "/exercises/Chest",
+  "/exercises/Forearms",
+  "/exercises/Glutes",
+  "/exercises/Legs",
+  "/exercises/Shoulders",
+  "/exercises/Triceps",
+  "/exercises/Other"
+]
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -27,7 +42,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={["/", "/exercises", "/logs"]}>
+        <Route exact path={["/", "/exercises", "/logs", ...musclePaths]}>
           { sessionUser ? <Dashboard /> : <SplashPage /> }
         </Route>
         <Route>

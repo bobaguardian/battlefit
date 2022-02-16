@@ -14,7 +14,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{error}')
+            errorMessages.append(f'{field}: {error}')
     return errorMessages
 
 
@@ -51,9 +51,9 @@ def edit_exercise(exerciseId):
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first()
+        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
         exercise = Exercise.query.get(int(exerciseId))
-
+        print("BACKEND ROUTE", exercise.to_dict())
         exercise.muscle_group_id = muscle_group_id
         exercise.name = form.data['name']
         exercise.description = form.data['description']
@@ -78,3 +78,13 @@ def delete_exercise(exerciseId):
         return {'message': 'successfully deleted'}
     print("USER IDs", exercise.user_id, current_user.get_id())
     return {'errors': ["You can't delete an exercise you don't own"]}, 401
+
+
+@exercise_routes.route('/<string:muscle_name>')
+def get_exercises_by_muscle_group(muscle_name):
+    muscle_name = muscle_name.capitalize()
+    muscle_group = MuscleGroup.query.filter(MuscleGroup.name == muscle_name).first()
+    if not muscle_group:
+        return {'errors': ['Muscle group not found.']}, 401;
+    exercises = Exercise.query.filter(Exercise.muscle_group == muscle_group).all()
+    return {'exercises': [exercise.to_dict() for exercise in exercises]}

@@ -35,14 +35,16 @@ const deleteExercise = (id) => {
 }
 
 // Thunk action creators
-export const getAllExercises = () => async (dispatch) => {
-    const response = await fetch('/api/exercises/');
+export const getAllExercises = (muscle) => async (dispatch) => {
+    const response = await fetch(`/api/exercises/${muscle}`);
     if (response.ok) {
         const data = await response.json();
-        if (data.errors) {
-            return;
-        }
         dispatch(readExercises(data["exercises"]))
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
     }
 }
 
@@ -135,6 +137,7 @@ export default function reducer(state = initialState, action) {
         case UPDATE_EXERCISE:
             newState = { ...state };
             newState.byId[action.exercise.id] = action.exercise;
+            newState.byId = { ...newState.byId };
             return newState;
 
         case DELETE_EXERCISE:

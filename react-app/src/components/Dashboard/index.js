@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import LogoutButton from "../auth/LogoutButton";
 import ExercisesPage from "../ExercisesPage";
+import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
 
 
 const Dashboard = () => {
@@ -21,6 +22,14 @@ const Dashboard = () => {
                 <LogoutButton />
             </div>
             <Switch>
+                <Route exact path="/" >
+                    <div className="dashboard-container">
+                        Dashboard Content
+                    </div>
+                </Route>
+                <Route path='/exercises/:muscle'>
+                    <ExercisesByMuscleGroup />
+                </Route>
                 <Route exact path='/exercises'>
                     <ExercisesPage />
                 </Route>
@@ -28,9 +37,6 @@ const Dashboard = () => {
                     <h2>My Logs</h2>
                 </Route>
             </Switch>
-            <div className="dashboard-container">
-                Dashboard Content
-            </div>
         </div>
     )
 }
