@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
 import ErrorPage from "./components/ErrorPage";
-import LogoutButton from './components/auth/LogoutButton';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,7 +33,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          { sessionUser ? <><h2>Welcome to the home page, {sessionUser.username}!</h2>  <LogoutButton /></> : <SplashPage /> }
+          { sessionUser ? <Dashboard /> : <SplashPage /> }
         </Route>
         <Route>
           <ErrorPage />
