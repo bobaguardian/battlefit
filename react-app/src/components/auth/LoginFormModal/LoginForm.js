@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 
+import DemoButton from '../DemoButton';
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -31,14 +33,14 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className="login-form" onSubmit={onLogin}>
+      <h2>Log Into BattleFit</h2>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+      <div className="form-group">
         <input
           name='email'
           type='text'
@@ -48,8 +50,7 @@ const LoginForm = () => {
           required={true}
         />
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+      <div className="form-group">
         <input
           name='password'
           type='password'
@@ -58,8 +59,9 @@ const LoginForm = () => {
           onChange={updatePassword}
           required={true}
         />
-        <button type='submit'>Login</button>
       </div>
+      <button className='login-submit-btn' type='submit'>Login</button>
+      <DemoButton />
     </form>
   );
 };
