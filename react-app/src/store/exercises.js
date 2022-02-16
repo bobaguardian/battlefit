@@ -35,8 +35,8 @@ const deleteExercise = (id) => {
 }
 
 // Thunk action creators
-export const getAllExercises = () => async (dispatch) => {
-    const response = await fetch('/api/exercises/');
+export const getAllExercises = (muscle) => async (dispatch) => {
+    const response = await fetch(`/api/exercises/${muscle}`);
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {

@@ -9,6 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.exercise_routes import exercise_routes
+from .api.muscle_routes import muscle_routes
 
 from .seeds import seed_commands
 
@@ -33,6 +34,8 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(exercise_routes, url_prefix='/api/exercises')
+app.register_blueprint(muscle_routes, url_prefix='/api/muscles')
+
 
 db.init_app(app)
 Migrate(app, db)
