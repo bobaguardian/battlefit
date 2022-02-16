@@ -23,9 +23,10 @@ const Dashboard = () => {
             </div>
             <Switch>
                 <Route exact path="/" >
-                    <div className="dashboard-container">
+                    {/* <div className="dashboard-container">
                         Dashboard Content
-                    </div>
+                    </div> */}
+                    <ExercisesPage />
                 </Route>
                 <Route path='/exercises/:muscle'>
                     <ExercisesByMuscleGroup />
