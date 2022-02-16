@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllExercises } from "../../store/exercises";
+import { getAllExercises, removeExercise } from "../../store/exercises";
 import AddExerciseFormModal from "./AddExerciseFormModal";
+import Exercise from "./Exercise";
 
 const ExercisesPage = () => {
     const dispatch = useDispatch();
@@ -30,14 +31,16 @@ const ExercisesPage = () => {
             <div className="add-exercise-button-container">
                 <AddExerciseFormModal />
             </div>
-           {allExercises.map(({name, muscle_group, description, image}, index) => (
-               <div key={`exercise-${index}`}>
-                   <h3>{name}</h3>
-                   <p>{muscle_group.name}</p>
-                   <p>{description}</p>
-                   {image ? <img src={image}></img> : null}
-                </div>
-           ))}
+            {allExercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
+                <Exercise key={`exercise-${index}`}
+                id={id}
+                user_id={user_id}
+                name={name}
+                muscle_group={muscle_group}
+                description={description}
+                image={image}
+                />
+            ))}
 
         </div>
     )

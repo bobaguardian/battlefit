@@ -140,6 +140,7 @@ export default function reducer(state = initialState, action) {
         case DELETE_EXERCISE:
             newState = { ...state };
             delete newState.byId[action.id];
+            newState.byId = { ...newState.byId };
             return newState;
 
         default:

@@ -1,0 +1,36 @@
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
+
+import { removeExercise } from "../../../store/exercises";
+
+const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
+	const dispatch = useDispatch();
+	const location = useLocation();
+	const history = useHistory();
+
+	const sessionUser = useSelector((state) => state.session.user);
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        console.log("Delete Exercise Clicked!");
+        await dispatch(removeExercise(id));
+        return;
+    }
+
+	return (
+        <div>
+            <h3>{name}</h3>
+            <p>{muscle_group.name}</p>
+            <p>{description}</p>
+            {image ? <img src={image}></img> : null}
+            <div className="delete-exercise-container">
+                { sessionUser.id === user_id ?
+                <button onClick={handleDelete}>Delete</button>
+                : null}
+            </div>
+        </div>
+	);
+};
+
+export default Exercise;

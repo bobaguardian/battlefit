@@ -72,8 +72,9 @@ def delete_exercise(exerciseId):
     exercise = Exercise.query.get(int(exerciseId))
     if not exercise:
         return {'errors': ['Exercise not found']}, 401
-    if exercise and exercise.user_id == current_user.get_id():
+    if exercise.user_id == int(current_user.get_id()):
         db.session.delete(exercise)
         db.session.commit()
         return {'message': 'successfully deleted'}
+    print("USER IDs", exercise.user_id, current_user.get_id())
     return {'errors': ["You can't delete an exercise you don't own"]}, 401

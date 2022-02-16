@@ -8,15 +8,15 @@
         }
     },
 
-    muscleGroups: {
-        byId: {
-            muscleGroup1: {
-                id,
-                name,
-                image
-            }, ...
-        }
-    },
+    // muscleGroups: {
+    //     byId: {
+    //         muscleGroup1: {
+    //             id,
+    //             name,
+    //             image
+    //         }, ...
+    //     }
+    // },
 
     exercises: {
         byId: {
