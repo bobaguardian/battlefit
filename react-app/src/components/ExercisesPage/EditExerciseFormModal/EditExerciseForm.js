@@ -17,10 +17,16 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 	const [image, setImage] = useState(exercise.image);
 	const [muscle_group, setMuscleGroup] = useState(exercise.muscle_group.name);
 
+
+    useEffect(() => {
+        const errors = {};
+        if (name.length > 100)
+            errors["name"] = "Exercise name must be less than 100 characters.";
+        setErrors(errors)
+    }, [name])
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Edit Exercise Submit!");
-        console.log ({exerciseId: exercise.id, name, muscle_group, description, image});
 
         const data = await dispatch(editExercise(
             exercise.id,
@@ -34,9 +40,9 @@ const EditExerciseForm = ({ showModal, exercise }) => {
             const errors = {};
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
-				errors[error[0]] = error[1]
+				errors[error[0]] = error[1];
 			}
-			setErrors(errors)
+			setErrors(errors);
 			return;
         }
 		if (location.pathname !== "/exercises") {

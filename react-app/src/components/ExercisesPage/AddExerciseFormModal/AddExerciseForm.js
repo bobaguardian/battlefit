@@ -22,12 +22,11 @@ const AddExerciseForm = ({ showModal }) => {
         const errors = {};
         if (name.length > 100)
             errors["name"] = "Exercise name must be less than 100 characters.";
-        setErrors(errors)
+        setErrors(errors);
     }, [name])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Add Exercise Submit!");
 
         const data = await dispatch(addExercise(
             name,
