@@ -17,8 +17,6 @@ const AddExerciseForm = ({ showModal }) => {
 	const [image, setImage] = useState(null);
 	const [muscle_group, setMuscleGroup] = useState("");
 
-
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log("Add Exercise Submit!")
@@ -113,6 +111,10 @@ const AddExerciseForm = ({ showModal }) => {
 				</div>
 
 			</div>
+            <button
+				type="submit"
+				className="exercise-form-submit-btn"
+				>Submit</button>
 		</form>
 	);
 };
