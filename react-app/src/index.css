@@ -1,5 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Iceberg&family=Righteous&family=Sirin+Stencil&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Mulish&family=Play&family=Poppins&family=Prompt&family=Rajdhani&display=swap');
+
+/* Brand Fonts */
+/* font-family: 'Carter One', cursive; */
+/* font-family: 'Iceberg', cursive; */
+/* font-family: 'Righteous', cursive; */
+/* font-family: 'Sirin Stencil', cursive; */
+/* font-family: 'VT323', monospace; */
+
+/* Base Fonts */
+/* font-family: 'Kanit', sans-serif; */
+/* font-family: 'Mulish', sans-serif; */
+/* font-family: 'Play', sans-serif; */
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Prompt', sans-serif; */
+/* font-family: 'Rajdhani', sans-serif; */
+
+
 :root {
 	--base-font: "Helvetica", sans-serif;
+
+	--jet: #2f2d2e;
+	--dim-gray: #686963;
+	--max-blue-purple: #a7acd9;
+	--french-violet: #7A28CB;
+	--lavender-blush: #F7EDF0;
+	/* --light-goldenrod-yellow: #F1F0CC; */
 }
 
 *,
