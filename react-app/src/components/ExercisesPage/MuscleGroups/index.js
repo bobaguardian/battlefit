@@ -16,7 +16,7 @@ const MuscleGroups = () => {
     return (
         <div className="muscles-container">
             {muscles.map((muscle, index) => (
-                <Link to={`/exercises/${muscle.name}`} key={`muscle-${index}`} className="muscle-box">
+                <Link class="muscle-box" to={`/exercises/${muscle.name}`} key={`muscle-${index}`} className="muscle-box">
                     <h3>{muscle.name}</h3>
                 </Link>
             ))}

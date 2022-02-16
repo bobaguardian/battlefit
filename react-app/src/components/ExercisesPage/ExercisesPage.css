@@ -1,0 +1,19 @@
+.muscles-container {
+    border: 1px solid purple;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 30px 50px;
+}
+
+.muscle-box {
+    border: 1px solid blue;
+    text-align: center;
+    padding: 30px 20px;
+    margin: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.muscle-box:hover {
+    background-color: gray;
+    color: white;
+}
