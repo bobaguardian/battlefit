@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams, useHistory, Redirect } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 
 import Exercise from "../Exercise";
@@ -10,7 +10,6 @@ import { getAllExercises } from "../../../store/exercises";
 
 const ExercisesByMuscleGroup = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const location = useLocation();
     const { muscle } = useParams();
     const exercisesbyId = useSelector(state => state.exercises.byId);

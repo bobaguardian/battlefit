@@ -27,12 +27,6 @@ const AddExerciseForm = ({ showModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// if (muscle_group === "") {
-		// 	const errors = {};
-		// 	errors["muscle group"] = "Please select a muscle group.";
-		// 	setErrors(errors);
-		// 	return;
-		// }
 
         const data = await dispatch(addExercise(
             name,
@@ -79,9 +73,9 @@ const AddExerciseForm = ({ showModal }) => {
 			<h3 className="form-heading">Add a New Exercise</h3>
 
 			<div className="form-group">
-				{/* <label className="form-label" htmlFor="name">
+				<label className="form-label" htmlFor="name">
 					Exercise Name
-				</label> */}
+				</label>
 				<input
 					className="form-input"
 					name="name"
@@ -89,7 +83,6 @@ const AddExerciseForm = ({ showModal }) => {
 					value={name}
 					onChange={updateName}
 					required
-					placeholder="Exercise Name"
 				/>
 
 				<div className="errors-container">
@@ -105,8 +98,6 @@ const AddExerciseForm = ({ showModal }) => {
 					name="muscle_group"
 					value={muscle_group}
 					onChange={updateMuscleGroup}>
-
-					{/* <option value="">Select a Muscle Group</option> */}
 					<option value="Abs">Abs</option>
 					<option value="Back">Back</option>
 					<option value="Biceps">Biceps</option>
@@ -127,16 +118,15 @@ const AddExerciseForm = ({ showModal }) => {
 			</div>
 
 			<div className="form-group">
-				{/* <label className="form-label" htmlFor="description">
+				<label className="form-label" htmlFor="description">
 					Description
-				</label> */}
+				</label>
 				<input
 					className="form-input"
 					name="description"
 					type="text"
 					value={description}
 					onChange={updateDescription}
-					placeholder="Description"
 				/>
 				<div className="errors-container">
 					{errors.description ? `${errors.description}` : ""}
