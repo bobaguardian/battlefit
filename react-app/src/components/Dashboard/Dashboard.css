@@ -1,0 +1,42 @@
+.dash-nav {
+    border: 2px solid green;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-links {
+    width: 50%;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links a {
+    padding: 10px;
+    border: 1px solid gray;
+    width: 125px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    color: black;
+
+}
+
+.nav-links a:hover {
+    background-color: gray;
+    color: white;
+}
+
+.dash-main-container {
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    /* grid-template-areas: "side main"; */
+}
+
+.user-info {
+    border: 1px solid blue;
+}
