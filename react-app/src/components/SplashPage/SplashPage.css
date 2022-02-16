@@ -1,0 +1,85 @@
+.splash-main-container {
+    border: 2px solid red;
+}
+
+.splash-nav {
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#login-signup-container {
+    /* border: 2px solid pink; */
+    display: flex;
+    /* width: 25%; */
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.splash-main-content {
+    border: 2px solid blue;
+    margin: 10% auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.splash-main-content h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#splash-ready {
+    border: 1px solid gray;
+    padding: 15px 20px;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
+}
+
+#splash-ready:hover {
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
+
+footer {
+    border: 2px solid black;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright {
+    padding: 10px;
+}
+
+.about-links {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    padding: 10px;
+
+}
+
+.about-links a, p {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    padding-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.about-links a:hover {
+    color: gray;
+}

@@ -1,0 +1,45 @@
+#login {
+    padding: 15px 20px;
+    margin-right: 25px;
+}
+
+.login-signup {
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-signup:hover {
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.login-form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+.login-form h2 {
+    padding-bottom: 30px;
+}
+
+.form-group {
+    padding-bottom: 15px;
+    width: 75%;
+}
+
+
+.form-group input {
+    padding: 4px;
+    width: 100%;
+}
+
+.login-submit-btn {
+    margin-top: 25px;
+    padding: 7px 20px;
+    width: 75%;
+}
