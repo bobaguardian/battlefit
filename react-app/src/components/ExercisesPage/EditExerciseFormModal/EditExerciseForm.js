@@ -45,9 +45,6 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 			setErrors(errors);
 			return;
         }
-		if (location.pathname !== "/exercises") {
-			history.push("/exercises");
-		}
 
 		showModal(false);
         return;

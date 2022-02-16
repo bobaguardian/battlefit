@@ -1,12 +1,20 @@
+.heading-add-exercise-div {
+    display: flex;
+    align-items: center;
+}
+
+/* Muscle Groups */
+
 .muscles-container {
     border: 1px solid purple;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 30px 50px;
+    padding: 10px 30px;
 }
 
 .muscle-box {
     border: 1px solid blue;
+    border-radius: 3px;
     text-align: center;
     padding: 30px 20px;
     margin: 15px;
@@ -16,4 +24,21 @@
 .muscle-box:hover {
     background-color: gray;
     color: white;
+}
+
+/* Exercises */
+.exercises-container {
+    padding: 10px 30px;
+}
+
+.exercise-box {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 20px 10px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.exercise-box:hover {
+    background-color: gray;
 }

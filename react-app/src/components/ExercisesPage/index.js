@@ -12,10 +12,12 @@ const ExercisesPage = () => {
     }, [dispatch])
 
     return (
-        <div className="exercises-container">
-            <h2>Exercises by Muscle Group</h2>
-            <div className="add-exercise-button-container">
-                <AddExerciseFormModal />
+        <div className="dash-main-container">
+            <div className="heading-add-exercise-div">
+                <h2>Exercises by Muscle Group</h2>
+                <div className="add-exercise-button-container">
+                    <AddExerciseFormModal />
+                </div>
             </div>
             <MuscleGroups />
         </div>

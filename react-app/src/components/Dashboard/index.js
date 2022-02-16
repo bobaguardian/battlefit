@@ -19,7 +19,7 @@ const Dashboard = () => {
                     <NavLink to='/logs'>My Logs</NavLink>
                 </div>
             </nav>
-            <main className="dash-main-container">
+            <main className="dash-side-main-container">
                 <div className="user-info">
                     <h2>Welcome, {sessionUser.username}! </h2>
                     <LogoutButton />

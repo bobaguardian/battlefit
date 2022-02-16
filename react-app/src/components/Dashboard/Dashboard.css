@@ -30,13 +30,23 @@
     color: white;
 }
 
-.dash-main-container {
+.dash-side-main-container {
     border: 1px solid red;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 275px 1fr;
     /* grid-template-areas: "side main"; */
 }
 
 .user-info {
     border: 1px solid blue;
+}
+
+.dash-main-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.dash-main-container h2 {
+    padding: 30px 20px;
 }
