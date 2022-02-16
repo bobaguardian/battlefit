@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
-import { createExercise } from '../../../store/exercises';
+import { addExercise } from '../../../store/exercises';
 
 const AddExerciseForm = ({ showModal }) => {
 	const dispatch = useDispatch();
@@ -15,11 +15,28 @@ const AddExerciseForm = ({ showModal }) => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState(null);
-	const [muscle_group, setMuscleGroup] = useState("");
+	const [muscle_group, setMuscleGroup] = useState("Abs");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Add Exercise Submit!")
+		console.log("Add Exercise Submit!");
+
+        const data = await dispatch(addExercise(
+            name,
+            muscle_group,
+            description,
+            image,
+        ));
+
+        if (data) {
+            const errors = {};
+            for (let i = 0; i < data.length; i++) {
+				const error = data[i].split(": ");
+				errors[error[0]] = error[1]
+			}
+			setErrors(errors)
+			return;
+        }
 		if (location.pathname !== "/exercises") {
 			history.push("/exercises");
 		}

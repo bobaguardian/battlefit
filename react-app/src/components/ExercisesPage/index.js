@@ -7,7 +7,11 @@ const ExercisesPage = () => {
     const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
     const exercisesbyId = useSelector(state => state.exercises.byId);
-    const allExercises = Object.values(exercisesbyId);
+    const allExercises = Object.values(exercisesbyId).sort((a, b) => {
+        if (a.muscle_group.name < b.muscle_group.name) return -1;
+        else if (a.muscle_group.name > b.muscle_group.name) return 1;
+        else return 0;
+    });
     const muscleGroups = allExercises.map(exercise => exercise.muscle_group)
 
     useEffect(() => {

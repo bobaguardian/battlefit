@@ -29,7 +29,7 @@ def add_exercise():
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first()
+        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
         exercise = Exercise(
             user_id = current_user.get_id(),
             muscle_group_id = muscle_group_id,
