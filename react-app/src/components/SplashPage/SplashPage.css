@@ -66,8 +66,8 @@ footer {
 
 .about-links {
     display: flex;
-    width: 25%;
-    justify-content: space-evenly;
+    width: 50%;
+    justify-content: flex-end;
     padding: 10px;
 
 }
@@ -76,6 +76,7 @@ footer {
     text-decoration: none;
     color: black;
     padding: 5px;
+    padding-left: 10px;
     transition: all 0.2s ease-in-out;
 }
 
