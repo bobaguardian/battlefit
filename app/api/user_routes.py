@@ -17,3 +17,9 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/<int:id>/exercises')
+@login_required
+def get_user_exercises(id):
+    user = User.query.get(id)
+    return {"exercises": [exercise.to_dict() for exercise in user.exercises]}
