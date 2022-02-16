@@ -1,0 +1,16 @@
+#login {
+    padding: 15px 20px;
+    margin-right: 25px;
+}
+
+.login-signup {
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-signup:hover {
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
