@@ -22,6 +22,11 @@ const Dashboard = () => {
                 <LogoutButton />
             </div>
             <Switch>
+                <Route exact path="/" >
+                    <div className="dashboard-container">
+                        Dashboard Content
+                    </div>
+                </Route>
                 <Route path='/exercises/:muscle'>
                     <ExercisesByMuscleGroup />
                 </Route>
@@ -32,9 +37,6 @@ const Dashboard = () => {
                     <h2>My Logs</h2>
                 </Route>
             </Switch>
-            <div className="dashboard-container">
-                Dashboard Content
-            </div>
         </div>
     )
 }
