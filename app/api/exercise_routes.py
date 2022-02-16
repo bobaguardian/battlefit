@@ -51,9 +51,9 @@ def edit_exercise(exerciseId):
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first()
+        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
         exercise = Exercise.query.get(int(exerciseId))
-
+        print("BACKEND ROUTE", exercise.to_dict())
         exercise.muscle_group_id = muscle_group_id
         exercise.name = form.data['name']
         exercise.description = form.data['description']
