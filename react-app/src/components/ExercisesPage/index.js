@@ -9,8 +9,10 @@ const ExercisesPage = () => {
 	const sessionUser = useSelector(state => state.session.user);
     const exercisesbyId = useSelector(state => state.exercises.byId);
     const allExercises = Object.values(exercisesbyId).sort((a, b) => {
-        if (a.muscle_group.name < b.muscle_group.name) return -1;
-        else if (a.muscle_group.name > b.muscle_group.name) return 1;
+        let aName = a.muscle_group.name;
+        let bName = b.muscle_group.name;
+        if ((aName == "Other") || (bName == "Other") || (aName > bName)) return 1;
+        else if (aName < bName) return -1;
         else return 0;
     });
     const muscleGroups = allExercises.map(exercise => exercise.muscle_group)
