@@ -62,15 +62,18 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print("IN SIGNUP BACKEND ROUTE", form["image"].data)
     if form["image"].data:
         image = form["image"].data
         if not allowed_file(image.filename):
-            return {"errors": "File type not allowed."}, 400
+            return {"errors": "file type not allowed"}, 400
         image.filename = get_unique_filename(image.filename)
+
         upload = upload_file_to_s3(image)
+
         if "url" not in upload:
             return upload, 400
+
         url = upload["url"]
         if form.validate_on_submit():
             user = User(
@@ -91,7 +94,7 @@ def sign_up():
                 username=form.data['username'],
                 email=form.data['email'],
                 password=form.data['password'],
-                image="https://battle-fit.s3.us-west-1.amazonaws.com/frisk-battlefit-default.png"
+
             )
             db.session.add(user)
             db.session.commit()

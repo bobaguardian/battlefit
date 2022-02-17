@@ -22,6 +22,7 @@ const Dashboard = () => {
             <main className="dash-side-main-container">
                 <div className="user-info">
                     <h2>Welcome, {sessionUser.username}! </h2>
+                    <img src={sessionUser.image} alt={`${sessionUser.username}'s profile picture`}></img>
                     <LogoutButton />
                 </div>
                 <Switch>
