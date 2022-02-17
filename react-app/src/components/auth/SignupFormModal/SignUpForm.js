@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import DemoButton from '../DemoButton';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,8 +18,18 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
-        setErrors(data)
+        const errors = {};
+        for (let i = 0; i < data.length; i++) {
+          const error = data[i].split(": ");
+          errors[error[0]] = error[1]
+        }
+        setErrors(errors);
+        return;
       }
+    } else {
+      let errors = {};
+      errors.repeatPassword = "Passwords do not match.";
+      setErrors(errors);
     }
   };
 
@@ -43,14 +53,11 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+
+
   return (
     <form className="signup-form" onSubmit={onSignUp}>
       <h2>Sign Up</h2>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
       <div className="form-group">
         <input
           type='text'
@@ -60,16 +67,22 @@ const SignUpForm = () => {
           required={true}
           placeholder="Username"
         ></input>
+        <div className="errors-container">
+					{errors.username ? `${errors.username}` : ""}
+				</div>
       </div>
       <div className="form-group">
         <input
-          type='text'
+          type='email'
           name='email'
           onChange={updateEmail}
           value={email}
           placeholder="Email"
           required={true}
         ></input>
+        <div className="errors-container">
+					{errors.email ? `${errors.email}` : ""}
+				</div>
       </div>
       <div className="form-group">
         <input
@@ -80,6 +93,9 @@ const SignUpForm = () => {
           placeholder="Password"
           required={true}
         ></input>
+        <div className="errors-container">
+					{errors.password ? `${errors.password}` : ""}
+				</div>
       </div>
       <div className="form-group">
         <input
@@ -90,6 +106,9 @@ const SignUpForm = () => {
           placeholder="Confirm Password"
           required={true}
         ></input>
+        <div className="errors-container">
+					{errors.repeatPassword ? `${errors.repeatPassword}` : ""}
+				</div>
       </div>
       <button className='login-submit-btn' type='submit'>Sign Up</button>
       <DemoButton />
