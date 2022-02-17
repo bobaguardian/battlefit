@@ -25,6 +25,7 @@ const AddExerciseForm = ({ showModal }) => {
         setErrors(errors);
     }, [name])
 
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -37,6 +38,7 @@ const AddExerciseForm = ({ showModal }) => {
 
         if (data) {
             const errors = {};
+			console.log("ERRORS", data.name);
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
 				errors[error[0]] = error[1]
