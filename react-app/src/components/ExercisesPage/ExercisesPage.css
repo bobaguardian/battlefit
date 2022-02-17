@@ -3,6 +3,18 @@
     align-items: center;
 }
 
+.add-exercise-btn {
+    padding: 5px 10px;
+    background-color: var(--max-blue-purple);
+    border: none;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out
+}
+
+.add-exercise-btn:hover {
+    background-color: var(--max-blue-purple-dark);
+}
+
 /* Muscle Groups */
 
 .muscles-container {
