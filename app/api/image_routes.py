@@ -23,5 +23,6 @@ def upload_image_to_bucket():
 
     url = upload["url"]
     if form.validate_on_submit():
-        return {"sucess": str(url)}
+        print("IMAGE URL", url)
+        return {"sucess": url}
     return {'errors': "image failed to upload"}, 401
