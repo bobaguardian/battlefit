@@ -3,9 +3,11 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    admin = User(username="Admin", email="admin@gmail.com", password='pantspeople')
+    admin = User(username="Admin", email="admin@gmail.com", password='pantspeople',
+        image="https://battle-fit.s3.us-west-1.amazonaws.com/frisk-battlefit-default.png")
     demo = User(
-        username='deMOUSEr', email='demouser@aa.io', password='password')
+        username='deMOUSEr', email='demouser@aa.io', password='password',
+        image="https://battle-fit.s3.us-west-1.amazonaws.com/frisk-battlefit-default.png")
 
     db.session.add(admin)
     db.session.add(demo)
