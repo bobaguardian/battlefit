@@ -21,7 +21,7 @@
 
 #modal-content {
     position: absolute;
-    background-color: whitesmoke;
+    background-color: var(--jet);
     width: fit-content;
     border-radius: 7px;
     display: flex;

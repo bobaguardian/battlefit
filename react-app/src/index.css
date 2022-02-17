@@ -36,14 +36,16 @@ h3 {
 } */
 
 *,
-body,
-html {
+body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style-type: none;
-    font-family: var(--base-font);
+}
+
+body, a {
+	font-family: var(--base-font);
 	background-color: var(--jet);
 	color: var(--lavender-blush);
 }
