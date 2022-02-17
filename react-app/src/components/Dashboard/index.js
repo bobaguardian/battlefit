@@ -1,7 +1,7 @@
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 
-import LogoutButton from "../auth/LogoutButton";
+import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
 
@@ -20,11 +20,7 @@ const Dashboard = () => {
                 </div>
             </nav>
             <main className="dash-side-main-container">
-                <div className="user-info">
-                    <h2>Welcome, {sessionUser.username}! </h2>
-                    <img src={sessionUser.image} alt={`${sessionUser.username}'s profile picture`}></img>
-                    <LogoutButton />
-                </div>
+                <SidePanel />
                 <Switch>
                     <Route exact path="/" >
                         {/* <div className="dashboard-container">
