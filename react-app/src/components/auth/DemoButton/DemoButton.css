@@ -2,4 +2,15 @@
     margin-top: 15px;
     padding: 7px;
     width: 75%;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--lavender-blush);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.demo-button:hover {
+    cursor: pointer;
+    background-color: var(--dim-gray);
+    color: var(--lavender-blush);
 }

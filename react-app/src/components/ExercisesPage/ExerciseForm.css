@@ -1,0 +1,47 @@
+.exercise-form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px
+}
+
+.form-heading {
+    padding-bottom: 30px;
+}
+
+.exercise-form .form-input {
+    margin-top: 7px;
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+}
+
+.select select {
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.select option {
+    padding: 5px;
+}
+
+
+.exercise-form-submit-btn {
+    margin-top: 25px;
+    padding: 7px 20px;
+    width: 75%;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+}
+
+.exercise-form-submit-btn:hover {
+    cursor: pointer;
+    background-color: var(--french-violet-dark);
+}

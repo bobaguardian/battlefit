@@ -1,14 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Play&family=Righteous&display=swap');
+
 :root {
-	--base-font: "Helvetica", sans-serif;
+	/* --base-font: 'Mulish', sans-serif; */
+	--base-font: 'Play', sans-serif;
+	--jet: #2f2d2e;
+	--dim-gray: #686963;
+	--max-blue-purple: #a7acd9;
+	--french-violet: #7A28CB;
+	--french-violet-dark: rgba(122, 40, 203, 0.8);
+	--lavender-blush: #F7EDF0;
+	--light-goldenrod-yellow: #F1F0CC;
+}
+
+h1,
+h2,
+h3{
+	font-family: 'Righteous', cursive;
+	letter-spacing: 2px;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
 }
 
 *,
-body,
-html {
+body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style-type: none;
-    font-family: var(--base-font);
+}
+
+body, a {
+	font-family: var(--base-font);
+	background-color: var(--jet);
+	color: var(--lavender-blush);
+}
+
+button, input {
+	font-family: var(--base-font);
+}
+
+button:hover {
+	cursor: pointer;
 }

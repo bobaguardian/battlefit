@@ -21,7 +21,7 @@ const SplashPage = () => {
     return (
         <div className="splash-main-container">
             <nav className="splash-nav">
-                <a href="/"><h1>BattleFit</h1></a>
+                <a className="Logo" href="/"><h1>BattleFit</h1></a>
                 <div id="login-signup-container">
                     <LoginFormModal />
                     <SignUpFormModal />

@@ -4,14 +4,16 @@
 }
 
 .login-signup {
-    border: 1px solid black;
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+    font-weight: bold;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
 }
 
 .login-signup:hover {
     color: white;
-    background-color: gray;
+    background-color: var(--french-violet-dark);
     cursor: pointer;
 }
 
@@ -42,4 +44,16 @@
     margin-top: 25px;
     padding: 7px 20px;
     width: 75%;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.login-submit-btn:hover {
+    background-color: var(--french-violet-dark);
+    cursor: pointer;
 }

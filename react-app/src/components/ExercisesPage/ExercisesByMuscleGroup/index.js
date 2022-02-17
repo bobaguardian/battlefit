@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, Redirect } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 
 import Exercise from "../Exercise";
@@ -10,28 +10,31 @@ import { getAllExercises } from "../../../store/exercises";
 
 const ExercisesByMuscleGroup = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const location = useLocation();
     const { muscle } = useParams();
     const exercisesbyId = useSelector(state => state.exercises.byId);
     const exercises = Object.values(exercisesbyId)
 
     useEffect(() => {
         dispatch(getAllExercises(muscle));
-    }, [dispatch])
+    }, [dispatch, location.pathname])
 
     return (
-        <div>
+        <div className="dash-main-container">
             <h2>Exercises For {muscle}</h2>
-            {exercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
-                <Exercise key={`exercise-${index}`}
-                id={id}
-                user_id={user_id}
-                name={name}
-                muscle_group={muscle_group}
-                description={description}
-                image={image}
-                />
-            ))}
+            <div className="exercises-container">
+                {exercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
+                    <Exercise key={`exercise-${index}`}
+                    id={id}
+                    user_id={user_id}
+                    name={name}
+                    muscle_group={muscle_group}
+                    description={description}
+                    image={image}
+                    />
+                ))}
+
+            </div>
 
         </div>
     )

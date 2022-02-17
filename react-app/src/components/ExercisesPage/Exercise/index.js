@@ -21,7 +21,7 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
     }
 
 	return (
-        <div>
+        <div className="exercise-box">
             <h3>{name}</h3>
             <p>{muscle_group.name}</p>
             <p>{description}</p>
