@@ -6,7 +6,7 @@ import { login } from '../../../store/session';
 import DemoButton from '../DemoButton';
 
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -16,7 +16,13 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      const errors = {};
+      for (let i = 0; i < data.length; i++) {
+        const error = data[i].split(": ");
+        errors[error[0]] = error[1]
+			}
+			setErrors(errors);
+			return;
     }
   };
 
@@ -35,20 +41,18 @@ const LoginForm = () => {
   return (
     <form className="login-form" onSubmit={onLogin}>
       <h2>Log Into BattleFit</h2>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
       <div className="form-group">
         <input
           name='email'
-          type='text'
+          type='email'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
           required={true}
         />
+        <div className="errors-container">
+					{errors.email ? `${errors.email}` : ""}
+				</div>
       </div>
       <div className="form-group">
         <input
@@ -59,6 +63,9 @@ const LoginForm = () => {
           onChange={updatePassword}
           required={true}
         />
+        <div className="errors-container">
+					{errors.password ? `${errors.password}` : ""}
+				</div>
       </div>
       <button className='login-submit-btn' type='submit'>Login</button>
       <DemoButton />

@@ -51,6 +51,12 @@ button, input {
 	font-family: var(--base-font);
 }
 
+input {
+	border-radius: 3px;
+	border: 1px solid var(--dim-gray);
+}
+
+
 button:hover {
 	cursor: pointer;
 }
