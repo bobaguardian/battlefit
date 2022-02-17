@@ -5,6 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 import Exercise from "../Exercise";
 import ErrorPage from "../../ErrorPage";
+import AddExerciseFormModal from "../AddExerciseFormModal";
 import { getAllExercises } from "../../../store/exercises";
 
 
@@ -21,7 +22,12 @@ const ExercisesByMuscleGroup = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Exercises For {muscle}</h2>
+            <div className="heading-add-exercise-div">
+                <h2>Exercises For {muscle}</h2>
+                <div className="add-exercise-button-container">
+                    <AddExerciseFormModal />
+                </div>
+            </div>
             <div className="exercises-container">
                 {exercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
                     <Exercise key={`exercise-${index}`}

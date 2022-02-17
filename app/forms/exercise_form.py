@@ -14,15 +14,8 @@ def name_within_length(form, field):
     if len(name) > 100:
         raise ValidationError("Exercise name must be less than 100 characters.")
 
-def name_is_unique(form, field):
-    name = field.data
-    exercise = Exercise.query.filter(Exercise.name == name).first()
-    if exercise:
-        raise ValidationError("Exercise name already exists.")
-
 class ExerciseForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired(), name_within_length, name_is_unique])
-    # muscle_group = SelectField("muscle-group", choices=[muscle.name for muscle in MuscleGroup.query.all()])
+    name = StringField('name', validators=[DataRequired(), name_within_length])
     muscle_group = StringField('muscle-group', validators=[DataRequired(), muscle_group_exists])
     description = TextAreaField('description')
     image = FileField("image")

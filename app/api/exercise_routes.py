@@ -30,6 +30,10 @@ def add_exercise():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
+        existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
+        if existing_exercise:
+            return {"errors": ["name: Exercise name already exists."]}, 401
+
         exercise = Exercise(
             user_id = current_user.get_id(),
             muscle_group_id = muscle_group_id,
