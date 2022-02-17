@@ -6,14 +6,15 @@
 /* Muscle Groups */
 
 .muscles-container {
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px 30px;
 }
 
 .muscle-box {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    border: 2px solid var(--lavender-blush);
     border-radius: 3px;
     text-align: center;
     padding: 30px 20px;
@@ -22,8 +23,7 @@
 }
 
 .muscle-box:hover {
-    background-color: gray;
-    color: white;
+    background-color: var(--french-violet);
 }
 
 /* Exercises */
@@ -32,7 +32,7 @@
 }
 
 .exercise-box {
-    border: 1px solid black;
+    border: 1px solid var(--max-blue-purple);
     border-radius: 3px;
     padding: 20px 10px;
     margin-bottom: 15px;
@@ -40,5 +40,6 @@
 }
 
 .exercise-box:hover {
-    background-color: gray;
+    border-color: var(--dim-gray);
+    background-color: var(--dim-gray);
 }

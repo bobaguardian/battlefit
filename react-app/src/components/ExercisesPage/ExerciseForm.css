@@ -33,4 +33,15 @@
     margin-top: 25px;
     padding: 7px 20px;
     width: 75%;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+}
+
+.exercise-form-submit-btn:hover {
+    cursor: pointer;
+    background-color: var(--french-violet-dark);
 }

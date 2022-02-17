@@ -8,6 +8,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    border-bottom: 1px solid var(--dim-gray);
+
 }
 
 #login-signup-container {
@@ -46,7 +48,7 @@
 
 #splash-ready:hover {
     color: var(--lavender-blush);
-    background-color: var(--dim-gray);
+    background-color: var(--french-violet-dark);
     cursor: pointer;
 }
 

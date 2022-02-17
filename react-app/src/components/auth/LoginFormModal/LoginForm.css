@@ -4,17 +4,16 @@
 }
 
 .login-signup {
-    background-color: var(--max-blue-purple);
-    color: var(--jet);
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
     font-weight: bold;
-    border: 1px solid black;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
 }
 
 .login-signup:hover {
     color: white;
-    background-color: var(--dim-gray);
+    background-color: var(--french-violet-dark);
     cursor: pointer;
 }
 
@@ -55,6 +54,6 @@
 }
 
 .login-submit-btn:hover {
-    background-color: var(--dim-gray);
+    background-color: var(--french-violet-dark);
     cursor: pointer;
 }

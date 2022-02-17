@@ -1,8 +1,9 @@
 .dash-nav {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     display: flex;
     align-items: center;
     padding: 20px;
+    border-bottom: 1px solid var(--dim-gray);
 }
 
 .nav-links {
@@ -17,28 +18,34 @@
 
 .nav-links a {
     padding: 10px;
-    border: 1px solid gray;
-    width: 125px;
+    padding-bottom: 7px; /* make up for border-bottom */
+    border-bottom: 3px solid var(--jet);
+    width: 100px;
     text-align: center;
     transition: all 0.2s ease-in-out;
-    color: black;
+    color: var(--lavender-blush);
+    font-weight: bold;
+    border-radius: 3px;
 
 }
 
 .nav-links a:hover {
-    background-color: gray;
-    color: white;
+    /* background-color: var(--dim-gray); */
+    /* color: white; */
+    border-bottom: 3px solid var(--french-violet);
 }
 
 .dash-side-main-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: 275px 1fr;
     /* grid-template-areas: "side main"; */
 }
 
 .user-info {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    border-right: 1px solid var(--dim-gray);
+    height: 90vh;
 }
 
 .dash-main-container {
