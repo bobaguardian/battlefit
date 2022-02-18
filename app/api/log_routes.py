@@ -25,7 +25,7 @@ def get_user_logs():
 
 @log_routes.route('/', methods=["POST"])
 def add_log():
-    form = LogForm
+    form = LogForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         log = Log(

@@ -11,14 +11,13 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName }) => {
 
 	const sessionUser = useSelector((state) => state.session.user);
 
-    // const today = new Date();
-	// const todayString = today.toDateString();
-    // console.log("TODAY STRING",todayString);
-    // console.log("TODAY", today);
-    // console.log(new Date().toLocaleDateString());
+    let today = new Date();
+    const offset = today.getTimezoneOffset();
+    today = new Date(today.getTime() - (offset*60*1000));
+    today = today.toISOString().split('T')[0];
 
 	const [errors, setErrors] = useState({});
-	const [date, setDate] = useState(null);
+	const [date, setDate] = useState(today);
     const [unit_id, setUnitId] = useState(1);
 	const [unit_count, setUnitCount] = useState(1);
 	const [comment, setComment] = useState("");
@@ -30,6 +29,10 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName }) => {
             errors["unit_count"] = "Unit count can't be negative.";
         setErrors(errors);
     }, [unit_count])
+
+    useEffect(() => {
+		return () => showModal(false);
+	}, []);
 
 
 	const handleSubmit = async (e) => {

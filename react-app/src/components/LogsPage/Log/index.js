@@ -7,7 +7,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
 
 	return (
         <div className="log-box">
-            <p>{new Date(date).toLocaleString()}</p>
+            <p>{new Date(date).toDateString()}</p>
             <p>{exercise.name}</p>
             <p>{unit_count} {unit}</p>
             <p>{comment}</p>
