@@ -16,6 +16,7 @@
 .edit-delete-menu {
     position: relative;
     width: 30px;
+    text-align: center;
 }
 .edit-delete-menu:hover {
     display: block;

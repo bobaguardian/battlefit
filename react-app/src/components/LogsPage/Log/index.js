@@ -16,18 +16,28 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
         return;
     }
 
+    const handleShowEDMenu = (e) => {
+        e.preventDefault();
+        setShowEditDeleteMenu(true);
+        setEdMenuId(id);
+    }
+
+    const handleHideEDMenu = (e) => {
+        setShowEditDeleteMenu(false);
+    }
+
 	return (
         <div className="log-box">
             <div className="log-date-edit-delete-container">
                 <p>{date}</p>
                 <i className="fas fa-ellipsis-h edit-delete-menu"
-                  onMouseEnter={() => {setShowEditDeleteMenu(true); setEdMenuId(id);}}
-                  onMouseLeave={() => setShowEditDeleteMenu(false)}>
+                  onClick={handleShowEDMenu}
+                  onMouseLeave={handleHideEDMenu}
+                  >
                   {(showEditDeleteMenu && (edMenuId === id)) ? (
                     <div className='edit-delete-log'
-                      onMouseEnter={() => {setShowEditDeleteMenu(true); setEdMenuId(id);}}
-                      onMouseLeave={() => setShowEditDeleteMenu(false)}>
-                      <EditLogFormModal eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
+                      >
+                      <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
                         <button className="delete-log-btn" onClick={handleDelete}>
                             Delete
                         </button>
@@ -38,12 +48,6 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
             <p>{exercise.name}</p>
             <p>{unit_count} {unit}</p>
             <p>{comment}</p>
-            {/* <div className="edit-delete-log">
-                <EditLogFormModal eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
-                <button onClick={handleDelete}>
-                    Delete
-                </button>
-            </div> */}
         </div>
 	);
 };
