@@ -5,6 +5,7 @@ import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
 import LogsPage from '../LogsPage';
+import UserExercisesPage from '../UserExercisesPage';
 
 import "./Dashboard.css";
 
@@ -37,6 +38,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path='/logs'>
                         <LogsPage />
+                    </Route>
+                    <Route path="/users/:id">
+                        <UserExercisesPage />
                     </Route>
                 </Switch>
             </main>
