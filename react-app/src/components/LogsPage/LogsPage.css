@@ -34,13 +34,25 @@
 .edit-delete-log button {
     border: none;
     background-color: var(--dim-gray);
+    border-bottom: 1px solid var(--dim-gray);
 }
 
 .edit-log-btn {
     margin-bottom: 5px;
     color: var(--tea-green);
+    transition: all 0.1s ease-in-out;
+
+}
+
+.edit-log-btn:hover {
+    border-bottom: 1px solid var(--tea-green);
 }
 
 .delete-log-btn {
     color: var(--light-coral);
+    transition: all 0.2s ease-in-out;
+}
+
+.delete-log-btn:hover {
+    border-bottom: 1px solid var(--light-coral);
 }
