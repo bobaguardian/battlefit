@@ -79,7 +79,7 @@ export const addLog = (date, exercise_id, unit_id, unit_count, comment) => async
 }
 
 export const editLog = (id, date, unit_id, unit_count, comment) => async (dispatch) => {
-    const response = fetch(`/api/logs/${id}`, {
+    const response = await fetch(`/api/logs/${id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'

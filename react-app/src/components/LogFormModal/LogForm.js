@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, Redirect } from "react-router-dom";
 
 import { addLog, editLog } from "../../store/logs";
 
@@ -83,10 +83,10 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit
 			return;
         }
 
-		history.push(`/logs`);
 
 
 		showModal(false);
+		return <Redirect to="/logs" />
 	};
 
 
