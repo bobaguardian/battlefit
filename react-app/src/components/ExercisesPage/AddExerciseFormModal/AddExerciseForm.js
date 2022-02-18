@@ -25,6 +25,17 @@ const AddExerciseForm = ({ showModal }) => {
         setErrors(errors);
     }, [name])
 
+	useEffect(() => { // clean memory leaks
+		return () => {
+			showModal(false);
+			setErrors({});
+			setName("");
+			setDescription("");
+			setImage(null);
+			setMuscleGroup("Abs");
+		}
+	}, []);
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
