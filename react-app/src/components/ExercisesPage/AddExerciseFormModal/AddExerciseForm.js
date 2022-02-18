@@ -97,7 +97,6 @@ const AddExerciseForm = ({ showModal }) => {
 				</label>
 				<select name="muscle_group"
 					className="form-input"
-					name="muscle_group"
 					value={muscle_group}
 					onChange={updateMuscleGroup}>
 					<option value="Abs">Abs</option>

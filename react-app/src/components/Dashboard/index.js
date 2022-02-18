@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
+import LogsPage from '../LogsPage';
 
 import "./Dashboard.css";
 
@@ -35,7 +36,7 @@ const Dashboard = () => {
                         <ExercisesPage />
                     </Route>
                     <Route exact path='/logs'>
-                        <h2>My Logs</h2>
+                        <LogsPage />
                     </Route>
                 </Switch>
             </main>

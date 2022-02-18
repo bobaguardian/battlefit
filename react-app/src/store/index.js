@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import exercises from './exercises';
 import muscles from './muscles';
+import logs from './logs';
 
 const rootReducer = combineReducers({
   session,
   muscles,
   exercises,
+  logs
 });
 
 

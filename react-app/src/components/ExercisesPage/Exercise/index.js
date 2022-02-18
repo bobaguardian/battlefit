@@ -4,6 +4,7 @@ import { useLocation, useHistory } from "react-router-dom";
 
 import { removeExercise } from "../../../store/exercises";
 import EditExerciseFormModal from "../EditExerciseFormModal";
+import LogFormModal from "../../LogFormModal";
 
 const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 	const dispatch = useDispatch();
@@ -33,6 +34,9 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
                     <EditExerciseFormModal exercise={exercise} />
                 </div>
                 : null}
+            </div>
+            <div className="add-log-on-exercise-container">
+                <LogFormModal type="create" exercise_id={id} exerciseName={name}/>
             </div>
         </div>
 	);

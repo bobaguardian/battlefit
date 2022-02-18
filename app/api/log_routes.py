@@ -1,0 +1,44 @@
+from flask import Blueprint, request
+from flask_login import current_user, login_required
+from datetime import datetime
+from app.models import db, Log
+from app.forms import LogForm
+
+log_routes = Blueprint('logs', __name__)
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field}: {error}')
+    return errorMessages
+
+@log_routes.route('/')
+@login_required
+def get_user_logs():
+    logs = Log.query.filter(Log.user_id == int(current_user.get_id())).order_by(Log.date).all()
+    return {"logs": [log.to_dict() for log in logs]}
+
+
+@log_routes.route('/', methods=["POST"])
+def add_log():
+    form = LogForm
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        log = Log(
+            user_id = current_user.get_id(),
+            exercise_id=form.data["exercise_id"],
+            unit_id=form.data["unit_id"],
+            unit_count=form.data["unit_count"],
+            comment=form.data["comment"],
+            date=form.data["date"]
+        )
+        db.session.add(log)
+        db.session.commit()
+
+        return {"log": log.to_dict()}
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
