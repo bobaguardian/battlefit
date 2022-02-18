@@ -53,7 +53,7 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 			comment
 		));
 
-        if (data?.errors) {
+        if (data) {
             const errors = {};
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
