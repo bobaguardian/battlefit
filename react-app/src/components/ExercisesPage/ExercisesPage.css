@@ -8,12 +8,13 @@
     background-color: var(--max-blue-purple);
     border: none;
     border-radius: 3px;
-    transition: all 0.2s ease-in-out
+    transition: all 0.2s ease-in-out;
+    font-size: 16px;
 }
 
 .add-exercise-btn:hover {
     background-color: var(--max-blue-purple-dark);
-    color: var(--lavender-blush);
+    transform: scale(1.1);
 }
 
 /* Muscle Groups */
@@ -56,6 +57,8 @@
 }
 
 .exercise-box {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid var(--max-blue-purple);
     border-radius: 3px;
     padding: 30px 30px;
@@ -68,7 +71,70 @@
     background-color: var(--dim-gray);
 } */
 
+.exercise-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .exercise-name-log-btn-container {
     display: flex;
     justify-content: space-between;
+}
+
+
+.add-log-edit-delete-exercise {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.add-log-edit-delete-exercise button {
+    border: none;
+    background-color: var(--jet);
+    border-bottom: 1px solid var(--jet);
+    padding: 5px;
+}
+
+.edit-exercise-btn {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    color: var(--tea-green);
+    transition: all 0.1s ease-in-out;
+
+}
+
+.edit-exercise-btn:hover {
+    background-color: var(--tea-green);
+    color: var(--jet);
+}
+
+.delete-exercise-btn {
+    color: var(--light-coral);
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.delete-exercise-btn:hover {
+    background-color: var(--light-coral);
+    color: var(--jet);
+}
+
+.add-log-edit-delete-exercise i {
+    font-size: 20px;
 }

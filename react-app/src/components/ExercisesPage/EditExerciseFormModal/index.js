@@ -7,8 +7,8 @@ function EditExerciseFormModal({ exercise }) {
 
 	return (
 		<>
-			<button onClick={() => setShowModal(true)}>
-				Edit Exercise
+			<button className="edit-exercise-btn" onClick={() => setShowModal(true)}>
+				<i className="fa-solid fa-pen-to-square"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

@@ -73,14 +73,33 @@
     object-fit: contain;
 }
 
+#my-exercises-btn {
+    width: 70%;
+    padding: 7px;
+    margin-bottom: 25px;
+    color: var(--french-violet);
+    border: none;
+    background-color: var(--lavender-blush);
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.15s ease-in-out;
+
+}
+
+#my-exercises-btn:hover {
+    background-color: var(--lavender-blush-dark);
+}
+
 .logout-btn {
     width: 70%;
-    padding: 5px;
+    padding: 7px;
     background-color: var(--french-violet);
     border: none;
     border-radius: 3px;
     color: var(--lavender-blush);
     transition: all 0.2s ease-in-out;
+    font-size: 18px;
 }
 
 .logout-btn:hover {

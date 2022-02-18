@@ -22,23 +22,26 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 
 	return (
         <div className="exercise-box">
-            <div className="exercise-name-log-btn-container">
+            <div className="exercise-detail-container">
                 <h3>{name}</h3>
-                <div className="add-log-on-exercise-container">
+                {/* <div className="add-log-on-exercise-container">
                     <AddLogFormModal exercise_id={id} exerciseName={name}/>
-                </div>
+                </div> */}
+                <p>{muscle_group.name}</p>
+                <p>{description}</p>
             </div>
-            <p>{muscle_group.name}</p>
-            <p>{description}</p>
             {image ? <img src={image}></img> : null}
-            <div className="delete-exercise-container">
+            {/* <div className="delete-exercise-container"> */}
                 { sessionUser.id === user_id ?
-                <div className="edit-delete-exercise-container">
-                    <button onClick={handleDelete}>Delete</button>
+                <div className="add-log-edit-delete-exercise">
+                    <AddLogFormModal exercise_id={id} exerciseName={name}/>
                     <EditExerciseFormModal exercise={exercise} />
+                    <button className="delete-exercise-btn" onClick={handleDelete}>
+                        <i className="fa-solid fa-square-minus"></i>
+                    </button>
                 </div>
                 : null}
-            </div>
+            {/* </div> */}
         </div>
 	);
 };

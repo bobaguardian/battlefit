@@ -24,13 +24,8 @@
     border-bottom: 3px solid var(--french-violet);
     padding: 15px 10px;
     transition: all 0.2s ease-in-out;
-    /* margin-bottom: 25px; */
 }
 
-.log-date-heading:hover {
-    /* background-color: var(--dim-gray);
-    cursor: pointer; */
-}
 
 .log-details {
     display: flex;
@@ -60,26 +55,42 @@
     border: none;
     background-color: var(--jet);
     border-bottom: 1px solid var(--jet);
+    padding: 5px;
 }
 
 .edit-log-btn {
-    margin-bottom: 15px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
     color: var(--tea-green);
     transition: all 0.1s ease-in-out;
 
 }
 
 .edit-log-btn:hover {
-    transform: scale(1.2);
+    background-color: var(--tea-green);
+    color: var(--jet);
 }
 
 .delete-log-btn {
     color: var(--light-coral);
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
     transition: all 0.2s ease-in-out;
 }
 
 .delete-log-btn:hover {
-    transform: scale(1.2);
+    background-color: var(--light-coral);
+    color: var(--jet);
 }
 
 .edit-delete-log i {

@@ -28,6 +28,13 @@
     padding: 5px;
 }
 
+.exercise-form textarea {
+    display: flex;
+    border: none;
+    border-radius: 3px;
+    resize: none;
+}
+
 
 .exercise-form-submit-btn {
     margin-top: 25px;

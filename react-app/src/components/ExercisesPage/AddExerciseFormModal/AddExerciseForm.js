@@ -133,12 +133,15 @@ const AddExerciseForm = ({ showModal }) => {
 				<label className="form-label" htmlFor="description">
 					Description
 				</label>
-				<input
+				<textarea
 					className="form-input"
 					name="description"
 					type="text"
 					value={description}
 					onChange={updateDescription}
+					rows="7"
+					cols='32'
+
 				/>
 				<div className="errors-container">
 					{errors.description ? `${errors.description}` : ""}
