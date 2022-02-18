@@ -47,7 +47,10 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
             <div className="log-details">
                 <div className="exercise-unit-div">
                     <h3>{exercise.name}</h3>
+                    {unit !== "Time" ?
                     <p>{unit_count} {unitConverter[unit]}</p>
+                    : <p>{timeConverter(unit_count)}</p>
+                    }
                 </div>
                 <p className="log-comment">{comment}</p>
             </div>
