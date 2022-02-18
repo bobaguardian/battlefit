@@ -23,6 +23,12 @@
     width: 400px
 }
 
+.log-form textarea {
+    display: flex;
+    border: none;
+    border-radius: 3px;
+    resize: none;
+}
 .log-form-submit-btn {
     margin-top: 25px;
     padding: 7px 20px;

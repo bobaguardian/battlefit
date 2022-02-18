@@ -154,12 +154,14 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 				<label className="form-label" htmlFor="comment">
 					Comment
 				</label>
-				<input
+				<textarea
 					className="form-input"
 					name="comment"
 					type="text"
 					value={comment}
 					onChange={updateComment}
+					cols='32'
+					rows="7"
 				/>
 				<div className="errors-container">
 					{errors.comment ? `${errors.comment}` : ""}
