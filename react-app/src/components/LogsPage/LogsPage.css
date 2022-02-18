@@ -2,11 +2,16 @@
     padding: 10px 30px;
 }
 
+.logs-inner-container > div {
+    border-top: 1px solid var(--dim-gray);
+
+}
+
+
 .log-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid var(--max-blue-purple);
     padding: 30px;
     margin-bottom: 30px;
 }
@@ -16,9 +21,15 @@
 }
 
 .log-date-heading {
-    border-bottom: 1px solid var(--french-violet);
-    padding-bottom: 15px;
-    margin-bottom: 25px;
+    border-bottom: 3px solid var(--french-violet);
+    padding: 15px 10px;
+    transition: all 0.2s ease-in-out;
+    /* margin-bottom: 25px; */
+}
+
+.log-date-heading:hover {
+    /* background-color: var(--dim-gray);
+    cursor: pointer; */
 }
 
 .log-details {
