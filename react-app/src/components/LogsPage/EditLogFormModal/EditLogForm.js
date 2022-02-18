@@ -60,7 +60,7 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 			comment
 		));
 
-        if (data?.errors) {
+        if (data) {
             const errors = {};
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
@@ -154,12 +154,14 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 				<label className="form-label" htmlFor="comment">
 					Comment
 				</label>
-				<input
+				<textarea
 					className="form-input"
 					name="comment"
 					type="text"
 					value={comment}
 					onChange={updateComment}
+					cols='32'
+					rows="7"
 				/>
 				<div className="errors-container">
 					{errors.comment ? `${errors.comment}` : ""}

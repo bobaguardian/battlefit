@@ -4,6 +4,15 @@ import { getUserLogs } from "../../store/logs";
 import Log from "./Log";
 import './LogsPage.css';
 
+const dateConverter = (str) => {
+    let theDate = new Date(str);
+    theDate.setDate(theDate.getDate() + 1)
+    let mnth = ("0" + (theDate.getMonth() + 1)).slice(-2);
+    let day = ("0" + theDate.getDate()).slice(-2);
+  return [mnth, day, theDate.getFullYear()].join("/");
+}
+
+
 const LogsPage = () => {
     const dispatch = useDispatch();
     const logsById = useSelector(state => state.logs.byId);
@@ -25,8 +34,8 @@ const LogsPage = () => {
             <div className="logs-container">
                 {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
                     <div key={`log-${index}`}className="logs-inner-container">
-                        {(date !== currentDate) ?
-                            <h3 value={`${id}`} className="log-date-heading">{currentDate = date}</h3>
+                        {(dateConverter(date) !== currentDate) ?
+                            <h3 value={`${id}`} className="log-date-heading">{currentDate = dateConverter(date)}</h3>
                             : null}
 
                         <Log key={`log-${index}`} id={id} user={user} date={date}
