@@ -76,7 +76,7 @@ export default function reducer(state = initialState, action) {
         case CREATE_LOG:
             newState = {
                 ...state,
-                byId: { ...state.byId, [action.log.id]: action.log}
+                byId: { [action.log.id]: action.log, ...state.byId}
             }
             return newState;
 
