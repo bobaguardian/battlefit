@@ -15,12 +15,11 @@ const SidePanel = () => {
 
     return (
         <div className="side-panel-container">
-            <h2>Side Panel</h2>
             <div className="user-info">
                 <img className="user-image" src={sessionUser.image} alt={`${sessionUser.username}'s profile picture`}></img>
                 <h3>{sessionUser.username}</h3>
             </div>
-            <button onClick={goToMyExercises}>My Exercises</button>
+            <button id="my-exercises-btn" onClick={goToMyExercises}>My Exercises</button>
             <LogoutButton />
         </div>
     )
