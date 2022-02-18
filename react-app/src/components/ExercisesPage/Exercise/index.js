@@ -4,6 +4,7 @@ import { useLocation, useHistory } from "react-router-dom";
 
 import { removeExercise } from "../../../store/exercises";
 import EditExerciseFormModal from "../EditExerciseFormModal";
+import AddLogFormModal from "../../AddLogFormModal";
 
 const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 	const dispatch = useDispatch();
@@ -15,7 +16,6 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        console.log("Delete Exercise Clicked!");
         await dispatch(removeExercise(id));
         return;
     }
@@ -33,6 +33,9 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
                     <EditExerciseFormModal exercise={exercise} />
                 </div>
                 : null}
+            </div>
+            <div className="add-log-on-exercise-container">
+                <AddLogFormModal exercise_id={id} exerciseName={name}/>
             </div>
         </div>
 	);

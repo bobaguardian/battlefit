@@ -1,0 +1,9 @@
+.logs-container {
+    padding: 10px 30px;
+}
+
+.log-box {
+    border: 1px solid var(--max-blue-purple);
+    padding: 20px;
+    margin-bottom: 30px;
+}

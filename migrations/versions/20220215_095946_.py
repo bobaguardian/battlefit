@@ -51,7 +51,7 @@ def upgrade():
     sa.Column('exercise_id', sa.Integer(), nullable=False),
     sa.Column('unit_id', sa.Integer(), nullable=False),
     sa.Column('comment', sa.String(), nullable=True),
-    sa.Column('date', sa.DateTime(), nullable=True),
+    sa.Column('date', sa.Date(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['exercise_id'], ['exercises.id'], ),
