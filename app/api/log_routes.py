@@ -42,3 +42,16 @@ def add_log():
         return {"log": log.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@log_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_log(id):
+    log = Log.query.get(int(id))
+    if not log:
+        return {'errors': ['Log not found']}, 401
+    if log.user_id == int(current_user.get_id()):
+        db.session.delete(log)
+        db.session.commit()
+        return {'success': 'log deleted'}
+    return {'errors': ["You can't delete a log you don't own"]}, 401

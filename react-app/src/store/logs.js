@@ -2,6 +2,7 @@
 // Action type constants
 const READ_LOGS = 'logs/READ_LOGS';
 const CREATE_LOG = 'logs/CREATE_LOG';
+const DELETE_LOG = 'logs/DELETE_LOG';
 
 
 // Action creators
@@ -16,6 +17,13 @@ const createLog = (log) => {
     return {
         type: CREATE_LOG,
         log
+    }
+}
+
+const deleteLog = (id) => {
+    return {
+        type: DELETE_LOG,
+        id
     }
 }
 
@@ -62,6 +70,24 @@ export const addLog = (date, exercise_id, unit_id, unit_count, comment) => async
     }
 }
 
+export const removeLog = (id) => async (dispatch) => {
+    const response = await fetch(`/api/logs/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(deleteLog(id))
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
+    }
+}
+
 const initialState = { byId: {} }
 
 export default function reducer(state = initialState, action) {
@@ -78,6 +104,12 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 byId: { [action.log.id]: action.log, ...state.byId}
             }
+            return newState;
+
+        case DELETE_LOG:
+            newState = { ...state };
+            delete newState.byId[action.id];
+            newState.byId = { ...newState.byId };
             return newState;
 
         default:
