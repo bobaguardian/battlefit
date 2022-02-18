@@ -1,43 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useHistory, Redirect } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
-import { addLog, editLog } from "../../store/logs";
+import { addLog } from "../../store/logs";
 
-const unitConverter = {
-    "Reps": 1,
-    "Weight": 2,
-    "Time": 3,
-    "Distance": 4
-}
-
-const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit, eUnitCount, eComment }) => {
+const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
 
 	const sessionUser = useSelector((state) => state.session.user);
 
-
-
-    // let today = eDate ? eDate : new Date();
     let today = new Date();
     const offset = today.getTimezoneOffset();
     today = new Date(today.getTime() - (offset*60*1000));
     today = today.toISOString().split('T')[0];
 
-    console.log(today);
-
-    let initialDate = today;
-    let initialunitId = eUnit ? unitConverter[eUnit] : 1;
-    let initialUnitCount = eUnitCount ? eUnitCount : 1;
-    let initialComment = eComment ? eComment : "";
 
 	const [errors, setErrors] = useState({});
-	const [date, setDate] = useState(initialDate);
-    const [unit_id, setUnitId] = useState(initialunitId);
-	const [unit_count, setUnitCount] = useState(initialUnitCount);
-	const [comment, setComment] = useState(initialComment);
+	const [date, setDate] = useState(today);
+    const [unit_id, setUnitId] = useState(1);
+	const [unit_count, setUnitCount] = useState(1);
+	const [comment, setComment] = useState("");
 
 
     useEffect(() => {
@@ -48,30 +32,26 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit
     }, [unit_count])
 
     useEffect(() => {
-		return () => showModal(false);
+		return () => {
+			showModal(false);
+			setErrors({});
+			setDate(null);
+			setUnitId(1);
+			setUnitCount(1);
+			setComment("");
+		}
 	}, []);
 
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-        let data;
-        if (type === "create") {
-            data = await dispatch(addLog(
-                date,
-                exercise_id,
-                unit_id,
-                unit_count,
-                comment
-            ));
-        } else if (type === "update") {
-            data = await dispatch(editLog(
-                eId,
-                date,
-                unit_id,
-                unit_count,
-                comment
-            ))
-        }
+		const data = await dispatch(addLog(
+			date,
+			exercise_id,
+			unit_id,
+			unit_count,
+			comment
+		));
 
         if (data?.errors) {
             const errors = {};
@@ -84,9 +64,11 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit
         }
 
 
-
+        if (location.pathname !== `/logs`) {
+			history.push(`/logs`);
+		}
 		showModal(false);
-		return <Redirect to="/logs" />
+
 	};
 
 
@@ -108,12 +90,7 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit
 
 	return (
 		<form className="form-container log-form" onSubmit={handleSubmit}>
-			{ type === "create" ?
             <h3 className="form-heading">Log {exerciseName}</h3>
-            : <h3 className="form-heading">Edit Log {exerciseName}</h3>
-
-            }
-
 			<div className="form-group">
 				<label className="form-label" htmlFor="date">
 					Date
@@ -191,4 +168,4 @@ const LogForm = ({ type, showModal, exercise_id, exerciseName, eId, eDate, eUnit
 	);
 };
 
-export default LogForm;
+export default AddLogForm;
