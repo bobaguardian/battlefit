@@ -24,7 +24,7 @@ function EditLogFormModal({ setShowEditDeleteMenu, exerciseName, eId, eDate, eUn
         <button
           className='edit-log-btn'
           onClick={handleShowModal}>
-          Edit
+          <i class="fa-solid fa-pen-to-square"></i>
         </button>
         {showModal && (
           <Modal onClose={handleCloseModal}>

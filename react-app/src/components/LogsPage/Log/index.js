@@ -28,32 +28,18 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
 
 	return (
         <div className="log-box">
-            <div className="log-date-edit-delete-container">
+            <div className="log-details">
                 <p>{date}</p>
-                {/* <i className="fas fa-ellipsis-h edit-delete-menu"
-                  onClick={handleShowEDMenu}
-                  onMouseLeave={handleHideEDMenu}
-                  >
-                  {(showEditDeleteMenu && (edMenuId === id)) ? (
-                    <div className='edit-delete-log'
-                      >
-                      <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
-                        <button className="delete-log-btn" onClick={handleDelete}>
-                            Delete
-                        </button>
-                    </div>
-                  ) : null}
-                </i> */}
-                <div className='edit-delete-log'>
-                    <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
-                    <button className="delete-log-btn" onClick={handleDelete}>
-                        Delete
-                    </button>
-                </div>
+                <p>{exercise.name}</p>
+                <p>{unit_count} {unit}</p>
+                <p>{comment}</p>
             </div>
-            <p>{exercise.name}</p>
-            <p>{unit_count} {unit}</p>
-            <p>{comment}</p>
+            <div className='edit-delete-log'>
+                <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
+                <button className="delete-log-btn" onClick={handleDelete}>
+                    <i class="fa-solid fa-circle-minus"></i>
+                </button>
+            </div>
         </div>
 	);
 };

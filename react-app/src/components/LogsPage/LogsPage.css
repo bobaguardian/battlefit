@@ -3,6 +3,9 @@
 }
 
 .log-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border: 1px solid var(--max-blue-purple);
     padding: 30px;
     margin-bottom: 30px;
@@ -12,21 +15,22 @@
     display: flex;
 }
 
-.log-date-edit-delete-container {
+.log-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .edit-delete-log {
-    position: relative;
+    /* position: relative;
     right: 0;
-    top: 5%;
+    top: 5%; */
     padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: flex-start;
+    /* align-items: flex-end; */
     border-radius: 5px;
-    transition: display 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
 }
 
@@ -37,14 +41,14 @@
 }
 
 .edit-log-btn {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     color: var(--tea-green);
     transition: all 0.1s ease-in-out;
 
 }
 
 .edit-log-btn:hover {
-    border-bottom: 1px solid var(--tea-green);
+    transform: scale(1.2);
 }
 
 .delete-log-btn {
@@ -53,5 +57,9 @@
 }
 
 .delete-log-btn:hover {
-    border-bottom: 1px solid var(--light-coral);
+    transform: scale(1.2);
+}
+
+.edit-delete-log i {
+    font-size: 20px;
 }
