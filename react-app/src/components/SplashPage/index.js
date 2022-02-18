@@ -28,7 +28,10 @@ const SplashPage = () => {
                 </div>
             </nav>
             <main className="splash-main-content">
-                <h2>Welcome to BattleFit!</h2>
+                <div id="splash-text">
+                    <h2>Welcome to BattleFit!</h2>
+                    <p>Keep track of your exercises and logs while defeating and collecting mythical creatures!</p>
+                </div>
                 <div id="splash-ready" onClick={openSignupFormModal}>Ready to Battle?</div>
             </main>
             <footer>

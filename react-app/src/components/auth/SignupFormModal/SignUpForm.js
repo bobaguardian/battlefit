@@ -144,7 +144,6 @@ const SignUpForm = () => {
       </div>
 
       <div className="upload-image-container">
-        <label htmlFor="file-upload">Add a Profile Picture</label>
         <input
           id="file-upload"
           type="file"
@@ -154,15 +153,16 @@ const SignUpForm = () => {
         <div className="preview-image-container">
           {image && (
             <img
-              alt="preview"
-              src={URL.createObjectURL(image)}
-              className="preview-image"
+            alt="preview"
+            src={URL.createObjectURL(image)}
+            className="preview-image"
             ></img>
-          )}
+            )}
         </div>
+        <label htmlFor="file-upload">Add a Profile Picture</label>
         {imageLoading && (
           <p>
-            <i className="fas fa-spinner fa-pulse">Loading</i>
+            <i className="fas fa-spinner fa-pulse"></i>
           </p>
         )}
 
