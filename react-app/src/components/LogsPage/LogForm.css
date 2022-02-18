@@ -1,0 +1,41 @@
+.add-log-btn {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--jet);
+    color: var(--max-blue-purple);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-log-btn:hover {
+    background-color: var(--max-blue-purple-dark);
+    color: var(--lavender-blush);
+}
+
+.log-form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px
+}
+
+.log-form-submit-btn {
+    margin-top: 25px;
+    padding: 7px 20px;
+    width: 75%;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+}
+
+.log-form-submit-btn:hover {
+    cursor: pointer;
+    background-color: var(--french-violet-dark);
+}

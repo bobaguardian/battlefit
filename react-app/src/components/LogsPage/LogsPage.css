@@ -2,8 +2,86 @@
     padding: 10px 30px;
 }
 
+.logs-inner-container > div {
+    border-top: 1px solid var(--dim-gray);
+
+}
+
+
 .log-box {
-    border: 1px solid var(--max-blue-purple);
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
     margin-bottom: 30px;
+}
+
+.log-box:hover .edit-delete-log {
+    display: flex;
+}
+
+.log-date-heading {
+    border-bottom: 3px solid var(--french-violet);
+    padding: 15px 10px;
+    transition: all 0.2s ease-in-out;
+    /* margin-bottom: 25px; */
+}
+
+.log-date-heading:hover {
+    /* background-color: var(--dim-gray);
+    cursor: pointer; */
+}
+
+.log-details {
+    display: flex;
+    flex-direction: column;
+}
+.exercise-unit-div {
+    display: flex;
+    align-items: center;
+}
+
+.log-comment {
+    padding-top: 15px;
+}
+
+.edit-delete-log {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.edit-delete-log button {
+    border: none;
+    background-color: var(--jet);
+    border-bottom: 1px solid var(--jet);
+}
+
+.edit-log-btn {
+    margin-bottom: 15px;
+    color: var(--tea-green);
+    transition: all 0.1s ease-in-out;
+
+}
+
+.edit-log-btn:hover {
+    transform: scale(1.2);
+}
+
+.delete-log-btn {
+    color: var(--light-coral);
+    transition: all 0.2s ease-in-out;
+}
+
+.delete-log-btn:hover {
+    transform: scale(1.2);
+}
+
+.edit-delete-log i {
+    font-size: 20px;
 }

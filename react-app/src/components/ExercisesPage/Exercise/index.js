@@ -22,7 +22,12 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 
 	return (
         <div className="exercise-box">
-            <h3>{name}</h3>
+            <div className="exercise-name-log-btn-container">
+                <h3>{name}</h3>
+                <div className="add-log-on-exercise-container">
+                    <AddLogFormModal exercise_id={id} exerciseName={name}/>
+                </div>
+            </div>
             <p>{muscle_group.name}</p>
             <p>{description}</p>
             {image ? <img src={image}></img> : null}
@@ -33,9 +38,6 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
                     <EditExerciseFormModal exercise={exercise} />
                 </div>
                 : null}
-            </div>
-            <div className="add-log-on-exercise-container">
-                <AddLogFormModal exercise_id={id} exerciseName={name}/>
             </div>
         </div>
 	);

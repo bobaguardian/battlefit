@@ -11,7 +11,7 @@ function AddExerciseFormModal() {
         <button
           className='add-exercise-btn'
           onClick={() => setShowModal(true)}>
-          Add an Exercise
+          Add an Exercise <i class="fa-solid fa-plus"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
