@@ -4,6 +4,7 @@ const READ_EXERCISES = 'exercises/READ_EXERCISES';
 const CREATE_EXERCISE = 'exercises/CREATE_EXERCISE';
 const UPDATE_EXERCISE = 'exercises/UPDATE_EXERCISE';
 const DELETE_EXERCISE = 'exercises/DELETE_EXERCISE';
+const READ_USER_EXERCISES = 'exercises/READ_USER_EXERCISES';
 
 // Action creators
 const readExercises = (exercises) => {
@@ -31,6 +32,13 @@ const deleteExercise = (id) => {
     return {
         type: DELETE_EXERCISE,
         id
+    }
+}
+
+const readUserExercises = (exercises) => {
+    return {
+        type: READ_USER_EXERCISES,
+        exercises
     }
 }
 
@@ -116,6 +124,22 @@ export const removeExercise = (id) => async (dispatch) => {
 }
 
 
+export const getUserExercises = (id) => async (dispatch) => {
+    // need to be logged in and the user (for now)
+    const response = await fetch(`/api/users/${id}/exercises`);
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(readUserExercises(data["exercises"]));
+        console.log(data["exercises"]);
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    }
+}
+
+
 const initialState = { byId: {} }
 
 export default function reducer(state = initialState, action) {
@@ -144,6 +168,12 @@ export default function reducer(state = initialState, action) {
             newState = { ...state };
             delete newState.byId[action.id];
             newState.byId = { ...newState.byId };
+            return newState;
+
+        case READ_USER_EXERCISES:
+            let loadUserExercises = {}
+            action.exercises.forEach(exercise => loadUserExercises[exercise.id] = exercise);
+            newState = { ...state, byId: { ...loadUserExercises } };
             return newState;
 
         default:

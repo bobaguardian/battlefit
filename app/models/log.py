@@ -26,7 +26,7 @@ class Log(db.Model):
 
 
     user = db.relationship("User", back_populates="logs")
-    exercise = db.relationship("Exercise", backref="exercises")
+    exercise = db.relationship("Exercise", back_populates="logs")
     unit = db.relationship("Unit", backref="units")
 
     def to_dict(self):

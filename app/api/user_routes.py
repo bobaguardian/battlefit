@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User
 
 user_routes = Blueprint('users', __name__)
@@ -21,5 +21,7 @@ def user(id):
 @user_routes.route('/<int:id>/exercises')
 @login_required
 def get_user_exercises(id):
-    user = User.query.get(id)
-    return {"exercises": [exercise.to_dict() for exercise in user.exercises]}
+    user = User.query.get(int(id))
+    if user:
+        return {"exercises": [exercise.to_dict() for exercise in user.exercises]}
+    return {"errors": ["This user does not exist"]}, 401
