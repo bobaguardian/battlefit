@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { addLog } from '../../../store/logs';
-
+import "../LogForm.css";
 const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
