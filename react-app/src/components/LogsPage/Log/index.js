@@ -29,10 +29,11 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
 	return (
         <div className="log-box">
             <div className="log-details">
-                <p>{date}</p>
-                <p>{exercise.name}</p>
-                <p>{unit_count} {unit}</p>
-                <p>{comment}</p>
+                <div className="exercise-unit-div">
+                    <h3>{exercise.name}</h3>
+                    <p>{unit_count} {unit}</p>
+                </div>
+                <p className="log-comment">{comment}</p>
             </div>
             <div className='edit-delete-log'>
                 <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>

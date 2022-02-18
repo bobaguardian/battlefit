@@ -15,20 +15,31 @@
     display: flex;
 }
 
+.log-date-heading {
+    border-bottom: 1px solid var(--french-violet);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
 .log-details {
     display: flex;
     flex-direction: column;
 }
+.exercise-unit-div {
+    display: flex;
+    align-items: center;
+}
+
+.log-comment {
+    padding-top: 15px;
+}
 
 .edit-delete-log {
-    /* position: relative;
-    right: 0;
-    top: 5%; */
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* align-items: flex-end; */
+    align-items: center;
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
 
