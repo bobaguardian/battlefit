@@ -1,3 +1,20 @@
+.add-log-btn {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--jet);
+    color: var(--max-blue-purple);
+    transition: all 0.2s ease-in-out;
+}
+
+.add-log-btn:hover {
+    background-color: var(--max-blue-purple-dark);
+    color: var(--lavender-blush);
+}
+
 .log-form {
     padding: 30px;
     display: flex;

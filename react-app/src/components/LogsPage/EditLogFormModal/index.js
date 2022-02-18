@@ -9,7 +9,7 @@ function EditLogFormModal({ exerciseName, eId, eDate, eUnit, eUnitCount, eCommen
     return (
       <>
         <button
-          className='add-log-btn'
+          className='edit-log-btn'
           onClick={() => setShowModal(true)}>
           Edit Log
         </button>

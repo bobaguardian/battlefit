@@ -13,6 +13,7 @@
 
 .add-exercise-btn:hover {
     background-color: var(--max-blue-purple-dark);
+    color: var(--lavender-blush);
 }
 
 /* Muscle Groups */
@@ -57,12 +58,17 @@
 .exercise-box {
     border: 1px solid var(--max-blue-purple);
     border-radius: 3px;
-    padding: 20px 10px;
+    padding: 30px 30px;
     margin-bottom: 15px;
     transition: all 0.2s ease-in-out;
 }
 
-.exercise-box:hover {
+/* .exercise-box:hover {
     border-color: var(--dim-gray);
     background-color: var(--dim-gray);
+} */
+
+.exercise-name-log-btn-container {
+    display: flex;
+    justify-content: space-between;
 }
