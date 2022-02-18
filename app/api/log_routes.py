@@ -43,6 +43,21 @@ def add_log():
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@log_routes.route('/<int:id>', methods=["PUT"])
+def edit_log(id):
+    form = LogForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        log = Log.query.get(int(id))
+        log.date = form.data['date']
+        log.unit_id= form.data['unit_id']
+        log.unit_count = form.data['unit_count']
+        log.comment = form.data['comment']
+        log.updated_at = datetime.now()
+        db.session.commit()
+        return {'log': log.to_dict()}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 @log_routes.route('/<int:id>', methods=["DELETE"])
 @login_required

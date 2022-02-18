@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LogForm from './LogForm';
 
-function LogFormModal({ type, exercise_id, exerciseName }) {
+function LogFormModal({ type, exercise_id, exerciseName, eId, eDate, eComment, eUnit, eUnitCount }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -25,7 +25,8 @@ function LogFormModal({ type, exercise_id, exerciseName }) {
         }
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <LogForm showModal={setShowModal} type={type} exerciseName={exerciseName} exercise_id={exercise_id} />
+            <LogForm eId={eId} eDate={eDate} eComment={eComment} eUnit={eUnit} eUnitCount={eUnitCount}
+             showModal={setShowModal} type={type} exerciseName={exerciseName} exercise_id={exercise_id} />
           </Modal>
         )}
       </>

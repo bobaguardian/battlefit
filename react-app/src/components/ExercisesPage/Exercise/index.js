@@ -16,7 +16,6 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        console.log("Delete Exercise Clicked!");
         await dispatch(removeExercise(id));
         return;
     }
