@@ -2,33 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
-import { editLog } from "../../store/logs";
+import { addLog } from '../../../store/logs';
 
-const unitConverter = {
-    "Reps": 1,
-    "Weight": 2,
-    "Time": 3,
-    "Distance": 4
-}
-
-const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, eComment}) => {
+const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
 
 	const sessionUser = useSelector((state) => state.session.user);
 
-    // let today = new Date();
-    // const offset = today.getTimezoneOffset();
-    // today = new Date(today.getTime() - (offset*60*1000));
-    // today = today.toISOString().split('T')[0];
+    let today = new Date();
+    const offset = today.getTimezoneOffset();
+    today = new Date(today.getTime() - (offset*60*1000));
+    today = today.toISOString().split('T')[0];
 
 
 	const [errors, setErrors] = useState({});
-	const [date, setDate] = useState(eDate);
-    const [unit_id, setUnitId] = useState(unitConverter[eUnit]);
-	const [unit_count, setUnitCount] = useState(eUnitCount);
-	const [comment, setComment] = useState(eComment);
+	const [date, setDate] = useState(today);
+    const [unit_id, setUnitId] = useState(1);
+	const [unit_count, setUnitCount] = useState(1);
+	const [comment, setComment] = useState("");
 
 
     useEffect(() => {
@@ -52,9 +45,9 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = await dispatch(editLog(
-            eId,
+		const data = await dispatch(addLog(
 			date,
+			exercise_id,
 			unit_id,
 			unit_count,
 			comment
@@ -97,7 +90,7 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 
 	return (
 		<form className="form-container log-form" onSubmit={handleSubmit}>
-            <h3 className="form-heading">Edit Log {exerciseName}</h3>
+            <h3 className="form-heading">Log {exerciseName}</h3>
 			<div className="form-group">
 				<label className="form-label" htmlFor="date">
 					Date
@@ -175,4 +168,4 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 	);
 };
 
-export default EditLogForm;
+export default AddLogForm;
