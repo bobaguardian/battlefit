@@ -94,6 +94,7 @@ def sign_up():
                 username=form.data['username'],
                 email=form.data['email'],
                 password=form.data['password'],
+                image="https://battle-fit.s3.us-west-1.amazonaws.com/5bbcef95484347d8b026bad7218aca08.png"
 
             )
             db.session.add(user)
