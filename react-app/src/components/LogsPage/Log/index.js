@@ -30,7 +30,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
         <div className="log-box">
             <div className="log-date-edit-delete-container">
                 <p>{date}</p>
-                <i className="fas fa-ellipsis-h edit-delete-menu"
+                {/* <i className="fas fa-ellipsis-h edit-delete-menu"
                   onClick={handleShowEDMenu}
                   onMouseLeave={handleHideEDMenu}
                   >
@@ -43,7 +43,13 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
                         </button>
                     </div>
                   ) : null}
-                </i>
+                </i> */}
+                <div className='edit-delete-log'>
+                    <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
+                    <button className="delete-log-btn" onClick={handleDelete}>
+                        Delete
+                    </button>
+                </div>
             </div>
             <p>{exercise.name}</p>
             <p>{unit_count} {unit}</p>
