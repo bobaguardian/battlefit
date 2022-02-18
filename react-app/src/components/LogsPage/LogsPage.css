@@ -4,6 +4,43 @@
 
 .log-box {
     border: 1px solid var(--max-blue-purple);
-    padding: 20px;
+    padding: 30px;
     margin-bottom: 30px;
+}
+
+.log-date-edit-delete-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-delete-menu {
+    position: relative;
+    width: 30px;
+}
+.edit-delete-menu:hover {
+    display: block;
+    border-radius: 5px;
+}
+
+.edit-delete-log {
+    position: absolute;
+    top: 18px;
+    right: 5px;
+    padding: 10px;
+    background-color: var(--dim-gray);
+    border-radius: 5px;
+}
+
+.edit-delete-log button {
+    border: none;
+    background-color: var(--dim-gray);
+}
+
+.edit-log-btn {
+    margin-bottom: 5px;
+    color: var(--tea-green);
+}
+
+.delete-log-btn {
+    color: var(--light-coral);
 }

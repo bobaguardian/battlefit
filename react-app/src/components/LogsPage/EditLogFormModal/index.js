@@ -11,7 +11,7 @@ function EditLogFormModal({ exerciseName, eId, eDate, eUnit, eUnitCount, eCommen
         <button
           className='edit-log-btn'
           onClick={() => setShowModal(true)}>
-          Edit Log
+          Edit
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
