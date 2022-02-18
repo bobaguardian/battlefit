@@ -3,6 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeLog } from "../../../store/logs";
 import EditLogFormModal from "../EditLogFormModal";
 
+const unitConverter = {
+    "Reps": "reps",
+    "Weight": "lbs",
+    "Time": "sec",
+    "Distance": "mi"
+}
+
+const timeConverter = (sec) => {
+    if (sec < 60) return `${sec} sec`;
+    if (60 < sec < 3600) { // min
+        return `${Math.floor(sec/60)} min`;
+    } else if (3600 < 86400) {
+        return `${Math.floor(sec/3600)} min`;
+    }
+}
+
 const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}) => {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
@@ -31,7 +47,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
             <div className="log-details">
                 <div className="exercise-unit-div">
                     <h3>{exercise.name}</h3>
-                    <p>{unit_count} {unit}</p>
+                    <p>{unit_count} {unitConverter[unit]}</p>
                 </div>
                 <p className="log-comment">{comment}</p>
             </div>
