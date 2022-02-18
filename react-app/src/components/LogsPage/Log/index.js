@@ -18,6 +18,13 @@ const timeConverter = (sec) => {
         return `${Math.floor(sec/3600)} min`;
     }
 }
+const dateConverter = (str) => {
+    let theDate = new Date(str);
+    theDate.setDate(theDate.getDate() + 1)
+    let mnth = ("0" + (theDate.getMonth() + 1)).slice(-2);
+    let day = ("0" + theDate.getDate()).slice(-2);
+  return [theDate.getFullYear(), mnth, day].join("-");
+}
 
 const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}) => {
 	const dispatch = useDispatch();
@@ -55,7 +62,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
                 <p className="log-comment">{comment}</p>
             </div>
             <div className='edit-delete-log'>
-                <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={date} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
+                <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={dateConverter(date)} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
                 <button className="delete-log-btn" onClick={handleDelete}>
                     <i className="fa-solid fa-circle-minus"></i>
                 </button>
