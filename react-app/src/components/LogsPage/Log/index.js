@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeLog } from "../../../store/logs";
-import EditLogFormModal from "../../EditLogFormModal";
+import EditLogFormModal from "../EditLogFormModal";
 
 const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}) => {
 	const dispatch = useDispatch();

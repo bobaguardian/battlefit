@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Modal } from '../../context/Modal';
+import { Modal } from '../../../context/Modal';
 import AddLogForm from './AddLogForm';
 
 function AddLogFormModal({ exercise_id, exerciseName }) {
@@ -11,7 +11,7 @@ function AddLogFormModal({ exercise_id, exerciseName }) {
         <button
           className='add-log-btn'
           onClick={() => setShowModal(true)}>
-          Add a Log
+          <i class="fa-solid fa-calendar-plus"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

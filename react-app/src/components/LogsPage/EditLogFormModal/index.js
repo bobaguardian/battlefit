@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Modal } from '../../context/Modal';
+import { Modal } from '../../../context/Modal';
 import EditLogForm from './EditLogForm';
 
 function EditLogFormModal({ exerciseName, eId, eDate, eUnit, eUnitCount, eComment }) {
