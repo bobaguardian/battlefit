@@ -14,3 +14,39 @@
 .signup-form h2 {
     padding-bottom: 30px;
 }
+
+.upload-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.upload-image-container input {
+    width: 96%;
+}
+
+.upload-image-container>input[type=file] {
+    display: none;
+}
+
+.preview-image-container img {
+    margin-top: 15px;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+.upload-image-container label {
+    border: 1px solid var(--max-blue-purple);
+    width: 100%;
+    border-radius: 3px;
+    padding: 7px 20px;
+    margin-top: 15px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.upload-image-container label:hover {
+    cursor: pointer;
+    color: var(--max-blue-purple);
+}

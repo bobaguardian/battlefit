@@ -38,6 +38,12 @@
     padding-bottom: 20px;
 }
 
+#splash-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #splash-ready {
     background-color: var(--french-violet);
     padding: 15px 20px;
