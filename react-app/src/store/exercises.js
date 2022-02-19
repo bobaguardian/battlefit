@@ -75,16 +75,10 @@ export const addExercise = (formData) => async (dispatch) => {
     }
 }
 
-export const editExercise = (id, name, muscle_group, description, image) => async (dispatch) => {
+export const editExercise = (id, formData) => async (dispatch) => {
 	const res = await fetch(`/api/exercises/${id}`, {
 		method: "PUT",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-            name,
-            muscle_group,
-            description,
-            image
-        })
+		body: formData
 	});
 	const data = await res.json();
 	if (data.errors) {

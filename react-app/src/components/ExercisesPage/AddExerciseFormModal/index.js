@@ -8,7 +8,7 @@ function AddExerciseFormModal() {
 
     useEffect(() => { // clean memory leaks
       return () => {
-        showModal(false);
+        setShowModal(false);
       }
     }, []);
 
