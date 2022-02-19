@@ -88,19 +88,47 @@ def add_exercise():
 def edit_exercise(exerciseId):
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
-        exercise = Exercise.query.get(int(exerciseId))
-        print("BACKEND ROUTE", exercise.to_dict())
-        exercise.muscle_group_id = muscle_group_id
-        exercise.name = form.data['name']
-        exercise.description = form.data['description']
-        exercise.image = form.data['image']
-        exercise.updated_at = datetime.now()
 
-        db.session.commit()
+    if form["image"].data:
+        image = form["image"].data
+        if not allowed_file(image.filename):
+            return {"errors": "file type not allowed"}, 400
+        image.filename = get_unique_filename(image.filename)
 
-        return {"exercise": exercise.to_dict()}
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
+
+        if form.validate_on_submit():
+            muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
+            exercise = Exercise.query.get(int(exerciseId))
+            exercise.muscle_group_id = muscle_group_id
+            exercise.name = form.data['name']
+            exercise.description = form.data['description']
+            exercise.image = url
+            exercise.updated_at = datetime.now()
+
+            db.session.commit()
+
+            return {"exercise": exercise.to_dict()}
+    else:
+
+
+        if form.validate_on_submit():
+            muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
+            exercise = Exercise.query.get(int(exerciseId))
+            exercise.muscle_group_id = muscle_group_id
+            exercise.name = form.data['name']
+            exercise.description = form.data['description']
+            exercise.image = "https://battle-fit.s3.amazonaws.com/3fbe7a6b56934db4aa272cf79aafb999.jpg"
+            exercise.updated_at = datetime.now()
+
+            db.session.commit()
+
+            return {"exercise": exercise.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

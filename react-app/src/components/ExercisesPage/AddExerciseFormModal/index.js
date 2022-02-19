@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Modal } from '../../../context/Modal';
 import AddExerciseForm from './AddExerciseForm';
 
 function AddExerciseFormModal() {
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => { // clean memory leaks
+      return () => {
+        showModal(false);
+      }
+    }, []);
 
     return (
       <>
