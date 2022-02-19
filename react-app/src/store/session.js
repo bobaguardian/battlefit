@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const UPDATE_USER = 'session/UPDATE_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -9,6 +10,11 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+})
+
+const updateUser = (user) => ({
+	type: UPDATE_USER,
+	user,
 })
 
 const initialState = { user: null };
@@ -91,12 +97,28 @@ export const signUp = (formData) => async (dispatch) => {
   }
 }
 
+export const updateUserImage = (formData, id) => async (dispatch) => {
+	const res = await fetch(`/api/users/${id}`, {
+		method: "PUT",
+		body: formData,
+	});
+	const data = await res.json();
+	if (res.ok) {
+		dispatch(updateUser(data));
+	} else
+		return {
+			errors: ["Something went wrong, please try again"],
+		};
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case UPDATE_USER:
+      return {user: action.user}
     default:
       return state;
   }

@@ -63,15 +63,98 @@
     padding-top: 20px;
 }
 
+.user-image-edit-div {
+    display: flex;
+    flex-direction: column;
+}
+
 .user-image {
     width: 65%;
+    margin: 0 auto;
     border: 1px solid var(--lavender-blush);
     border-radius: 3px;
+    overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .user-image img{
     object-fit: contain;
 }
+
+.edit-user-pic-btn {
+    margin: 0 auto;
+    position: relative;
+    width: 65%;
+    bottom: 35%;
+    padding: 5px;
+    background: none;
+    border: none;
+    z-index: -1;
+}
+
+.user-image-edit-div:hover .edit-user-pic-btn {
+    display: inline;
+    cursor: pointer;
+    z-index: 1;
+    background-color: var(--max-blue-purple);
+    border-radius: 3px;
+}
+
+.edit-image-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+
+.edit-image-form img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.edit-image-form > form > input[type="file"] {
+	display: none;
+}
+
+.edit-image-form label {
+    border: 1px solid var(--max-blue-purple);
+    width: 100%;
+    border-radius: 3px;
+    padding: 7px 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.edit-image-form label:hover {
+    cursor: pointer;
+    color: var(--max-blue-purple);
+}
+
+.form-image-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-image-edit button {
+    padding: 5px;
+    background-color: var(--french-violet);
+    border: none;
+    border-radius: 3px;
+    color: var(--lavender-blush)
+}
+
+.form-image-edit button:hover {
+    background-color: var(--french-violet-dark);
+}
+
 
 #my-exercises-btn {
     width: 70%;
