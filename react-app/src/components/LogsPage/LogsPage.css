@@ -8,22 +8,23 @@
 }
 
 
+.log-date-heading {
+    border-bottom: 3px solid var(--dim-gray);
+    color: var(--max-blue-purple);
+    padding: 15px 10px;
+    padding-top: 0px;
+    transition: all 0.2s ease-in-out;
+}
+
 .log-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 30px;
-    margin-bottom: 30px;
 }
 
 .log-box:hover .edit-delete-log {
     display: flex;
-}
-
-.log-date-heading {
-    border-bottom: 3px solid var(--french-violet);
-    padding: 15px 10px;
-    transition: all 0.2s ease-in-out;
 }
 
 
@@ -41,7 +42,6 @@
 }
 
 .edit-delete-log {
-    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
