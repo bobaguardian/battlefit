@@ -19,7 +19,9 @@ const EditUserImage = ({ showModal, user }) => {
 		e.preventDefault();
 		setImageLoading(true);
 		const formData = new FormData();
-		formData.append("image", image);
+		if (image) {
+			formData.append("image", image);
+		}
 		const data = await dispatch(updateUserImage(formData, sessionUser.id));
 		if (!data) {
 			setTimeout(() => {
