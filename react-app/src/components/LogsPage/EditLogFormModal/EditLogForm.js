@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { editLog } from "../../../store/logs";
@@ -16,20 +16,11 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 	const location = useLocation();
 	const history = useHistory();
 
-	const sessionUser = useSelector((state) => state.session.user);
-
-    // let today = new Date();
-    // const offset = today.getTimezoneOffset();
-    // today = new Date(today.getTime() - (offset*60*1000));
-    // today = today.toISOString().split('T')[0];
-
-
 	const [errors, setErrors] = useState({});
 	const [date, setDate] = useState(eDate);
     const [unit_id, setUnitId] = useState(unitConverter[eUnit]);
 	const [unit_count, setUnitCount] = useState(eUnitCount);
 	const [comment, setComment] = useState(eComment);
-
 
     useEffect(() => {
         const errors = {};
@@ -47,8 +38,7 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 			setUnitCount(1);
 			setComment("");
 		}
-	}, []);
-
+	}, [showModal]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -70,14 +60,12 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 			return;
         }
 
-
         if (location.pathname !== `/logs`) {
 			history.push(`/logs`);
 		}
 		showModal(false);
 
 	};
-
 
     const updateDate = (e) => {
 		setDate(e.target.value);
@@ -114,6 +102,7 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 					{errors.date ? `${errors.date}` : ""}
 				</div>
 			</div>
+
 			<div className="form-group select">
 				<label className="form-label" htmlFor="unit_id">
 					Unit
@@ -128,7 +117,6 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 					<option value={4}>Distance (mi)</option>
 
 				</select>
-
 				<div className="errors-container">
 					{errors.unit_id ? `${errors.unit_id}` : ""}
 				</div>
@@ -167,7 +155,6 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 					{errors.comment ? `${errors.comment}` : ""}
 				</div>
 			</div>
-
 
             <button
 				type="submit"

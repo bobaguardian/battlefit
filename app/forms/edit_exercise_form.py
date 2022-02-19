@@ -14,7 +14,8 @@ def name_within_length(form, field):
     if len(name) > 100:
         raise ValidationError("Exercise name must be less than 100 characters.")
 
-class ExerciseForm(FlaskForm):
+
+class EditExerciseForm(FlaskForm):
     name = StringField('name', validators=[DataRequired(), name_within_length])
     muscle_group = StringField('muscle-group', validators=[DataRequired(), muscle_group_exists])
     description = TextAreaField('description')

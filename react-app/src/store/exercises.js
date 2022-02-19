@@ -97,7 +97,7 @@ export const removeExercise = (id) => async (dispatch) => {
     })
 
     if (response.ok) {
-        const data = await response.json();
+        await response.json();
         dispatch(deleteExercise(id))
     } else if (response.status < 500) {
         const data = await response.json();
@@ -116,7 +116,6 @@ export const getUserExercises = (id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(readUserExercises(data["exercises"]));
-        console.log(data["exercises"]);
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {

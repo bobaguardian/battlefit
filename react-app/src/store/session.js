@@ -77,7 +77,6 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (formData) => async (dispatch) => {
-  console.log("SIGNUP STORE", formData);
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     body: formData,

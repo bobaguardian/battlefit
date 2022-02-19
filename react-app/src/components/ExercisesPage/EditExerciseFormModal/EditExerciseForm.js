@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { editExercise } from '../../../store/exercises';
@@ -8,15 +8,13 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
-	const sessionUser = useSelector((state) => state.session.user);
 
 	const [errors, setErrors] = useState({});
 	const [name, setName] = useState(exercise.name);
-	const [description, setDescription] = useState(exercise.description);
-	const [image, setImage] = useState(exercise.image);
-	const [imageLoading, setImageLoading] = useState(false);
 	const [muscle_group, setMuscleGroup] = useState(exercise.muscle_group.name);
-
+	const [description, setDescription] = useState(exercise.description);
+	const [image, setImage] = useState(null);
+	const [imageLoading, setImageLoading] = useState(false);
 
     useEffect(() => {
         const errors = {};
@@ -35,7 +33,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 			setImageLoading(false)
 			setMuscleGroup("Abs");
 		}
-	}, []);
+	}, [showModal]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -47,6 +45,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 			formData.append("image", image);
 			setImageLoading(true);
 		}
+
         const data = await dispatch(editExercise(
             exercise.id,
             formData
@@ -59,6 +58,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 				const error = data[i].split(": ");
 				errors[error[0]] = error[1];
 			}
+			console.log("EDIT EXERCISE ERRORS", errors);
 			setErrors(errors);
 			setImageLoading(false);
 			return;
@@ -71,7 +71,6 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 		showModal(false);
         return;
 	};
-
 
     const updateName = (e) => {
 		setName(e.target.value);
@@ -111,13 +110,13 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 					{errors.name ? `${errors.name}` : ""}
 				</div>
 			</div>
+
 			<div className="form-group select">
 				<label className="form-label" htmlFor="muscle_group">
 					Muscle Group
 				</label>
 				<select name="muscle_group"
 					className="form-input"
-					name="muscle_group"
 					value={muscle_group}
 					onChange={updateMuscleGroup}>
 
@@ -134,7 +133,6 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 					<option value="Triceps">Triceps</option>
 					<option value="Other">Other</option>
 				</select>
-
 				<div className="errors-container">
 					{errors.muscle_group ? `${errors.muscle_group}` : ""}
 				</div>
@@ -166,13 +164,20 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 				onChange={updateImage}
 				></input>
 				<div className="preview-image-container">
+				{!image && (
+					<img
+						src={exercise.image}
+						alt="preview"
+						className="preview-image"
+					></img>
+				)}
 				{image && (
 					<img
-					alt="preview"
-					src={typeof image === "string" ?  image : URL.createObjectURL(image) }
-					className="preview-image"
+						src={URL.createObjectURL(image)}
+						alt="preview"
+						className="preview-image"
 					></img>
-					)}
+				)}
 				</div>
 				<label htmlFor="file-upload">Upload Photo</label>
 				{imageLoading && (
@@ -180,8 +185,10 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 					<i className="fas fa-spinner fa-pulse"></i>
 				</p>
 				)}
+				<div className="errors-container">
+					{errors.image ? `${errors.image}` : ""}
+				</div>
 			</div>
-
 
             <button
 				type="submit"

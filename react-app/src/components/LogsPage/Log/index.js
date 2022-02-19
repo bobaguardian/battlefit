@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeLog } from "../../../store/logs";
 import EditLogFormModal from "../EditLogFormModal";
 
@@ -28,25 +27,11 @@ const dateConverter = (str) => {
 
 const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}) => {
 	const dispatch = useDispatch();
-	const sessionUser = useSelector((state) => state.session.user);
-    const [showEditDeleteMenu, setShowEditDeleteMenu] = useState(false);
-    const [edMenuId, setEdMenuId] = useState();
-
 
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(removeLog(id));
         return;
-    }
-
-    const handleShowEDMenu = (e) => {
-        e.preventDefault();
-        setShowEditDeleteMenu(true);
-        setEdMenuId(id);
-    }
-
-    const handleHideEDMenu = (e) => {
-        setShowEditDeleteMenu(false);
     }
 
 	return (
@@ -62,7 +47,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
                 <p className="log-comment">{comment}</p>
             </div>
             <div className='edit-delete-log'>
-                <EditLogFormModal setShowEditDeleteMenu={setShowEditDeleteMenu} eId={id} eDate={dateConverter(date)} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
+                <EditLogFormModal eId={id} eDate={dateConverter(date)} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
                 <button className="delete-log-btn" onClick={handleDelete}>
                     <i className="fa-solid fa-square-minus"></i>
                 </button>

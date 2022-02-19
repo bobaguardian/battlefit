@@ -16,9 +16,9 @@ const MuscleGroups = () => {
     return (
         <div className="muscles-container">
             {muscles.map((muscle, index) => (
-                <Link className="muscle-box" to={`/exercises/${muscle.name}`} key={`muscle-${index}`} className="muscle-box">
+                <Link className="muscle-box" to={`/exercises/${muscle.name}`} key={`muscle-${index}`}>
                     <h3>{muscle.name}</h3>
-                    <img className="muscle-img" src={muscle.image} alt={`${muscle.name}-image`}></img>
+                    <img className="muscle-img" src={muscle.image} alt={`${muscle.name}-pic`}></img>
                 </Link>
             ))}
         </div>

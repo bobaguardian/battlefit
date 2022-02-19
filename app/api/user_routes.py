@@ -43,20 +43,25 @@ def updateUserImage(id):
     user = User.query.get(id)
     form = UploadImage()
     form['csrf_token'].data = request.cookies['csrf_token']
-    image = form["image"].data
-    if not allowed_file(image.filename):
-        return {"errors": "file type not allowed"}, 400
-    image.filename = get_unique_filename(image.filename)
 
-    upload = upload_file_to_s3(image)
+    if form["image"].data:
+        image = form["image"].data
+        if not allowed_file(image.filename):
+            return {"errors": "file type not allowed"}, 400
+        image.filename = get_unique_filename(image.filename)
 
-    if "url" not in upload:
-        return upload, 400
+        upload = upload_file_to_s3(image)
 
-    url = upload["url"]
-    if form.validate_on_submit():
-        user.image=url
-        db.session.add(user)
-        db.session.commit()
-        return user.to_dict()
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
+        if form.validate_on_submit():
+            user.image=url
+            db.session.add(user)
+            db.session.commit()
+            return user.to_dict()
+
+    else :
+        return user.to_dict() # no change to user image
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

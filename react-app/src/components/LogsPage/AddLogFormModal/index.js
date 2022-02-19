@@ -6,6 +6,13 @@ import AddLogForm from './AddLogForm';
 function AddLogFormModal({ exercise_id, exerciseName }) {
     const [showModal, setShowModal] = useState(false);
 
+    useEffect(() => {
+      return () => {
+        setShowModal(false);
+      }
+    }, []);
+
+
     return (
       <>
         <button
