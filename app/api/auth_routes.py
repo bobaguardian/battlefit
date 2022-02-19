@@ -62,7 +62,6 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("IN SIGNUP BACKEND ROUTE", form["image"].data)
     if form["image"].data:
         image = form["image"].data
         if not allowed_file(image.filename):

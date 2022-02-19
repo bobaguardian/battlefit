@@ -54,6 +54,8 @@
 /* Exercises */
 .exercises-container {
     padding: 10px 30px;
+    min-width: 700px;
+
 }
 
 .exercise-box {
@@ -66,14 +68,17 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* .exercise-box:hover {
-    border-color: var(--dim-gray);
-    background-color: var(--dim-gray);
-} */
+.exercise-img-text {
+    display: flex;
+}
 
 .exercise-detail-container {
     display: flex;
     flex-direction: column;
+}
+
+.exercise-detail-container p {
+    margin-top: 15px;
 }
 
 .exercise-name-log-btn-container {
@@ -81,6 +86,13 @@
     justify-content: space-between;
 }
 
+
+.exercise-image {
+    width: 200px;
+    border-radius: 3px;
+    object-fit: cover;
+    margin-right: 20px;
+}
 
 .add-log-edit-delete-exercise {
     padding: 10px;

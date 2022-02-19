@@ -15,10 +15,10 @@ const AddExerciseForm = ({ showModal }) => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState(null);
+	const [imageLoading, setImageLoading] = useState(false);
 	const [muscle_group, setMuscleGroup] = useState("Abs");
 
-
-    useEffect(() => {
+	useEffect(() => {
         const errors = {};
         if (name.length > 100)
             errors["name"] = "Exercise name must be less than 100 characters.";
@@ -32,6 +32,7 @@ const AddExerciseForm = ({ showModal }) => {
 			setName("");
 			setDescription("");
 			setImage(null);
+			setImageLoading(false);
 			setMuscleGroup("Abs");
 		}
 	}, []);
@@ -40,21 +41,27 @@ const AddExerciseForm = ({ showModal }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-        const data = await dispatch(addExercise(
-            name,
-            muscle_group,
-            description,
-            image,
-        ));
+		const formData = new FormData();
+		formData.append("name", name);
+		formData.append("muscle_group", muscle_group);
+		formData.append("description", description);
+		if (image) {
+			formData.append("image", image);
+			setImageLoading(true);
+		}
+        const data = await dispatch(addExercise(formData));
+		setImageLoading(false);
+
 
         if (data) {
             const errors = {};
-			console.log("ERRORS", data.name);
             for (let i = 0; i < data.length; i++) {
 				const error = data[i].split(": ");
 				errors[error[0]] = error[1]
 			}
 			setErrors(errors);
+			setImageLoading(false);
+
 			return;
         }
 		if (location.pathname !== `/exercises/${muscle_group}`) {
@@ -74,7 +81,8 @@ const AddExerciseForm = ({ showModal }) => {
     }
 
     const updateImage = (e) => {
-        setImage(e.target.value);
+		const file = e.target.files[0];
+        setImage(file);
     }
 
     const updateMuscleGroup = (e) => {
@@ -148,6 +156,29 @@ const AddExerciseForm = ({ showModal }) => {
 				</div>
 			</div>
 
+			<div className="upload-image-container">
+				<input
+				id="file-upload"
+				type="file"
+				accept="image/*"
+				onChange={updateImage}
+				></input>
+				<div className="preview-image-container">
+				{image && (
+					<img
+					alt="preview"
+					src={URL.createObjectURL(image)}
+					className="preview-image"
+					></img>
+					)}
+				</div>
+				<label htmlFor="file-upload">Upload Photo</label>
+				{imageLoading && (
+				<p>
+					<i className="fas fa-spinner fa-pulse"></i>
+				</p>
+				)}
+			</div>
 
             <button
 				type="submit"

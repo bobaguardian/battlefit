@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "../../../context/Modal";
 import EditExerciseForm from "./EditExerciseForm";
 
 function EditExerciseFormModal({ exercise }) {
 	const [showModal, setShowModal] = useState(false);
+
+	useEffect(() => { // clean memory leaks
+		return () => {
+			setShowModal(false);
+		}
+	}, []);
 
 	return (
 		<>

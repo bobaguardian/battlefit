@@ -56,18 +56,10 @@ export const getAllExercises = (muscle) => async (dispatch) => {
     }
 }
 
-export const addExercise = (name, muscle_group, description, image) => async (dispatch) => {
+export const addExercise = (formData) => async (dispatch) => {
     const response = await fetch('/api/exercises/', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name,
-            muscle_group,
-            description,
-            image
-         })
+        body: formData
     });
 
     if (response.ok) {
@@ -83,16 +75,10 @@ export const addExercise = (name, muscle_group, description, image) => async (di
     }
 }
 
-export const editExercise = (id, name, muscle_group, description, image) => async (dispatch) => {
+export const editExercise = (id, formData) => async (dispatch) => {
 	const res = await fetch(`/api/exercises/${id}`, {
 		method: "PUT",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-            name,
-            muscle_group,
-            description,
-            image
-        })
+		body: formData
 	});
 	const data = await res.json();
 	if (data.errors) {

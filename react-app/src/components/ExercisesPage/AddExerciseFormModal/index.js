@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Modal } from '../../../context/Modal';
 import AddExerciseForm from './AddExerciseForm';
@@ -6,12 +6,18 @@ import AddExerciseForm from './AddExerciseForm';
 function AddExerciseFormModal() {
     const [showModal, setShowModal] = useState(false);
 
+    useEffect(() => { // clean memory leaks
+      return () => {
+        setShowModal(false);
+      }
+    }, []);
+
     return (
       <>
         <button
           className='add-exercise-btn'
           onClick={() => setShowModal(true)}>
-          Add an Exercise <i class="fa-solid fa-plus"></i>
+          Add an Exercise <i className="fa-solid fa-plus"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

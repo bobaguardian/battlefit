@@ -22,26 +22,26 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
 
 	return (
         <div className="exercise-box">
-            <div className="exercise-detail-container">
-                <h3>{name}</h3>
-                {/* <div className="add-log-on-exercise-container">
-                    <AddLogFormModal exercise_id={id} exerciseName={name}/>
-                </div> */}
-                <p>{muscle_group.name}</p>
-                <p>{description}</p>
-            </div>
-            {image ? <img src={image}></img> : null}
-            {/* <div className="delete-exercise-container"> */}
-                { sessionUser.id === user_id ?
-                <div className="add-log-edit-delete-exercise">
-                    <AddLogFormModal exercise_id={id} exerciseName={name}/>
-                    <EditExerciseFormModal exercise={exercise} />
-                    <button className="delete-exercise-btn" onClick={handleDelete}>
-                        <i className="fa-solid fa-square-minus"></i>
-                    </button>
+            <div className="exercise-img-text">
+                {image ? <img className="exercise-image" src={image}></img> : null}
+                <div className="exercise-detail-container">
+                    <h3>{name}</h3>
+                    {/* <p>{muscle_group.name}</p> */}
+                    <p>{description}</p>
                 </div>
-                : null}
-            {/* </div> */}
+
+            </div>
+            <div className="add-log-edit-delete-exercise">
+                <AddLogFormModal exercise_id={id} exerciseName={name}/>
+                { sessionUser.id === user_id ?
+                    <>
+                        <EditExerciseFormModal exercise={exercise} />
+                        <button className="delete-exercise-btn" onClick={handleDelete}>
+                            <i className="fa-solid fa-square-minus"></i>
+                        </button>
+                    </>
+            : null}
+            </div>
         </div>
 	);
 };
