@@ -58,6 +58,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 				const error = data[i].split(": ");
 				errors[error[0]] = error[1];
 			}
+			console.log("EDIT EXERCISE ERRORS", errors);
 			setErrors(errors);
 			setImageLoading(false);
 			return;

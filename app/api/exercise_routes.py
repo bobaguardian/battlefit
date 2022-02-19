@@ -3,7 +3,7 @@ from flask_login import current_user
 from datetime import datetime
 from app.aws_s3 import upload_file_to_s3, allowed_file, get_unique_filename
 from app.models import db, Exercise, MuscleGroup
-from app.forms import ExerciseForm
+from app.forms import AddExerciseForm, EditExerciseForm
 
 
 exercise_routes = Blueprint('exercises', __name__)
@@ -19,6 +19,9 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
+def name_is_unique(name):
+    return Exercise.query.filter(Exercise.name == name).first()
+
 @exercise_routes.route('/')
 def get_all_exercises():
     exercises = Exercise.query.all()
@@ -27,7 +30,7 @@ def get_all_exercises():
 
 @exercise_routes.route('/', methods=["POST"])
 def add_exercise():
-    form = ExerciseForm()
+    form = AddExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form["image"].data:
@@ -44,9 +47,6 @@ def add_exercise():
         url = upload["url"]
         if form.validate_on_submit():
             muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
-            existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
-            if existing_exercise:
-                return {"errors": ["name: Exercise name already exists."]}, 401
 
             exercise = Exercise(
                 user_id = current_user.get_id(),
@@ -64,10 +64,6 @@ def add_exercise():
 
         if form.validate_on_submit():
             muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
-            existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
-            if existing_exercise:
-                return {"errors": ["name: Exercise name already exists."]}, 401
-
             exercise = Exercise(
                 user_id = current_user.get_id(),
                 muscle_group_id = muscle_group_id,
@@ -86,8 +82,12 @@ def add_exercise():
 
 @exercise_routes.route('/<int:exerciseId>', methods=["PUT"])
 def edit_exercise(exerciseId):
-    form = ExerciseForm()
+    form = EditExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    # if editing exercise and didn't change name, don't throw an error
+    # if name changed (and is different from original name), check if name is unique
+
 
     if form["image"].data:
         image = form["image"].data
@@ -106,6 +106,11 @@ def edit_exercise(exerciseId):
             muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
             exercise = Exercise.query.get(int(exerciseId))
             exercise.muscle_group_id = muscle_group_id
+
+            check_exercise = name_is_unique(form["name"].data)
+            if check_exercise and check_exercise.id != exercise.id:
+                return {"errors": ["name: Exercise name already exists."]}, 401
+
             exercise.name = form.data['name']
             exercise.description = form.data['description']
             exercise.image = url
@@ -115,21 +120,24 @@ def edit_exercise(exerciseId):
 
             return {"exercise": exercise.to_dict()}
     else:
-
-
         if form.validate_on_submit():
             muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
             exercise = Exercise.query.get(int(exerciseId))
             exercise.muscle_group_id = muscle_group_id
+
+            check_exercise = name_is_unique(form["name"].data)
+            if check_exercise and check_exercise.id != exercise.id:
+                return {"errors": ["name: Exercise name already exists."]}, 401
+
             exercise.name = form.data['name']
             exercise.description = form.data['description']
-            # exercise.image = "https://battle-fit.s3.amazonaws.com/3fbe7a6b56934db4aa272cf79aafb999.jpg"
             exercise.updated_at = datetime.now()
 
             db.session.commit()
 
             return {"exercise": exercise.to_dict()}
 
+    print(validation_errors_to_error_messages(form.errors))
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

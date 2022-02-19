@@ -116,7 +116,6 @@ export const getUserExercises = (id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(readUserExercises(data["exercises"]));
-        console.log(data["exercises"]);
     } else if (response.status < 500) {
         const data = await response.json();
         if (data.errors) {
