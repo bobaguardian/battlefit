@@ -54,6 +54,8 @@
 /* Exercises */
 .exercises-container {
     padding: 10px 30px;
+    min-width: 700px;
+
 }
 
 .exercise-box {
