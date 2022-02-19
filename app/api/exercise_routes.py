@@ -123,7 +123,7 @@ def edit_exercise(exerciseId):
             exercise.muscle_group_id = muscle_group_id
             exercise.name = form.data['name']
             exercise.description = form.data['description']
-            exercise.image = "https://battle-fit.s3.amazonaws.com/3fbe7a6b56934db4aa272cf79aafb999.jpg"
+            # exercise.image = "https://battle-fit.s3.amazonaws.com/3fbe7a6b56934db4aa272cf79aafb999.jpg"
             exercise.updated_at = datetime.now()
 
             db.session.commit()

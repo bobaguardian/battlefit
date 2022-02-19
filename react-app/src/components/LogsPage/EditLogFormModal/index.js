@@ -19,6 +19,12 @@ function EditLogFormModal({ setShowEditDeleteMenu, exerciseName, eId, eDate, eUn
       setShowEditDeleteMenu(false);
     }
 
+    useEffect(() => {
+      return () => {
+        setShowModal(false);
+      }
+    }, [])
+
     return (
       <>
         <button

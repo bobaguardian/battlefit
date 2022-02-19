@@ -13,7 +13,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 	const [errors, setErrors] = useState({});
 	const [name, setName] = useState(exercise.name);
 	const [description, setDescription] = useState(exercise.description);
-	const [image, setImage] = useState(exercise.image);
+	const [image, setImage] = useState(null);
 	const [imageLoading, setImageLoading] = useState(false);
 	const [muscle_group, setMuscleGroup] = useState(exercise.muscle_group.name);
 
@@ -47,6 +47,7 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 			formData.append("image", image);
 			setImageLoading(true);
 		}
+
         const data = await dispatch(editExercise(
             exercise.id,
             formData
@@ -166,13 +167,20 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 				onChange={updateImage}
 				></input>
 				<div className="preview-image-container">
+				{!image && (
+					<img
+						src={exercise.image}
+						alt="preview"
+						className="preview-image"
+					></img>
+				)}
 				{image && (
 					<img
-					alt="preview"
-					src={typeof image === "string" ?  image : URL.createObjectURL(image) }
-					className="preview-image"
+						src={URL.createObjectURL(image)}
+						alt="preview"
+						className="preview-image"
 					></img>
-					)}
+				)}
 				</div>
 				<label htmlFor="file-upload">Upload Photo</label>
 				{imageLoading && (
@@ -180,6 +188,9 @@ const EditExerciseForm = ({ showModal, exercise }) => {
 					<i className="fas fa-spinner fa-pulse"></i>
 				</p>
 				)}
+				<div className="errors-container">
+					{errors.image ? `${errors.image}` : ""}
+				</div>
 			</div>
 
 
