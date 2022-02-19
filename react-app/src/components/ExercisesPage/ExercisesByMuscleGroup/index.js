@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 
-
-import Exercise from "../Exercise";
-import ErrorPage from "../../ErrorPage";
-import AddExerciseFormModal from "../AddExerciseFormModal";
 import { getAllExercises } from "../../../store/exercises";
+import Exercise from "../Exercise";
+import AddExerciseFormModal from "../AddExerciseFormModal";
 
 
 const ExercisesByMuscleGroup = () => {
@@ -18,7 +16,7 @@ const ExercisesByMuscleGroup = () => {
 
     useEffect(() => {
         dispatch(getAllExercises(muscle));
-    }, [dispatch, location.pathname])
+    }, [dispatch, location.pathname, muscle])
 
     return (
         <div className="dash-main-container">

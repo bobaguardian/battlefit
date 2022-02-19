@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { addLog } from '../../../store/logs';
 import "../LogForm.css";
+
 const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
-
-	const sessionUser = useSelector((state) => state.session.user);
 
     let today = new Date();
     const offset = today.getTimezoneOffset();
     today = new Date(today.getTime() - (offset*60*1000));
     today = today.toISOString().split('T')[0];
 
-
 	const [errors, setErrors] = useState({});
 	const [date, setDate] = useState(today);
     const [unit_id, setUnitId] = useState(1);
 	const [unit_count, setUnitCount] = useState(1);
 	const [comment, setComment] = useState("");
-
 
     useEffect(() => {
         const errors = {};
@@ -40,7 +37,7 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 			setUnitCount(1);
 			setComment("");
 		}
-	}, []);
+	}, [showModal]);
 
 
 	const handleSubmit = async (e) => {
@@ -63,14 +60,12 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 			return;
         }
 
-
         if (location.pathname !== `/logs`) {
 			history.push(`/logs`);
 		}
+
 		showModal(false);
-
 	};
-
 
     const updateDate = (e) => {
 		setDate(e.target.value);
@@ -102,11 +97,11 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 					value={date}
 					onChange={updateDate}
 				/>
-
 				<div className="errors-container">
 					{errors.date ? `${errors.date}` : ""}
 				</div>
 			</div>
+
 			<div className="form-group select">
 				<label className="form-label" htmlFor="unit_id">
 					Unit

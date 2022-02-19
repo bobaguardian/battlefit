@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { addExercise } from '../../../store/exercises';
@@ -8,8 +8,6 @@ const AddExerciseForm = ({ showModal }) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
-
-	const sessionUser = useSelector((state) => state.session.user);
 
 	const [errors, setErrors] = useState({});
 	const [name, setName] = useState("");
@@ -35,7 +33,7 @@ const AddExerciseForm = ({ showModal }) => {
 			setImageLoading(false);
 			setMuscleGroup("Abs");
 		}
-	}, []);
+	}, [showModal]);
 
 
 	const handleSubmit = async (e) => {

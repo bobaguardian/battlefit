@@ -112,7 +112,7 @@ export const removeLog = (id) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const data = await response.json();
+        await response.json();
         dispatch(deleteLog(id))
     } else if (response.status < 500) {
         const data = await response.json();

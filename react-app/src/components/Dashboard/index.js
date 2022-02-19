@@ -1,17 +1,14 @@
 import { NavLink, Switch, Route } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
 
 import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
-import LogsPage from '../LogsPage';
 import UserExercisesPage from '../UserExercisesPage';
+import LogsPage from '../LogsPage';
 
 import "./Dashboard.css";
 
 const Dashboard = () => {
-	const sessionUser = useSelector(state => state.session.user)
-
     return (
         <div>
             <nav className="dash-nav">
@@ -25,9 +22,6 @@ const Dashboard = () => {
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >
-                        {/* <div className="dashboard-container">
-                            Dashboard Content
-                        </div> */}
                         <ExercisesPage />
                     </Route>
                     <Route path='/exercises/:muscle'>

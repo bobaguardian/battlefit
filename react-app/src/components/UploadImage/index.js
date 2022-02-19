@@ -4,13 +4,11 @@
 import { useState, useEffect } from "react";
 
 const UploadImage = () => {
-    const [errors, setErrors] = useState([]);
     const [image, setImage] = useState(null);
 	const [imageLoading, setImageLoading] = useState(false);
 
     useEffect(() => {
 		return () => {
-			setErrors([]);
 			setImage(null);
 			setImageLoading(false);
 		};

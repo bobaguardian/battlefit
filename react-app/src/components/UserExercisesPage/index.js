@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 
 import Exercise from "../ExercisesPage/Exercise";
@@ -10,7 +10,6 @@ import { getUserExercises } from "../../store/exercises";
 
 const UserExercisesPage = () => {
     const dispatch = useDispatch();
-    const location = useLocation();
     const history = useHistory();
     const { id } = useParams();
     const exercisesbyId = useSelector(state => state.exercises.byId);
@@ -23,7 +22,7 @@ const UserExercisesPage = () => {
                 history.push('/error-page')
             }
         })();
-      }, [dispatch]);
+      }, [dispatch, history, id]);
 
     return (
         <div className="dash-main-container">

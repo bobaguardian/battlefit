@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { getUserLogs } from "../../store/logs";
 import Log from "./Log";
 import './LogsPage.css';
@@ -12,7 +13,6 @@ const dateConverter = (str) => {
   return [mnth, day, theDate.getFullYear()].join("/");
 }
 
-
 const LogsPage = () => {
     const dispatch = useDispatch();
     const logsById = useSelector(state => state.logs.byId);
@@ -21,8 +21,6 @@ const LogsPage = () => {
         return -1;
     });
     let currentDate = "blah";
-    const [showLogs, setShowLogs] = useState([null, true]);
-    const [logsId, setLogsId] = useState(null);
 
     useEffect(() => {
         dispatch(getUserLogs());
@@ -44,7 +42,6 @@ const LogsPage = () => {
                             updated_at={updated_at} />
 
                     </div>
-
                 ))}
             </div>
         </div>

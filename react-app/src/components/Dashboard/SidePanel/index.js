@@ -18,7 +18,7 @@ const SidePanel = () => {
         <div className="side-panel-container">
             <div className="user-info">
                 <div className="user-image-edit-div">
-                    <img className="user-image" src={imageUrl} alt={`${sessionUser.username}'s profile picture`}></img>
+                    <img className="user-image" src={imageUrl} alt={`${sessionUser.username}'s profile pic`}></img>
                     <EditUserImageModal user={sessionUser} />
 
                 </div>

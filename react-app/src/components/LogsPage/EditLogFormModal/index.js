@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import EditLogForm from './EditLogForm';
 
-function EditLogFormModal({ setShowEditDeleteMenu, exerciseName, eId, eDate, eUnit, eUnitCount, eComment }) {
+function EditLogFormModal({ eId, exerciseName, eDate, eUnit, eUnitCount, eComment }) {
     const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = (e) => {
@@ -16,7 +16,6 @@ function EditLogFormModal({ setShowEditDeleteMenu, exerciseName, eId, eDate, eUn
       e.preventDefault();
       e.stopPropagation();
       setShowModal(false);
-      setShowEditDeleteMenu(false);
     }
 
     useEffect(() => {
