@@ -1,6 +1,7 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify, session
 from flask_login import current_user
 from datetime import datetime
+from app.aws_s3 import upload_file_to_s3, allowed_file, get_unique_filename
 from app.models import db, Exercise, MuscleGroup
 from app.forms import ExerciseForm
 
@@ -28,24 +29,57 @@ def get_all_exercises():
 def add_exercise():
     form = ExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
-        existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
-        if existing_exercise:
-            return {"errors": ["name: Exercise name already exists."]}, 401
 
-        exercise = Exercise(
-            user_id = current_user.get_id(),
-            muscle_group_id = muscle_group_id,
-            name = form.data['name'],
-            description = form.data['description'],
-            image = form.data['image']
-        )
+    if form["image"].data:
+        image = form["image"].data
+        if not allowed_file(image.filename):
+            return {"errors": "file type not allowed"}, 400
+        image.filename = get_unique_filename(image.filename)
 
-        db.session.add(exercise)
-        db.session.commit()
+        upload = upload_file_to_s3(image)
 
-        return {"exercise": exercise.to_dict()}
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload["url"]
+        if form.validate_on_submit():
+            muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
+            existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
+            if existing_exercise:
+                return {"errors": ["name: Exercise name already exists."]}, 401
+
+            exercise = Exercise(
+                user_id = current_user.get_id(),
+                muscle_group_id = muscle_group_id,
+                name = form.data['name'],
+                description = form.data['description'],
+                image = url
+            )
+
+            db.session.add(exercise)
+            db.session.commit()
+            return {"exercise": exercise.to_dict()}
+
+    else :
+
+        if form.validate_on_submit():
+            muscle_group_id = MuscleGroup.query.filter(MuscleGroup.name == form.data['muscle_group']).first().id
+            existing_exercise = Exercise.query.filter(Exercise.name == form.data['name']).first()
+            if existing_exercise:
+                return {"errors": ["name: Exercise name already exists."]}, 401
+
+            exercise = Exercise(
+                user_id = current_user.get_id(),
+                muscle_group_id = muscle_group_id,
+                name = form.data['name'],
+                description = form.data['description'],
+                image = "https://battle-fit.s3.amazonaws.com/3fbe7a6b56934db4aa272cf79aafb999.jpg"
+            )
+
+            db.session.add(exercise)
+            db.session.commit()
+
+            return {"exercise": exercise.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
