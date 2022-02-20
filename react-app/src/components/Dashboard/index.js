@@ -5,6 +5,7 @@ import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
 import UserExercisesPage from '../UserExercisesPage';
 import LogsPage from '../LogsPage';
+import Footer from '../Footer';
 
 import "./Dashboard.css";
 
@@ -38,6 +39,7 @@ const Dashboard = () => {
                     </Route>
                 </Switch>
             </main>
+            <Footer />
         </div>
     )
 }

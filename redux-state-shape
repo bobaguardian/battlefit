@@ -4,7 +4,9 @@
             id,
             username,
             email,
-            hashed_password
+            image,
+            exercises, (use this & default exercises for battle generation)
+            battles, (use this for monster dex)
         }
     },
 
@@ -23,12 +25,27 @@
 
     logs: { (specific to the session user)
         byId: {
-            id,
-            exercise_id,
-            unit_id,
-            date,
-            comment,
-            unit_count
+            logId1: {
+                id,
+                exercise_id,
+                unit_id,
+                date,
+                comment,
+                unit_count
+            }
         }, ...
-    }
+    },
+
+    monsters : { (fixed)
+        byId: {
+            monsterId1: {
+                id,
+                name,
+                level,
+                image,
+                description
+            }, ...
+        }
+
+    },
 }

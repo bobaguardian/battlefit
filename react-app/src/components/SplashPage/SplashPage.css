@@ -58,16 +58,6 @@
     cursor: pointer;
 }
 
-footer {
-    border-top: 1px solid var(--lavender-blush);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .copyright {
     padding: 10px;
 }
