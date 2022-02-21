@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import LogoutButton from '../../auth/LogoutButton';
 import { getUserExercises } from "../../../store/exercises";
+import { getAllMonsters } from "../../../store/monsters";
 import EditUserImageModal from "./EditUserImageModal";
 
 const SidePanel = () => {
@@ -15,6 +16,7 @@ const SidePanel = () => {
     }
 
     const goToMonsterDex = async (e) => {
+        await dispatch(getAllMonsters());
         history.push("/monster-dex");
     }
 

@@ -1,0 +1,22 @@
+
+.monster-box {
+    display: flex;
+    border: 1px solid var(--max-blue-purple);
+    border-radius: 3px;
+    padding: 30px 30px;
+    margin-bottom: 15px;
+}
+
+.monster-box img{
+    object-fit: cover;
+    width: 250px;
+    border: none;
+    border-radius: 3px;
+}
+
+.monster-details {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+
+}
