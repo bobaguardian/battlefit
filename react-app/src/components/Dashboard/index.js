@@ -3,8 +3,10 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
-import UserExercisesPage from '../UserExercisesPage';
 import LogsPage from '../LogsPage';
+import UserExercisesPage from '../UserExercisesPage';
+import MonsterDex from '../MonsterDex';
+import MonsterDetails from '../MonsterDex/MonsterDetails';
 import Footer from '../Footer';
 
 import "./Dashboard.css";
@@ -36,6 +38,12 @@ const Dashboard = () => {
                     </Route>
                     <Route path="/users/:id">
                         <UserExercisesPage />
+                    </Route>
+                    <Route exact path="/monster-dex">
+                        <MonsterDex />
+                    </Route>
+                    <Route path="/monsters/:id">
+                        <MonsterDetails />
                     </Route>
                 </Switch>
             </main>

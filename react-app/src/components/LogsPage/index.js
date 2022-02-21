@@ -5,7 +5,7 @@ import { getUserLogs } from "../../store/logs";
 import Log from "./Log";
 import './LogsPage.css';
 
-const dateConverter = (str) => {
+export const dateConverter = (str) => {
     let theDate = new Date(str);
     theDate.setDate(theDate.getDate() + 1)
     let mnth = ("0" + (theDate.getMonth() + 1)).slice(-2);
