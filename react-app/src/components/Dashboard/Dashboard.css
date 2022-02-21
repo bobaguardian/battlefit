@@ -157,7 +157,8 @@
 }
 
 
-#my-exercises-btn {
+#my-exercises-btn,
+#monster-dex-btn {
     width: 70%;
     padding: 7px;
     margin-bottom: 25px;
@@ -171,19 +172,20 @@
 
 }
 
-#my-exercises-btn:hover {
+#my-exercises-btn:hover,
+#monster-dex-btn:hover {
     background-color: var(--lavender-blush-dark);
 }
 
 .logout-btn {
     width: 70%;
-    padding: 7px;
+    padding: 5px;
     background-color: var(--french-violet);
     border: none;
     border-radius: 3px;
     color: var(--lavender-blush);
     transition: all 0.2s ease-in-out;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .logout-btn:hover {
