@@ -14,6 +14,10 @@ const SidePanel = () => {
         history.push(`/users/${sessionUser.id}`);
     }
 
+    const goToMonsterDex = async (e) => {
+        history.push("/monster-dex");
+    }
+
     return (
         <div className="side-panel-container">
             <div className="user-info">
@@ -26,6 +30,7 @@ const SidePanel = () => {
                 <h3>{sessionUser.username}</h3>
             </div>
             <button id="my-exercises-btn" onClick={goToMyExercises}>My Exercises</button>
+            <button id="monster-dex-btn" onClick={goToMonsterDex}>Monster Dex</button>
             <LogoutButton />
         </div>
     )

@@ -37,6 +37,9 @@ const Dashboard = () => {
                     <Route path="/users/:id">
                         <UserExercisesPage />
                     </Route>
+                    <Route exact path="/monster-dex">
+                        <h2>Monster Dex</h2>
+                    </Route>
                 </Switch>
             </main>
             <Footer />

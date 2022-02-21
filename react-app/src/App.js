@@ -42,7 +42,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={["/", "/exercises", "/logs", ...musclePaths, "/users/:id"]}>
+        <Route exact path={["/", "/exercises", "/logs", ...musclePaths, "/users/:id", "/monster-dex"]}>
           { sessionUser ? <Dashboard /> : <SplashPage /> }
         </Route>
         <Route>
