@@ -1,0 +1,15 @@
+.battle-page h2{
+    /* border: 1px solid red; */
+}
+
+
+.battle-monster-img {
+    width: 70%;
+    max-height: 400px;
+    border-radius: 3px;
+    margin-left: 15%;
+}
+
+.battle-monster-img img {
+    object-fit: contain;
+}

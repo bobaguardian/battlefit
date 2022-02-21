@@ -7,6 +7,7 @@ import LogsPage from '../LogsPage';
 import UserExercisesPage from '../UserExercisesPage';
 import MonsterDex from '../MonsterDex';
 import MonsterDetails from '../MonsterDex/MonsterDetails';
+import BattlePage from '../BattlePage';
 import Footer from '../Footer';
 
 import "./Dashboard.css";
@@ -47,7 +48,7 @@ const Dashboard = () => {
                         <MonsterDetails />
                     </Route>
                     <Route exact path='/battle'>
-
+                        <BattlePage />
                     </Route>
                 </Switch>
             </main>

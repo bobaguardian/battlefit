@@ -3,6 +3,8 @@ const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER';
 
+const CREATE_BATTLE = "session/CREATE_BATTLE";
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -15,6 +17,11 @@ const removeUser = () => ({
 const updateUser = (user) => ({
 	type: UPDATE_USER,
 	user,
+})
+
+const createBattle = (battle) => ({
+  type: CREATE_BATTLE,
+  battle
 })
 
 const initialState = { user: null };
@@ -110,6 +117,20 @@ export const updateUserImage = (formData, id) => async (dispatch) => {
 		};
 }
 
+export const generateBattle = () => async (dispatch) => {
+  const res = await fetch("/api/battles/", {
+    method: "POST"
+  });
+  const data = await res.json();
+  if (res.ok) {
+		dispatch(updateUser(data["battle"]));
+    return data["battle"];
+	} else
+		return {
+			errors: ["Something went wrong, please try again"],
+		};
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
@@ -118,6 +139,8 @@ export default function reducer(state = initialState, action) {
       return { user: null }
     case UPDATE_USER:
       return {user: action.user}
+    case CREATE_BATTLE:
+      return { user: {["battles"]: [...state.battles, action.battle], ...state} }
     default:
       return state;
   }

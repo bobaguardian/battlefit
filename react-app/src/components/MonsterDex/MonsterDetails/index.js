@@ -17,8 +17,6 @@ const MonsterDetails = () => {
     for (let i = 0; i < battlesWithMonster.length; i++) {
         if (battlesWithMonster[i].defeated) defeatCount++;
     }
-    console.log("Defeat Count", defeatCount);
-
 
     return (
         <div className="dash-main-container monster-details-container">
