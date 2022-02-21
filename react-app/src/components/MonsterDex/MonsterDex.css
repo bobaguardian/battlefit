@@ -1,3 +1,7 @@
+.monsters-container {
+    margin: 30px;
+}
+
 
 .monster-box {
     display: flex;
