@@ -17,8 +17,9 @@ const Dashboard = () => {
             <nav className="dash-nav">
                 <a className="Logo" href="/"><h1>BattleFit</h1></a>
                 <div className="nav-links">
-                    <NavLink to='/exercises'>Exercises</NavLink>
-                    <NavLink to='/logs'>My Logs</NavLink>
+                    <NavLink exact to='/exercises' activeClassName="active">Exercises</NavLink>
+                    <NavLink exact to='/logs' activeClassName="active">My Logs</NavLink>
+                    <NavLink exact to='/battle' activeClassName="active">Battle</NavLink>
                 </div>
             </nav>
             <main className="dash-side-main-container">
@@ -44,6 +45,9 @@ const Dashboard = () => {
                     </Route>
                     <Route path="/monsters/:id">
                         <MonsterDetails />
+                    </Route>
+                    <Route exact path='/battle'>
+
                     </Route>
                 </Switch>
             </main>
