@@ -1,11 +1,9 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import BattleRecord from "./BattleRecord";
 
 const MonsterDetails = () => {
-    const dispatch = useDispatch();
     const battlesById = useSelector(state => state.session.user.battles);
     const { id } = useParams();
     let battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
