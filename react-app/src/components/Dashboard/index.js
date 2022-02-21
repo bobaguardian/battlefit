@@ -6,6 +6,7 @@ import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
 import LogsPage from '../LogsPage';
 import UserExercisesPage from '../UserExercisesPage';
 import MonsterDex from '../MonsterDex';
+import MonsterDetails from '../MonsterDex/MonsterDetails';
 import Footer from '../Footer';
 
 import "./Dashboard.css";
@@ -40,6 +41,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path="/monster-dex">
                         <MonsterDex />
+                    </Route>
+                    <Route path="/monsters/:id">
+                        <MonsterDetails />
                     </Route>
                 </Switch>
             </main>

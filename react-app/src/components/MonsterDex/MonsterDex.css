@@ -33,8 +33,25 @@
     height: 200px;
 }
 
-/* .monster-details {
-    padding: 30px 30px;
+/* MonsterDetails */
+.dash-main-container.monster-details-container {
     display: flex;
     flex-direction: column;
-} */
+}
+
+.monster-details-header {
+    display: flex;
+    align-items: center;
+    /* margin-left: 50px; */
+}
+
+
+.monster-details-container img {
+    object-fit: cover;
+}
+
+.monster-details-img {
+    width: 70%;
+    border-radius: 3px;
+    margin-left: 15%;
+}
