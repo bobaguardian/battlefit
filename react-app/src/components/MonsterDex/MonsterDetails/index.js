@@ -2,14 +2,12 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { dateConverter } from "../../LogsPage";
+import BattleRecord from "./BattleRecord";
 
 const MonsterDetails = () => {
     const dispatch = useDispatch();
     const battlesById = useSelector(state => state.session.user.battles);
     const { id } = useParams();
-    console.log(id);
-
     const battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
     console.log(battlesWithMonster);
     const monster = battlesWithMonster[0].monster;
@@ -29,10 +27,19 @@ const MonsterDetails = () => {
             </div>
             <img className="monster-details-img" src={monster.image} alt={`${monster.name}-monster`}></img>
 
-            <div>
+            <div className="monster-details-text">
                 <p className="monster-description">{monster.description}</p>
-                <p>Date: {dateConverter(battlesWithMonster[0].date)}</p>
-                {battlesWithMonster[0].defeated ? <p>Defeated!</p> : <p>Encountered!</p>}
+                {defeatCount > 0 ? defeatCount === 1 ? <p>Defeated {defeatCount} time!</p>
+                    : <p>Defeated {defeatCount} times!</p>
+                    : <p>Encountered!</p>}
+            </div>
+
+            <div className="battle-records-container">
+                <h3>Battle Records</h3>
+                {battlesWithMonster.map(({date, defeated}, index) => (
+                    <BattleRecord key={`battle-record-${index}`} date={date} defeated={defeated}/>
+                ))}
+
             </div>
 
         </div>

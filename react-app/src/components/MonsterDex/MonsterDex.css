@@ -41,8 +41,16 @@
 
 .monster-details-header {
     display: flex;
-    align-items: center;
-    /* margin-left: 50px; */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dash-main-container .monster-details-header h2 {
+    padding-bottom: 0px;
+}
+
+.monster-details-header p {
+    padding-left: 20px;
 }
 
 
@@ -58,6 +66,23 @@
 }
 
 
-.monster-description {
+.monster-details-text {
     margin: 30px;
+}
+
+/* Battle Record */
+.battle-records-container {
+    margin: 30px;
+}
+
+.battle-record {
+    display: flex;
+}
+
+.victory-text {
+    color: var(--tea-green);
+}
+
+.defeat-text {
+    color: var(--light-coral);
 }
