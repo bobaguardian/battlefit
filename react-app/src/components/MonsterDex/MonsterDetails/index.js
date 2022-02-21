@@ -13,7 +13,11 @@ const MonsterDetails = () => {
     const battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
     console.log(battlesWithMonster);
     const monster = battlesWithMonster[0].monster;
-    // const defeat_count = battlesWithMonster.reduce(())
+    let defeatCount = 0;
+    for (let i = 0; i < battlesWithMonster.length; i++) {
+        if (battlesWithMonster[i].defeated) defeatCount++;
+    }
+    console.log("Defeat Count", defeatCount);
 
 
     return (

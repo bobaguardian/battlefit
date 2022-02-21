@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
@@ -19,20 +18,28 @@ const MonsterDex = () => {
         if (a.monster.id > b.monster.id) return 1;
         else return -1;
     });
-    const monsters = battles.map(battle => battle.monster);
 
+    let monsters = battles.map(battle => battle.monster);
+    let lastMonster = "blah";
 
-    useEffect(() => {
-        const data = dispatch(getAllMonsters());
-    }, [dispatch]);
+    const setLastMonster = (name) => {
+        lastMonster = name;
+    }
 
     return (
         <div className="dash-main-container">
             <h2>Monster Dex</h2>
             <div className="monsters-container">
                 {monsters.map(( {id, name, image, description, level} ,index) => (
-                    <Monster key={`monster-dex-${index}`}
-                        id={id} name={name} image={image} description={description} level={level}/>
+                    <>
+                        {lastMonster === name ? null :
+                            <>
+                                {setLastMonster(name)}
+                                <Monster key={`monster-dex-${index}`}
+                                    id={id} name={name} image={image} description={description} level={level}/>
+                            </>
+                        }
+                    </>
                 ))}
             </div>
         </div>
