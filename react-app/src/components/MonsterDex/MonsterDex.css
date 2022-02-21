@@ -1,26 +1,40 @@
 .monsters-container {
-    margin: 30px;
+    padding: 10px 30px;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
 }
 
 
 .monster-box {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--max-blue-purple);
     border-radius: 3px;
-    padding: 30px 30px;
-    margin-bottom: 15px;
+    padding: 15px 15px;
+    margin: 15px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.monster-box:hover {
+    background-color: var(--french-violet);
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .monster-box img{
-    object-fit: cover;
-    width: 250px;
-    border: none;
-    border-radius: 3px;
+    object-fit: contain;
 }
 
-.monster-details {
+.monster-img {
+    width: 200px;
+    height: 200px;
+}
+
+/* .monster-details {
     padding: 30px 30px;
     display: flex;
     flex-direction: column;
-
-}
+} */
