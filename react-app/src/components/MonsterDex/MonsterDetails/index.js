@@ -8,8 +8,12 @@ const MonsterDetails = () => {
     const dispatch = useDispatch();
     const battlesById = useSelector(state => state.session.user.battles);
     const { id } = useParams();
-    const battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
-    console.log(battlesWithMonster);
+    let battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
+    battlesWithMonster = battlesWithMonster.sort((a, b) => {
+        if (new Date(a.date) < new Date(b.date)) return 1;
+        return -1;
+    })
+
     const monster = battlesWithMonster[0].monster;
     let defeatCount = 0;
     for (let i = 0; i < battlesWithMonster.length; i++) {
