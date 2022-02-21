@@ -21,6 +21,7 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image }) => {
                 {image ? <img className="exercise-image" src={image} alt="exercise-pic"></img> : null}
                 <div className="exercise-detail-container">
                     <h3>{name}</h3>
+                    {muscle_group ? <p>{muscle_group.name}</p> : null}
                     <p>{description}</p>
                 </div>
 
