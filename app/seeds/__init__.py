@@ -4,6 +4,8 @@ from .muscle_groups import seed_muscle_groups, undo_muscle_groups
 from .units import seed_units, undo_units
 from .exercises import seed_exercises, undo_exercises
 from .logs import seed_logs, undo_logs
+from .monsters import seed_monsters, undo_monsters
+from .battles import seed_battles, undo_battles
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -18,6 +20,8 @@ def seed():
     seed_units()
     seed_exercises()
     seed_logs()
+    seed_monsters()
+    seed_battles()
     # Add other seed functions here
 
 
@@ -29,4 +33,6 @@ def undo():
     undo_units()
     undo_exercises()
     undo_logs()
+    undo_monsters()
+    undo_battles()
     # Add other undo functions here
