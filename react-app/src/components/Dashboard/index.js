@@ -1,4 +1,4 @@
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 
 import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >
-                        <ExercisesPage />
+                        <Redirect to="/exercises" />
                     </Route>
                     <Route path='/exercises/:muscle'>
                         <ExercisesByMuscleGroup />
