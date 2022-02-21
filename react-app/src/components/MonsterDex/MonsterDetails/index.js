@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { dateConverter } from "../../LogsPage";
+
 const MonsterDetails = () => {
     const dispatch = useDispatch();
     const battlesById = useSelector(state => state.session.user.battles);
@@ -23,8 +25,8 @@ const MonsterDetails = () => {
             <img className="monster-details-img" src={monster.image} alt={`${monster.name}-monster`}></img>
 
             <div>
-                <p>{monster.description}</p>
-                <p>Date: {battlesWithMonster[0].date}</p>
+                <p className="monster-description">{monster.description}</p>
+                <p>Date: {dateConverter(battlesWithMonster[0].date)}</p>
                 {battlesWithMonster[0].defeated ? <p>Defeated!</p> : <p>Encountered!</p>}
             </div>
 

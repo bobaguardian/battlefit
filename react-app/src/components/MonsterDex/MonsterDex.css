@@ -47,11 +47,17 @@
 
 
 .monster-details-container img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .monster-details-img {
     width: 70%;
+    height: 400px;
     border-radius: 3px;
     margin-left: 15%;
+}
+
+
+.monster-description {
+    margin: 30px;
 }
