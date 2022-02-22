@@ -29,16 +29,18 @@ const BattlePage = () => {
     const [currentBattle, setCurrentBattle] = useState(null);
     const [exercises, setExercises] = useState([]);
     const [victory, setVictory] = useState(false);
+    const [oldBattle, setOldBattle] = useState(null);
 
 
     useEffect(() => { // when sessionUser state changes
-        let oldBattle = sessionUser.battles.filter(battle => {
+        let lastBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
 
-       if(oldBattle) {
-           setCurrentBattle(oldBattle);
+       if(lastBattle) {
+           setCurrentBattle(lastBattle);
+           setOldBattle(lastBattle)
        }
 
     }, [dispatch, sessionUser])
@@ -74,12 +76,19 @@ const BattlePage = () => {
 
     return (
         <div className="dash-main-container battle-page">
-            { victory  || !currentBattle ?
+            { victory ?
             <div>
                 <h2>Victory!</h2>
+                <p>You defeated {currentBattle.monster.name}</p>
+                <p>Rest up, or battle another monster!</p>
                 <button onClick={handleBattleGeneration}>Generate a New Battle</button>
             </div>
-
+            :
+            !oldBattle ?
+                <div>
+                    <h2>You don't have a battle for today</h2>
+                    <button onClick={handleBattleGeneration}>Generate a New Battle</button>
+                </div>
             :
             <div>
                 <h2>Fight!</h2>
