@@ -4,3 +4,6 @@ from .muscle_group import MuscleGroup
 from .unit import Unit
 from .exercise import Exercise
 from .log import Log
+from .monster import Monster
+from .battle import Battle
+from .battles_exercises import battles_exercises

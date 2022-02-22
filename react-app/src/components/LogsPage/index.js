@@ -5,7 +5,7 @@ import { getUserLogs } from "../../store/logs";
 import Log from "./Log";
 import './LogsPage.css';
 
-const dateConverter = (str) => {
+export const dateConverter = (str) => {
     let theDate = new Date(str);
     theDate.setDate(theDate.getDate() + 1)
     let mnth = ("0" + (theDate.getMonth() + 1)).slice(-2);
@@ -28,7 +28,7 @@ const LogsPage = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Your Logs</h2>
+            <h2>Your Logs <i className="fa-solid fa-calendar-days"></i></h2>
             <div className="logs-container">
                 {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
                     <div key={`log-${index}`}className="logs-inner-container">

@@ -38,7 +38,7 @@ const UploadImage = () => {
             return;
         }
         setImageLoading(false);
-        alert("upload success!");
+        console.log("upload success!");
 
     }
 

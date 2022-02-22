@@ -32,7 +32,6 @@ const ExercisesByMuscleGroup = () => {
                     id={id}
                     user_id={user_id}
                     name={name}
-                    muscle_group={muscle_group}
                     description={description}
                     image={image}
                     />

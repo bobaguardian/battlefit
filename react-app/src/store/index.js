@@ -4,12 +4,14 @@ import session from './session';
 import exercises from './exercises';
 import muscles from './muscles';
 import logs from './logs';
+import monsters from './monsters';
 
 const rootReducer = combineReducers({
   session,
   muscles,
   exercises,
-  logs
+  logs,
+  monsters
 });
 
 

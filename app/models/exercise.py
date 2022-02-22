@@ -1,5 +1,7 @@
 from datetime import datetime
 from .db import db
+from .battles_exercises import battles_exercises
+
 
 class Exercise(db.Model):
     __tablename__ = 'exercises'
@@ -16,6 +18,8 @@ class Exercise(db.Model):
     user = db.relationship("User", back_populates="exercises")
     muscle_group = db.relationship("MuscleGroup", back_populates="exercises")
     logs = db.relationship("Log", back_populates="exercise", cascade="all, delete")
+    # battles = db.relationship("Battle", secondary=battles_exercises, back_populates="exercises")
+
 
     def to_dict(self):
         return {
@@ -24,7 +28,7 @@ class Exercise(db.Model):
             'name': self.name,
             'description': self.description,
             'image': self.image,
-            'user': self.user.to_dict(),
+            'username': self.user.username,
             'muscle_group': self.muscle_group.to_dict(),
             'created_at': str(self.created_at),
             'updated_at': str(self.updated_at)

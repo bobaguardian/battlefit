@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
 
     exercises = db.relationship("Exercise", back_populates="user")
     logs = db.relationship("Log", back_populates="user")
+    battles = db.relationship("Battle", back_populates="user")
 
     @property
     def password(self):
@@ -36,5 +37,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'image': self.image,
             'created_at': str(self.created_at),
-            'updated_at': str(self.updated_at)
+            'updated_at': str(self.updated_at),
+            'logs': [log.to_dict() for log in self.logs],
+            'battles': [battle.to_dict() for battle in self.battles]
         }

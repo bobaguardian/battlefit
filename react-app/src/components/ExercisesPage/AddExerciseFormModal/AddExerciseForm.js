@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
 import { addExercise } from '../../../store/exercises';
@@ -8,6 +8,8 @@ const AddExerciseForm = ({ showModal }) => {
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const history = useHistory();
+	const sessionUser = useSelector((state) => state.session.user);
+
 
 	const [errors, setErrors] = useState({});
 	const [name, setName] = useState("");
@@ -62,8 +64,8 @@ const AddExerciseForm = ({ showModal }) => {
 
 			return;
         }
-		if (location.pathname !== `/exercises/${muscle_group}`) {
-			history.push(`/exercises/${muscle_group}`);
+		if (location.pathname !== `/users/${sessionUser.id}`) {
+			history.push(`/users/${sessionUser.id}`);
 		}
 
 		showModal(false);

@@ -5,6 +5,7 @@ const CREATE_EXERCISE = 'exercises/CREATE_EXERCISE';
 const UPDATE_EXERCISE = 'exercises/UPDATE_EXERCISE';
 const DELETE_EXERCISE = 'exercises/DELETE_EXERCISE';
 const READ_USER_EXERCISES = 'exercises/READ_USER_EXERCISES';
+const CREATE_MONSTER_EXERCISES = 'exercises/CREATE_MONSTER_EXERCISES';
 
 // Action creators
 const readExercises = (exercises) => {
@@ -38,6 +39,13 @@ const deleteExercise = (id) => {
 const readUserExercises = (exercises) => {
     return {
         type: READ_USER_EXERCISES,
+        exercises
+    }
+}
+
+const createMonsterExercises = (exercises) => {
+    return {
+        type: CREATE_MONSTER_EXERCISES,
         exercises
     }
 }
@@ -124,8 +132,15 @@ export const getUserExercises = (id) => async (dispatch) => {
     }
 }
 
+export const generateMonsterExercises = (numExercises) => async (dispatch) => {
+    const res = await fetch(`/api/battles/generate_exercises/${numExercises}`);
+    const data = await res.json();
+    dispatch(createMonsterExercises(data['exercises']));
+    return data['exercises'];
+}
 
-const initialState = { byId: {} }
+
+const initialState = { byId: {}, monsterExercises: {} }
 
 export default function reducer(state = initialState, action) {
     let newState;
@@ -159,6 +174,13 @@ export default function reducer(state = initialState, action) {
             let loadUserExercises = {}
             action.exercises.forEach(exercise => loadUserExercises[exercise.id] = exercise);
             newState = { ...state, byId: { ...loadUserExercises } };
+            return newState;
+
+        // FOR BATTLE SECTION
+        case CREATE_MONSTER_EXERCISES:
+            let loadMonsterExercises = {}
+            action.exercises.forEach(exercise => loadMonsterExercises[exercise.id] = exercise);
+            newState = { ...state, monsterExercises: { ...loadMonsterExercises } };
             return newState;
 
         default:
