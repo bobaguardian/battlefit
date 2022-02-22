@@ -180,13 +180,13 @@ export default function reducer(state = initialState, action) {
     case UPDATE_USER:
       return {user: action.user}
     case CREATE_BATTLE:
-      return { user: {...state.user, ["battles"]: [...state.user.battles, action.battle]} }
-
-      // newState = {user: {...state.user}};
-      // newState.user.battles.push(action.battle);
-      // newState.user.battles = [...newState.user.battles]
-
-      // return newState;
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          battles: state.user.battles.concat([action.battle])
+        }
+      }
 
     case DELETE_BATTLE_EXERCISE:
       newState = { user: {...state.user} };
@@ -209,13 +209,8 @@ export default function reducer(state = initialState, action) {
         }
       }
 
-
-      // return newState;
-
     case UPDATE_BATTLE_VICTORY:
       newState = { user: {...state.user} };
-      // let battleToUpdate = newState.user.battles.find(battle => battle.id === action.battle.id)
-      // indexOfBattle = newState.user.battles.indexOf(battleToUpdate)
 
       for (let i = 0; i < newState.user.battles.length; i++) {
         if ( newState.user.battles[i].id === action.battle.id) {
