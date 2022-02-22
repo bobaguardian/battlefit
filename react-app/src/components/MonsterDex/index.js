@@ -21,7 +21,7 @@ const MonsterDex = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Monster Dex</h2>
+            <h2>Monster Dex <i className="fa-solid fa-dragon"></i></h2>
             <div className="monsters-container">
                 {monsters.map(( {id, name, image, description, level} ,index) => (
                     <React.Fragment key={`monster-div-${index}`}>

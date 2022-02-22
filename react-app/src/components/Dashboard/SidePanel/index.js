@@ -32,7 +32,7 @@ const SidePanel = () => {
                 <h3>{sessionUser.username}</h3>
             </div>
             <button id="my-exercises-btn" onClick={goToMyExercises}>My Exercises  <i className="fa-solid fa-dumbbell"></i></button>
-            <button id="monster-dex-btn" onClick={goToMonsterDex}>Monster Dex  <i className="fa-solid fa-dragon"></i></button>
+            <button id="monster-dex-btn" onClick={goToMonsterDex}>Monster Dex  <i className="fa-solid fa-book-journal-whills"></i></button>
             <LogoutButton />
         </div>
     )

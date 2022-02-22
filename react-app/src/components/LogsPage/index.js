@@ -28,7 +28,7 @@ const LogsPage = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Your Logs</h2>
+            <h2>Your Logs <i className="fa-solid fa-calendar-days"></i></h2>
             <div className="logs-container">
                 {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
                     <div key={`log-${index}`}className="logs-inner-container">
