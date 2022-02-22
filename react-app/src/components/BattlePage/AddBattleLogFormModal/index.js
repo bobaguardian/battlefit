@@ -17,7 +17,7 @@ function AddBattleLogFormModal({ battleId, exercise_id, exerciseName, monsterNam
         <button
           className='add-log-btn'
           onClick={() => setShowModal(true)}>
-          <i className="fa-solid fa-calendar-plus"></i>
+          <i className="fa-solid fa-fire"></i>
         </button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

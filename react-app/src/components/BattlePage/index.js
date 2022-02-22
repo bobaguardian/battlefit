@@ -83,22 +83,22 @@ const BattlePage = () => {
     }
 
     return (
-        <div className="dash-main-container battle-page">
+        <div className="dash-main-container">
             { victory || currentBattle?.defeated ?
-            <div>
+            <div className="battle-page">
                 <h2>Victory!</h2>
                 <p>You defeated {currentBattle.monster.name}</p>
                 <p>Rest up, or battle another monster!</p>
-                <button onClick={handleBattleGeneration}>Generate a New Battle</button>
+                <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
             </div>
             :
             !currentBattle ?
-                <div>
+                <div className="battle-page">
                     <h2>You don't have a current battle</h2>
-                    <button onClick={handleBattleGeneration}>Generate a New Battle</button>
+                    <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
                 </div>
             :
-            <div>
+            <div className="battle-monster-container">
                 <h2>Fight!</h2>
                 <div className="battle-monster-div">
                     { currentBattle ?
@@ -106,14 +106,16 @@ const BattlePage = () => {
                             <img className="battle-monster-img"
                                 src={currentBattle?.monster?.image}
                                 alt={`${currentBattle?.monster?.name}-monster`}></img>
-                            <h3>{currentBattle?.monster?.name}</h3>
-                            <p>HP: {hp}%</p>
+                            <div className="battle-monster-name-hp">
+                                <h3>{currentBattle?.monster?.name}</h3>
+                                <p>HP: {hp}%</p>
+                            </div>
 
                         </React.Fragment>
                     : null}
                 </div>
 
-                <div>
+                <div className="battle-exercises-container">
                 {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
                         <Exercise key={`monster-exercise-${index}`}
                         id={id}

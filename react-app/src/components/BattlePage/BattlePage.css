@@ -1,16 +1,62 @@
-.battle-page h2{
-    /* border: 1px solid red; */
+.battle-page{
+    display: flex;
+    align-items: center;
+
 }
 
+.battle-monster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.battle-monster-div {
+    text-align: center;
+}
+
+.battle-monster-name-hp {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 .battle-monster-img {
     width: 60%;
     height: auto;
     max-height: 800px;
     border-radius: 3px;
-    margin-left: 20%;
 }
 
 .battle-monster-img img {
     object-fit: contain;
+}
+
+.battle-exercises-container {
+    width: 80%;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.battle-exercises-container .exercise-box {
+    margin: 15px;
+}
+
+
+
+.generate-battle-btn {
+    background-color: var(--french-violet);
+    color: var(--lavender-blush);
+    border: none;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.generate-battle-btn:hover {
+    transform: scale(1.1);
 }
