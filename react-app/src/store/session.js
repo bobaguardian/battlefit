@@ -123,7 +123,7 @@ export const generateBattle = () => async (dispatch) => {
   });
   const data = await res.json();
   if (res.ok) {
-		dispatch(updateUser(data["battle"]));
+		dispatch(createBattle(data["battle"]));
     return data["battle"];
 	} else
 		return {
@@ -140,7 +140,7 @@ export default function reducer(state = initialState, action) {
     case UPDATE_USER:
       return {user: action.user}
     case CREATE_BATTLE:
-      return { user: {["battles"]: [...state.battles, action.battle], ...state} }
+      return { user: {...state.user, ["battles"]: [...state.user.battles, action.battle]} }
     default:
       return state;
   }
