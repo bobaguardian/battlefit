@@ -28,7 +28,7 @@ class Exercise(db.Model):
             'name': self.name,
             'description': self.description,
             'image': self.image,
-            'user': self.user.to_dict(),
+            'username': self.user.username,
             'muscle_group': self.muscle_group.to_dict(),
             'created_at': str(self.created_at),
             'updated_at': str(self.updated_at)

@@ -30,6 +30,7 @@ def add_battle():
     # Generate random unique exercises
     # Right now only includes the default ids 1-23, TO DO: add user's exercises too
     exercise_list = Exercise.query.filter(Exercise.id > 0).filter(Exercise.id < 24).all()
+    exercise_list.extend(Exercise.query.filter(Exercise.user_id == current_user.get_id()).all())
     exercises = random.sample(exercise_list, level_converter[new_battle.monster.level])
     for e in exercises:
         new_battle.exercises.append(e)
