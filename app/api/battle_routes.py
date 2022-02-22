@@ -46,24 +46,39 @@ def add_battle():
 @login_required
 def remove_battle_exercise(battle_id, exercise_id):
     current_battle = Battle.query.get(int(battle_id))
-    print("CURRENT BATTLE AGAINST: ", current_battle.monster.name)
-    if current_battle:
+    if current_battle and current_battle.user_id == int(current_user.get_id()):
     # update exercises to be all but the exercise with exercise_id
         current_battle.exercises = [e for e in current_battle.exercises if e.id != exercise_id]
-        print("Current Battle Exercises:", [e for e in current_battle.exercises])
         db.session.commit()
         return {'battle': current_battle.to_dict()}
 
-    return {'errors': ["A battle with that id doesn't exist."]}, 401
+    return {'errors': ["Either a battle with that id doesn't exist or you are not part of this battle."]}, 401
 
 
-@battle_routes.route('/generate_exercises/<int:num_exercises>')
+
+
+@battle_routes.route('/<int:battle_id>', methods=["PUT"])
 @login_required
+def update_battle_victory(battle_id):
+    current_battle = Battle.query.get(int(battle_id))
+    if current_battle and current_battle.user_id == int(current_user.get_id()):
+        if current_battle.defeated:
+            return {'errors': ["You have already won this battle"]}, 401
+
+        current_battle.defeated = True
+        db.session.commit()
+        return {'battle': current_battle.to_dict()}
+
+    return {'errors': ["Either a battle with that id doesn't exist or you are not part of this battle."]}, 401
+
+
+
+# HELPER API ROUTE
+@battle_routes.route('/generate_exercises/<int:num_exercises>')
 def generateExercises(num_exercises):
     # Generates random num_exercises from default seeders
     #  and current user's exercises
     exercise_list = Exercise.query.filter(Exercise.id > 0).filter(Exercise.id < 24).all()
 
     exercises = random.sample(exercise_list, num_exercises)
-    print("**********Random exercises", [exercise.name for exercise in exercises])
     return {"exercises": [exercise.to_dict() for exercise in exercises]}
