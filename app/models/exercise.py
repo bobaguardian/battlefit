@@ -1,5 +1,7 @@
 from datetime import datetime
-from .db import db, battles_exercises
+from .db import db
+from .battles_exercises import battles_exercises
+
 
 class Exercise(db.Model):
     __tablename__ = 'exercises'

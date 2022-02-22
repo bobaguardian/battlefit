@@ -1,4 +1,4 @@
-from .db import db, Battle, Exercise
+from .db import db
 
 battles_exercises = db.Table(
     "battles_exercises",

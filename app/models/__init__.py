@@ -6,4 +6,4 @@ from .exercise import Exercise
 from .log import Log
 from .monster import Monster
 from .battle import Battle
-from .battles_exercise import battles_exercises
+from .battles_exercises import battles_exercises

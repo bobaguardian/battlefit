@@ -1,7 +1,8 @@
 from flask_login import user_logged_in
 from datetime import datetime
 
-from .db import db, battles_exercises
+from .db import db
+from .battles_exercises import battles_exercises
 
 class Battle(db.Model):
     __tablename__ = 'battles'

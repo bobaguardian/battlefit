@@ -7,11 +7,11 @@ import { dateConverter } from "../LogsPage";
 import Exercise from "../ExercisesPage/Exercise";
 import "./BattlePage.css";
 
-const levelConverter = {
-    1: ["easy", 2],
-    2: ["medium", 4],
-    3: ["hard", 6]
-}
+// const levelConverter = {
+//     1: ["easy", 2],
+//     2: ["medium", 4],
+//     3: ["hard", 6]
+// }
 
 const jsDateConverter = (str) => {
     let theDate = new Date(str);
