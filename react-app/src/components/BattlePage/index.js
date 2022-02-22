@@ -29,21 +29,12 @@ const BattlePage = () => {
     const [hp, setHp] = useState(100);
     const [currentBattle, setCurrentBattle] = useState(null);
     const [isNewBattle, setIsNewBattle] = useState(false);
-    // const [exercises, setExercises] = useState(monsterExercises);
     const [exercises, setExercises] = useState(JSON.parse(localStorage.getItem("monsterExercises")).length !== 0 ? JSON.parse(localStorage.getItem("monsterExercises")) : monsterExercises);
-
-    console.log("REDUX", monsterExercises);
-    console.log("LOCAL STORAGE", JSON.parse(localStorage.getItem("monsterExercises")));
 
     useEffect(() => { // when sessionUser state changes
         async function fetchNewBattle() {
             const data = await dispatch(generateBattle())
             setCurrentBattle(data);
-            // after fetching new battle, generate new exercises
-            // and store them in local storage
-            // setTimeout(() => {}, 100);
-            // dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
-            // localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
         }
 
         let oldBattle = sessionUser.battles.filter(battle => {
@@ -62,11 +53,8 @@ const BattlePage = () => {
     }, [dispatch, sessionUser])
 
     useEffect(() => { // when currentBattle changes
-        console.log("currentBattle or isNewBattle changed")
-        // console.log(exercises);
         if (currentBattle && JSON.parse(localStorage.getItem("monsterExercises")).length === 0 &&
             exercises?.length === 0  || (currentBattle && isNewBattle)) {
-                console.log("GENERATING NEW EXERCISES AND SETTING TO LOCAL STORAGE")
                 dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
                 localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
                 setExercises(monsterExercises);
@@ -77,7 +65,6 @@ const BattlePage = () => {
 
     useEffect(() => {
         if (isNewBattle) {
-            console.log("isNewBattle is TRUE");
             localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
             setExercises(monsterExercises);
             setIsNewBattle(false);
