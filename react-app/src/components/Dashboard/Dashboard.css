@@ -11,18 +11,20 @@
     margin-left: 100px;
     margin-right: 100px;
 
-    /* border: 1px solid black; */
     display: flex;
     justify-content: space-evenly;
 }
 
+.active {
+    border-bottom: 3px solid var(--french-violet);
+
+}
 .nav-links a {
     padding: 10px;
     padding-bottom: 7px; /* make up for border-bottom */
-    border-bottom: 3px solid var(--jet);
+    height: 45px;
     width: 100px;
     text-align: center;
-    transition: all 0.2s ease-in-out;
     color: var(--lavender-blush);
     font-weight: bold;
     border-radius: 3px;
@@ -31,17 +33,14 @@
 }
 
 .nav-links a:hover {
-    /* background-color: var(--dim-gray); */
-    /* color: white; */
     border-bottom: 3px solid var(--french-violet);
 }
 
+
 .dash-side-main-container {
-    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: 275px 1fr;
     min-width: 800px;
-    /* grid-template-areas: "side main"; */
 }
 
 .side-panel-container{
