@@ -28,7 +28,7 @@ const UserExercisesPage = () => {
         <div className="dash-main-container">
             <div className="heading-add-exercise-div">
                 {exercises.length ?
-                <h2>{exercises[0].user.username}'s Exercises</h2>
+                <h2>{exercises[0].username}'s Exercises</h2>
                 :
                 <h2>This user does not have any exercises yet!</h2>
                 }
