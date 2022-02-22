@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+// import { useHistory, Redirect } from 'react-router-dom';
 
 import { generateBattle } from "../../store/session";
 import { setBattleVictory } from "../../store/session";
@@ -22,36 +23,33 @@ const jsDateConverter = (str) => {
 }
 
 const BattlePage = () => {
+    // const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const battles = useSelector(state => state.session.user.battles)
     const [hp, setHp] = useState(100);
     const [currentBattle, setCurrentBattle] = useState(null);
     const [exercises, setExercises] = useState([]);
     const [victory, setVictory] = useState(false);
-    const [oldBattle, setOldBattle] = useState(null);
-
 
     useEffect(() => { // when sessionUser state changes
-        async function fetchNewBattle() {
-            const data = await dispatch(generateBattle())
-            setCurrentBattle(data);
-        }
-
         let lastBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
+        // console.log(sessionUser.battles.filter(battle => {
+        //     return dateConverter(battle.date) === jsDateConverter(new Date()) &&
+        //         !battle.defeated;
+        // }));
 
         if(lastBattle) {
+            console.log("CHANGING BATTLE TO", lastBattle);
             setCurrentBattle(lastBattle);
-            setOldBattle(lastBattle)
-        }
-        else {
-            fetchNewBattle();
-            setVictory(false);
+            setVictory(lastBattle.defeated);
+            setHp(100);
         }
 
-    }, [dispatch, sessionUser])
+    }, [dispatch, sessionUser, battles])
 
     useEffect(() => {
         if (currentBattle){
@@ -69,9 +67,10 @@ const BattlePage = () => {
             setVictory(true);
         }
 
-    }, [hp])
+    }, [dispatch, hp, currentBattle])
 
     const handleBattleGeneration = async (e) => {
+        // BUG CLICKING ON BUTTON DOESNT DISPLAY NEW BATTLE, displays old
         e.preventDefault();
         async function fetchNewBattle() {
             const data = await dispatch(generateBattle())
@@ -80,17 +79,24 @@ const BattlePage = () => {
 
         fetchNewBattle();
         setVictory(false);
+
     }
 
     return (
         <div className="dash-main-container battle-page">
-            { victory ?
+            { victory || currentBattle?.defeated ?
             <div>
                 <h2>Victory!</h2>
                 <p>You defeated {currentBattle.monster.name}</p>
                 <p>Rest up, or battle another monster!</p>
                 <button onClick={handleBattleGeneration}>Generate a New Battle</button>
             </div>
+            :
+            !currentBattle ?
+                <div>
+                    <h2>You don't have a current battle</h2>
+                    <button onClick={handleBattleGeneration}>Generate a New Battle</button>
+                </div>
             :
             <div>
                 <h2>Fight!</h2>

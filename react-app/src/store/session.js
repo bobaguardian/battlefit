@@ -182,23 +182,54 @@ export default function reducer(state = initialState, action) {
     case CREATE_BATTLE:
       return { user: {...state.user, ["battles"]: [...state.user.battles, action.battle]} }
 
+      // newState = {user: {...state.user}};
+      // newState.user.battles.push(action.battle);
+      // newState.user.battles = [...newState.user.battles]
+
+      // return newState;
+
     case DELETE_BATTLE_EXERCISE:
       newState = { user: {...state.user} };
       indexOfBattle = newState.user.battles.find(battle => battle.id === action.battle.id)
 
       // at the index of the battle to update, replace it with the updated version
-      newState.user.battles.splice(indexOfBattle, 1, action.battle)
+      // newState.user.battles.splice(indexOfBattle, 1, action.battle)
+
+      for (let i = 0; i < newState.user.battles.length; i++) {
+        if ( newState.user.battles[i].id === action.battle.id) {
+          indexOfBattle = i;
+        }
+      }
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          battles: state.user.battles.map((battle, i) => i === indexOfBattle ? {...action.battle, exercises: [...action.battle.exercises]}
+            : battle)
+        }
+      }
 
 
-      return newState;
+      // return newState;
 
     case UPDATE_BATTLE_VICTORY:
       newState = { user: {...state.user} };
-      indexOfBattle = newState.user.battles.find(battle => battle.id === action.battle.id)
+      // let battleToUpdate = newState.user.battles.find(battle => battle.id === action.battle.id)
+      // indexOfBattle = newState.user.battles.indexOf(battleToUpdate)
 
-      // at the index of the battle to update, replace it with the updated version
-      newState.user.battles[indexOfBattle] = action.battle;
-      return newState;
+      for (let i = 0; i < newState.user.battles.length; i++) {
+        if ( newState.user.battles[i].id === action.battle.id) {
+          indexOfBattle = i;
+        }
+      }
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          battles: state.user.battles.map((battle, i) => i === indexOfBattle ? {...battle, defeated: action.battle.defeated}
+            : battle)
+        }
+      }
 
     default:
       return state;
