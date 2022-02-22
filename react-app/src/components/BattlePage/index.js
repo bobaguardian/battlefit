@@ -28,11 +28,12 @@ const BattlePage = () => {
     const monsterExercises = Object.values(monsterExercisesById)
     const [hp, setHp] = useState(100);
     const [currentBattle, setCurrentBattle] = useState(null);
+    const [isNewBattle, setIsNewBattle] = useState(false);
     // const [exercises, setExercises] = useState(monsterExercises);
-    const [exercises, setExercises] = useState(JSON.parse(localStorage.getItem("monsterExercises")));
+    const [exercises, setExercises] = useState(JSON.parse(localStorage.getItem("monsterExercises")).length !== 0 ? JSON.parse(localStorage.getItem("monsterExercises")) : monsterExercises);
 
-    console.log("EXERCISES", exercises);
-    console.log("MONSTER EXERCISES", monsterExercisesById);
+    console.log("REDUX", monsterExercises);
+    console.log("LOCAL STORAGE", JSON.parse(localStorage.getItem("monsterExercises")));
 
     useEffect(() => { // when sessionUser state changes
         async function fetchNewBattle() {
@@ -40,8 +41,9 @@ const BattlePage = () => {
             setCurrentBattle(data);
             // after fetching new battle, generate new exercises
             // and store them in local storage
-            dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
-            localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
+            // setTimeout(() => {}, 100);
+            // dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
+            // localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
         }
 
         let oldBattle = sessionUser.battles.filter(battle => {
@@ -52,15 +54,35 @@ const BattlePage = () => {
        if(oldBattle) {
            setCurrentBattle(oldBattle);
        }
-       else fetchNewBattle();
+       else {
+           fetchNewBattle();
+           setIsNewBattle(true);
+       }
 
     }, [dispatch, sessionUser])
 
     useEffect(() => { // when currentBattle changes
+        console.log("currentBattle or isNewBattle changed")
+        // console.log(exercises);
         if (currentBattle && JSON.parse(localStorage.getItem("monsterExercises")).length === 0 &&
-            exercises?.length === 0) dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
+            exercises?.length === 0  || (currentBattle && isNewBattle)) {
+                console.log("GENERATING NEW EXERCISES AND SETTING TO LOCAL STORAGE")
+                dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
+                localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
+                setExercises(monsterExercises);
+                setIsNewBattle(true);
+            }
 
-    }, [currentBattle])
+    }, [currentBattle, isNewBattle])
+
+    useEffect(() => {
+        if (isNewBattle) {
+            console.log("isNewBattle is TRUE");
+            localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
+            setExercises(monsterExercises);
+            setIsNewBattle(false);
+        }
+    }, [monsterExercises])
 
     return (
         <div className="dash-main-container battle-page">
