@@ -42,6 +42,21 @@ def add_battle():
     return {"battle": new_battle.to_dict()}
 
 
+@battle_routes.route('/<int:battle_id>/exercises/<int:exercise_id>', methods=["DELETE"])
+@login_required
+def remove_battle_exercise(battle_id, exercise_id):
+    current_battle = Battle.query.get(int(battle_id))
+    print("CURRENT BATTLE AGAINST: ", current_battle.monster.name)
+    if current_battle:
+    # update exercises to be all but the exercise with exercise_id
+        current_battle.exercises = [e for e in current_battle.exercises if e.id != exercise_id]
+        print("Current Battle Exercises:", [e for e in current_battle.exercises])
+        db.session.commit()
+        return {'battle': current_battle.to_dict()}
+
+    return {'errors': ["A battle with that id doesn't exist."]}, 401
+
+
 @battle_routes.route('/generate_exercises/<int:num_exercises>')
 @login_required
 def generateExercises(num_exercises):

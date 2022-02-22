@@ -24,12 +24,9 @@ const jsDateConverter = (str) => {
 const BattlePage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    // const monsterExercisesById = useSelector(state => state.exercises.monsterExercises);
-    // const monsterExercises = Object.values(monsterExercisesById)
     const [hp, setHp] = useState(100);
     const [currentBattle, setCurrentBattle] = useState(null);
     const [isNewBattle, setIsNewBattle] = useState(false);
-    // const [exercises, setExercises] = useState(JSON.parse(localStorage.getItem("monsterExercises")).length !== 0 ? JSON.parse(localStorage.getItem("monsterExercises")) : monsterExercises);
     const [exercises, setExercises] = useState([]);
 
     useEffect(() => { // when sessionUser state changes
@@ -54,29 +51,12 @@ const BattlePage = () => {
     }, [dispatch, sessionUser])
 
     useEffect(() => {
-        if (currentBattle) setExercises(currentBattle.exercises);
+        if (currentBattle){
+            setExercises(currentBattle.exercises);
+            setHp((currentBattle.exercises.length / levelConverter[currentBattle.monster.level][1]) * 100);
+        }
+
     }, [currentBattle])
-
-
-
-    // useEffect(() => { // when currentBattle changes
-    //     if (currentBattle && JSON.parse(localStorage.getItem("monsterExercises")).length === 0 &&
-    //         exercises?.length === 0  || (currentBattle && isNewBattle)) {
-    //             dispatch(generateMonsterExercises(levelConverter[currentBattle.monster.level][1]))
-    //             localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
-    //             setExercises(monsterExercises);
-    //             setIsNewBattle(true);
-    //         }
-
-    // }, [currentBattle, isNewBattle])
-
-    // useEffect(() => {
-    //     if (isNewBattle) {
-    //         localStorage.setItem("monsterExercises", JSON.stringify(monsterExercises));
-    //         setExercises(monsterExercises);
-    //         setIsNewBattle(false);
-    //     }
-    // }, [monsterExercises])
 
     return (
         <div className="dash-main-container battle-page">
@@ -99,6 +79,8 @@ const BattlePage = () => {
                     <Exercise key={`monster-exercise-${index}`}
                     id={id}
                     name={name}
+                    monsterName={currentBattle.monster.name}
+                    battleId={currentBattle.id}
                     />
                 ))}
             </div>

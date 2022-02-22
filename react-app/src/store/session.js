@@ -4,6 +4,7 @@ const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER';
 
 const CREATE_BATTLE = "session/CREATE_BATTLE";
+const DELETE_BATTLE_EXERCISE = "session/DELETE_BATTLE_EXERCISE";
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -24,7 +25,10 @@ const createBattle = (battle) => ({
   battle
 })
 
-const initialState = { user: null };
+const deleteBattleExercise = (battle) => ({
+  type: DELETE_BATTLE_EXERCISE,
+  battle
+})
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -131,6 +135,22 @@ export const generateBattle = () => async (dispatch) => {
 		};
 }
 
+export const removeBattleExercise = (battleId, exerciseId) => async (dispatch) => {
+  const res = await fetch(`/api/battles/${battleId}/exercises/${exerciseId}`, {
+    method: "DELETE"
+  });
+  const data = await res.json();
+  if (res.ok) {
+		dispatch(deleteBattleExercise(data["battle"]));
+    // return data["battle"];
+	} else
+		return {
+			errors: ["Something went wrong, please try again"],
+		};
+}
+
+const initialState = { user: null };
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
@@ -141,6 +161,18 @@ export default function reducer(state = initialState, action) {
       return {user: action.user}
     case CREATE_BATTLE:
       return { user: {...state.user, ["battles"]: [...state.user.battles, action.battle]} }
+
+    case DELETE_BATTLE_EXERCISE:
+      // newState = { ...state };
+      // delete newState.byId[action.id];
+      // newState.byId = { ...newState.byId };
+      let newState = { user: {...state.user} };
+      let indexOfBattle = newState.user.battles.find(battle => battle.id === action.battle.id)
+
+      // at the index of the battle to update, replace it with the updated version
+      newState.user.battles.splice(indexOfBattle, 1, action.battle)
+
+      return newState;
     default:
       return state;
   }
