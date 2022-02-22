@@ -1,6 +1,7 @@
 from flask_login import user_logged_in
 from datetime import datetime
-from .db import db
+
+from .db import db, battles_exercises
 
 class Battle(db.Model):
     __tablename__ = 'battles'
@@ -13,6 +14,7 @@ class Battle(db.Model):
 
     user = db.relationship("User", back_populates="battles")
     monster = db.relationship("Monster", back_populates="battles")
+    exercises = db.relationship("Exercise", secondary=battles_exercises, back_populates="battles")
 
     def to_dict(self):
         return {
@@ -20,5 +22,6 @@ class Battle(db.Model):
             'user_id': self.user.id,
             'monster': self.monster.to_dict(),
             'date': self.date,
-            'defeated': self.defeated
+            'defeated': self.defeated,
+            'exercises': [exercise.to_dict() for exercise in self.exercises]
         }
