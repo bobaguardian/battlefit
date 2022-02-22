@@ -4,10 +4,11 @@
 
 
 .battle-monster-img {
-    width: 70%;
-    max-height: 400px;
+    width: 60%;
+    height: auto;
+    max-height: 800px;
     border-radius: 3px;
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 .battle-monster-img img {
