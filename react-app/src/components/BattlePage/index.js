@@ -29,15 +29,9 @@ const BattlePage = () => {
     const [currentBattle, setCurrentBattle] = useState(null);
     const [exercises, setExercises] = useState([]);
     const [victory, setVictory] = useState(false);
-    console.log(victory);
 
 
     useEffect(() => { // when sessionUser state changes
-        // async function fetchNewBattle() {
-        //     const data = await dispatch(generateBattle())
-        //     setCurrentBattle(data);
-        // }
-
         let oldBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
@@ -46,10 +40,6 @@ const BattlePage = () => {
        if(oldBattle) {
            setCurrentBattle(oldBattle);
        }
-    //    else {
-    //        fetchNewBattle();
-    //        setVictory(false);
-    //    }
 
     }, [dispatch, sessionUser])
 
@@ -59,15 +49,11 @@ const BattlePage = () => {
             setHp(((currentBattle.exercises.length
                 / levelConverter[currentBattle.monster.level][1]) * 100).toFixed(0));
             setVictory(currentBattle.defeated)
-            // console.log("VICTORY?", currentBattle.defeated);
         }
-
-
     }, [currentBattle])
 
     useEffect(() => {
         // When HP hits 0 dispatch update on battle, defeated = True
-
         if (parseInt(hp) === 0 && !currentBattle.defeated) {
             dispatch(setBattleVictory(currentBattle.id))
             setVictory(true);
@@ -123,30 +109,6 @@ const BattlePage = () => {
 
             </div>
             }
-            {/* <h2>Fight!</h2>
-            <div className="battle-monster-div">
-                { currentBattle ?
-                    <React.Fragment key={`battle-monster-div`}>
-                        <img className="battle-monster-img"
-                            src={currentBattle?.monster?.image}
-                            alt={`${currentBattle?.monster?.name}-monster`}></img>
-                        <h3>{currentBattle?.monster?.name}</h3>
-                        <p>HP: {hp}%</p>
-
-                    </React.Fragment>
-                : null}
-            </div>
-
-            <div>
-            {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
-                    <Exercise key={`monster-exercise-${index}`}
-                    id={id}
-                    name={name}
-                    monsterName={currentBattle.monster.name}
-                    battleId={currentBattle.id}
-                    />
-                ))}
-            </div> */}
         </div>
     )
 }
