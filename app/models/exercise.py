@@ -18,7 +18,7 @@ class Exercise(db.Model):
     user = db.relationship("User", back_populates="exercises")
     muscle_group = db.relationship("MuscleGroup", back_populates="exercises")
     logs = db.relationship("Log", back_populates="exercise", cascade="all, delete")
-    battles = db.relationship("Battle", secondary=battles_exercises, back_populates="exercises")
+    # battles = db.relationship("Battle", secondary=battles_exercises, back_populates="exercises")
 
 
     def to_dict(self):

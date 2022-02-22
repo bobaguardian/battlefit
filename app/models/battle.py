@@ -15,7 +15,7 @@ class Battle(db.Model):
 
     user = db.relationship("User", back_populates="battles")
     monster = db.relationship("Monster", back_populates="battles")
-    exercises = db.relationship("Exercise", secondary=battles_exercises, back_populates="battles")
+    exercises = db.relationship("Exercise", secondary=battles_exercises, backref="battle")
 
     def to_dict(self):
         return {

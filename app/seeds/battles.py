@@ -4,7 +4,7 @@ from app.models import db, Battle
 
 def seed_battles():
     battle1 = Battle(user_id=2, monster_id=1, defeated=False, date=datetime(2022, 1, 1))
-    battle2 = Battle(user_id=2, monster_id=41, defeated=False)
+    battle2 = Battle(user_id=2, monster_id=41, defeated=False, date=datetime(2022, 2, 14))
     battle3 = Battle(user_id=2, monster_id=38, defeated=False, date=datetime(2022, 2, 14))
     battle4 = Battle(user_id=2, monster_id=10, defeated=True)
     battle5 = Battle(user_id=2, monster_id=18, defeated=True, date=datetime(2022, 1, 19))

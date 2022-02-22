@@ -7,11 +7,11 @@ import { dateConverter } from "../LogsPage";
 import Exercise from "../ExercisesPage/Exercise";
 import "./BattlePage.css";
 
-// const levelConverter = {
-//     1: ["easy", 2],
-//     2: ["medium", 4],
-//     3: ["hard", 6]
-// }
+const levelConverter = {
+    1: ["easy", 2],
+    2: ["medium", 4],
+    3: ["hard", 6]
+}
 
 const jsDateConverter = (str) => {
     let theDate = new Date(str);
@@ -30,6 +30,7 @@ const BattlePage = () => {
     const [currentBattle, setCurrentBattle] = useState(null);
     const [isNewBattle, setIsNewBattle] = useState(false);
     // const [exercises, setExercises] = useState(JSON.parse(localStorage.getItem("monsterExercises")).length !== 0 ? JSON.parse(localStorage.getItem("monsterExercises")) : monsterExercises);
+    const [exercises, setExercises] = useState([]);
 
     useEffect(() => { // when sessionUser state changes
         async function fetchNewBattle() {
@@ -51,6 +52,12 @@ const BattlePage = () => {
        }
 
     }, [dispatch, sessionUser])
+
+    useEffect(() => {
+        if (currentBattle) setExercises(currentBattle.exercises);
+    }, [currentBattle])
+
+
 
     // useEffect(() => { // when currentBattle changes
     //     if (currentBattle && JSON.parse(localStorage.getItem("monsterExercises")).length === 0 &&
@@ -88,12 +95,12 @@ const BattlePage = () => {
             </div>
 
             <div>
-            {/* {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
+            {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
                     <Exercise key={`monster-exercise-${index}`}
                     id={id}
                     name={name}
                     />
-                ))} */}
+                ))}
             </div>
         </div>
     )
