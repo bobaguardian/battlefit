@@ -60,3 +60,17 @@
 .generate-battle-btn:hover {
     transform: scale(1.1);
 }
+
+.victory-header {
+    display: flex;
+    align-items: center;
+}
+
+.battle-page-victory {
+    display: flex;
+    flex-direction: column;
+}
+
+.battle-page-victory p {
+    padding-left: 50px;
+}

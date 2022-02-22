@@ -85,11 +85,13 @@ const BattlePage = () => {
     return (
         <div className="dash-main-container">
             { victory || currentBattle?.defeated ?
-            <div className="battle-page">
-                <h2>Victory!</h2>
+            <div className="battle-page-victory">
+                <div className="victory-header">
+                    <h2>Victory!</h2>
+                    <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
+                </div>
                 <p>You defeated {currentBattle.monster.name}</p>
                 <p>Rest up, or battle another monster!</p>
-                <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
             </div>
             :
             !currentBattle ?
