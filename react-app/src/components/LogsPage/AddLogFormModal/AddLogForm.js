@@ -85,7 +85,7 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 
 	return (
 		<form className="form-container log-form" onSubmit={handleSubmit}>
-            <h3 className="form-heading">Log {exerciseName}</h3>
+            <h2 className="form-heading">Log {exerciseName}</h2>
 			<div className="form-group">
 				<label className="form-label" htmlFor="date">
 					Date
