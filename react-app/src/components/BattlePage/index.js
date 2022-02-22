@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { generateMonsterExercises } from "../../store/exercises";
 import { generateBattle } from "../../store/session";
 import { setBattleVictory } from "../../store/session";
 import { dateConverter } from "../LogsPage";
@@ -33,15 +32,24 @@ const BattlePage = () => {
 
 
     useEffect(() => { // when sessionUser state changes
+        async function fetchNewBattle() {
+            const data = await dispatch(generateBattle())
+            setCurrentBattle(data);
+        }
+
         let lastBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
 
-       if(lastBattle) {
-           setCurrentBattle(lastBattle);
-           setOldBattle(lastBattle)
-       }
+        if(lastBattle) {
+            setCurrentBattle(lastBattle);
+            setOldBattle(lastBattle)
+        }
+        else {
+            fetchNewBattle();
+            setVictory(false);
+        }
 
     }, [dispatch, sessionUser])
 
@@ -83,12 +91,6 @@ const BattlePage = () => {
                 <p>Rest up, or battle another monster!</p>
                 <button onClick={handleBattleGeneration}>Generate a New Battle</button>
             </div>
-            :
-            !oldBattle ?
-                <div>
-                    <h2>You don't have a battle for today</h2>
-                    <button onClick={handleBattleGeneration}>Generate a New Battle</button>
-                </div>
             :
             <div>
                 <h2>Fight!</h2>

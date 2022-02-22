@@ -62,8 +62,8 @@ def remove_battle_exercise(battle_id, exercise_id):
 def update_battle_victory(battle_id):
     current_battle = Battle.query.get(int(battle_id))
     if current_battle and current_battle.user_id == int(current_user.get_id()):
-        if current_battle.defeated:
-            return {'errors': ["You have already won this battle"]}, 401
+        # if current_battle.defeated:
+        #     return {'errors': ["You have already won this battle"]}, 401
 
         current_battle.defeated = True
         db.session.commit()
