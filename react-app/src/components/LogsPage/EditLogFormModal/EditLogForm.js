@@ -85,7 +85,7 @@ const EditLogForm = ({ showModal, exerciseName, eId, eDate, eUnit, eUnitCount, e
 
 	return (
 		<form className="form-container log-form" onSubmit={handleSubmit}>
-            <h3 className="form-heading">Edit Log {exerciseName}</h3>
+            <h2 className="form-heading">Edit Log {exerciseName}</h2>
 			<div className="form-group">
 				<label className="form-label" htmlFor="date">
 					Date

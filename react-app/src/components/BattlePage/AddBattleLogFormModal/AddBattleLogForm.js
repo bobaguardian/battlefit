@@ -79,7 +79,7 @@ const AddBattleLogForm = ({ showModal, battleId, exercise_id, exerciseName, mons
 
 	return (
 		<form className="form-container log-form" onSubmit={handleSubmit}>
-            <h3 className="form-heading">Attack: Log {exerciseName}</h3>
+            <h2 className="form-heading">Attack: Log {exerciseName}</h2>
 			<div className="form-group">
                 <h4>Date: {date}</h4>
 			</div>
