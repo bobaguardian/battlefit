@@ -101,7 +101,7 @@ const BattlePage = () => {
                 </div>
             :
             <div className="battle-monster-container">
-                <h2>Fight!</h2>
+                <h2 className="fight-text">FIGHT</h2>
                 <div className="battle-monster-div">
                     { currentBattle ?
                         <React.Fragment key={`battle-monster-div`}>

@@ -10,6 +10,17 @@
     align-items: center;
 }
 
+.dash-main-container .fight-text {
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    width: 70%;
+    text-align:center;
+    color: var(--light-coral);
+    font-size: 38px;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--light-coral);
+}
+
 
 .battle-monster-div {
     text-align: center;
