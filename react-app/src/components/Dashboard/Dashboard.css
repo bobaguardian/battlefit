@@ -60,7 +60,7 @@
 }
 
 .user-info h3 {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .user-image-edit-div {
@@ -69,10 +69,12 @@
 }
 
 .user-image {
-    width: 65%;
+    width: 75%;
+    max-height: 400px;
     margin: 0 auto;
-    border: 1px solid var(--lavender-blush);
-    border-radius: 3px;
+    border: 5px solid var(--lavender-blush-dark);
+    padding: 5px;
+    border-radius: 10px;
     overflow: hidden;
 	position: relative;
 	display: flex;
