@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { removeExercise } from "../../../store/exercises";
 import EditExerciseFormModal from "../EditExerciseFormModal";
@@ -8,7 +8,6 @@ import AddBattleLogFormModal from "../../BattlePage/AddBattleLogFormModal";
 
 const Exercise = ({ id, user_id, name, username, muscle_group, description, image, monsterName, battleId, showMuscle }) => {
 	const dispatch = useDispatch();
-    const location = useLocation();
 	const sessionUser = useSelector((state) => state.session.user);
     const exercise = {id, user_id, name, muscle_group, description, image};
 
