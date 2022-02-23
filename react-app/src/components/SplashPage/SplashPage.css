@@ -100,3 +100,13 @@
 .about-links a:hover {
     color: var(--french-violet);
 }
+
+.disclaimer-div {
+    /* border: 1px solid red; */
+    background-color: var(--dim-gray-dark);
+    border-radius: 7px;
+    opacity: 70%;
+    text-align: center;
+    margin: 80px 100px 80px 100px;
+    padding: 20px;
+}
