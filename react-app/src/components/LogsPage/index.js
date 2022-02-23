@@ -29,7 +29,13 @@ const LogsPage = () => {
     return (
         <div className="dash-main-container">
             <h2>Your Logs <i className="fa-solid fa-calendar-days"></i></h2>
+            { !logs || logs.length === 0 ?
+            <div className="empty-message-div">
+                <h2> No logs to see yet!</h2>
+            </div> : null }
             <div className="logs-container">
+
+
                 {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
                     <div key={`log-${index}`}className="logs-inner-container">
                         {(dateConverter(date) !== currentDate) ?
@@ -43,6 +49,7 @@ const LogsPage = () => {
 
                     </div>
                 ))}
+
             </div>
         </div>
     )

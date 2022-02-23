@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { removeExercise } from "../../../store/exercises";
 import EditExerciseFormModal from "../EditExerciseFormModal";
 import AddLogFormModal from "../../LogsPage/AddLogFormModal";
 import AddBattleLogFormModal from "../../BattlePage/AddBattleLogFormModal";
 
-const Exercise = ({ id, user_id, name, muscle_group, description, image, monsterName, battleId }) => {
+const Exercise = ({ id, user_id, name, username, muscle_group, description, image, monsterName, battleId, showMuscle }) => {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
     const exercise = {id, user_id, name, muscle_group, description, image};
@@ -22,7 +23,10 @@ const Exercise = ({ id, user_id, name, muscle_group, description, image, monster
                 {image ? <img className="exercise-image" src={image} alt="exercise-pic"></img> : null}
                 <div className="exercise-detail-container">
                     <h3>{name}</h3>
-                    {muscle_group ? <p>{muscle_group.name}</p> : null}
+                    { username && username !== "Admin" ? <Link to={`/users/${user_id}`}><p className="posted-by">
+                        Posted by <span className="exercise-username">{username}</span>
+                        </p></Link> : null}
+                    {showMuscle && muscle_group ? <p>{muscle_group.name}</p> : null}
                     {description ? <p>{description}</p> : null}
                 </div>
 

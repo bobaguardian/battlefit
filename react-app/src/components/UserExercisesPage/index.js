@@ -45,6 +45,7 @@ const UserExercisesPage = () => {
                     muscle_group={muscle_group}
                     description={description}
                     image={image}
+                    showMuscle={true}
                     />
                 ))}
 

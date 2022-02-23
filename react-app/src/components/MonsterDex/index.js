@@ -22,6 +22,12 @@ const MonsterDex = () => {
     return (
         <div className="dash-main-container">
             <h2>Monster Dex <i className="fa-solid fa-dragon"></i></h2>
+            { !monsters || monsters.length === 0 ?
+                <div className="empty-message-div">
+                    <h2>No monsters encountered yet!</h2>
+                </div>
+            : null
+            }
             <div className="monsters-container">
                 {monsters.map(( {id, name, image, description, level} ,index) => (
                     <React.Fragment key={`monster-div-${index}`}>
