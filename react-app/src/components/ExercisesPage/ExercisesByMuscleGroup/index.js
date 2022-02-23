@@ -27,7 +27,7 @@ const ExercisesByMuscleGroup = () => {
                 </div>
             </div>
             <div className="exercises-container">
-                {exercises.map(({id, user_id, name, muscle_group, description, image}, index) => (
+                {exercises.map(({id, user_id, username, name, muscle_group, description, image}, index) => (
                     <Exercise key={`exercise-${index}`}
                     id={id}
                     user_id={user_id}
@@ -35,6 +35,7 @@ const ExercisesByMuscleGroup = () => {
                     description={description}
                     image={image}
                     muscle_group={muscle_group}
+                    username={username}
                     />
                 ))}
 
