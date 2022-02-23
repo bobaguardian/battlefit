@@ -22,20 +22,38 @@
 
 
 .splash-main-content {
-    border: 2px solid var(--french-violet);
-    margin: 10% auto;
+    border: 3px solid var(--french-violet);
+    margin: 5% auto;
     margin-left: 10%;
     margin-right: 10%;
-    height: 300px;
+    /* height: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border-radius: 7px;
 }
 
 .splash-main-content h2 {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.carousel {
+    margin: 25px;
+}
+
+.carousel-image img {
+    border: none;
+    border-radius: 10px;
+    height: 300px;
+    max-width: 800px;
+}
+
+#carousel {
+    border: 1px solid red;
 }
 
 #splash-text {
