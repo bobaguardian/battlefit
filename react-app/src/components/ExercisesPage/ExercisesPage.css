@@ -81,6 +81,18 @@
     margin-top: 15px;
 }
 
+.exercise-detail-container .posted-by {
+    color: var(--lavender-blush-dark);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.exercise-username:hover {
+    cursor: pointer;
+    color: var(--max-blue-purple);
+}
+
 .exercise-name-log-btn-container {
     display: flex;
     justify-content: space-between;

@@ -83,6 +83,10 @@
     display: flex;
 }
 
+.battling-text {
+    color: var(--max-blue-purple);
+}
+
 .victory-text {
     color: var(--tea-green);
 }

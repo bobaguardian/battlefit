@@ -96,3 +96,7 @@
 .edit-delete-log i {
     font-size: 20px;
 }
+
+.dash-main-container .empty-message-div h2 {
+    padding-top: 0;
+}
