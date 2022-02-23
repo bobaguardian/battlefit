@@ -10,12 +10,29 @@ const unitConverter = {
 }
 
 const timeConverter = (sec) => {
-    if (sec < 60) return `${sec} sec`;
-    if (60 < sec < 3600) { // min
-        return `${Math.floor(sec/60)} min`;
-    } else if (3600 < 86400) {
-        return `${Math.floor(sec/3600)} min`;
+    let resultStr = '';
+    let remainingSec = sec;
+    if (remainingSec < 86400) { // hour
+        let hours = Math.floor(remainingSec/3600);
+        if (hours !== 0) {
+            resultStr += `${hours} hr`;
+            remainingSec = remainingSec - (hours * 3600);
+        }
+
     }
+    if (60 < remainingSec < 3600) { // min
+        let mins = Math.floor(remainingSec/60)
+        if (mins !== 0) {
+            resultStr += ` ${Math.floor(remainingSec/60)} min`;
+            remainingSec = remainingSec - (mins * 60);
+        }
+
+    }
+    if (remainingSec < 60 )  { // sec
+        if (remainingSec !== 0) resultStr += ` ${remainingSec} sec`;
+    }
+
+    return resultStr
 }
 const dateConverter = (str) => {
     let theDate = new Date(str);
