@@ -14,7 +14,7 @@ const levelConverter = {
     3: ["hard", 6]
 }
 
-const jsDateConverter = (str) => {
+export const jsDateConverter = (str) => {
     let theDate = new Date(str);
     theDate.setDate(theDate.getDate())
     let mnth = ("0" + (theDate.getMonth() + 1)).slice(-2);
