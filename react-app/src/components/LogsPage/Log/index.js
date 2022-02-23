@@ -65,7 +65,7 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
             </div>
             <div className='edit-delete-log'>
                 <EditLogFormModal eId={id} eDate={dateConverter(date)} eUnit={unit} eUnitCount={unit_count} eComment={comment} exerciseName={exercise.name}/>
-                <button className="delete-log-btn" onClick={handleDelete}>
+                <button className="delete-log-btn shake-icon" onClick={handleDelete}>
                     <i className="fa-solid fa-square-minus"></i>
                 </button>
             </div>

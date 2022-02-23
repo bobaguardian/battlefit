@@ -16,7 +16,7 @@ function AddLogFormModal({ exercise_id, exerciseName }) {
     return (
       <>
         <button
-          className='add-log-btn'
+          className='add-log-btn shake-icon'
           onClick={() => setShowModal(true)}>
           <i className="fa-solid fa-calendar-plus"></i>
         </button>

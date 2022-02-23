@@ -13,7 +13,7 @@ function EditExerciseFormModal({ exercise }) {
 
 	return (
 		<>
-			<button className="edit-exercise-btn" onClick={() => setShowModal(true)}>
+			<button className="edit-exercise-btn  shake-icon" onClick={() => setShowModal(true)}>
 				<i className="fa-solid fa-pen-to-square"></i>
 			</button>
 			{showModal && (
