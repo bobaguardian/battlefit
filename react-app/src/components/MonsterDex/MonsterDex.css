@@ -1,7 +1,9 @@
 .monsters-container {
     padding: 10px 30px;
     display: grid;
-    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* border: 1px solid red; */
+    justify-items: center;
 }
 
 
@@ -10,25 +12,43 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--max-blue-purple);
-    border-radius: 3px;
+    border: 2px solid var(--lavender-blush-dark);
+    border-radius: 5px;
     padding: 15px 15px;
     margin: 15px;
+    margin-bottom: 25px;
     transition: all 0.2s ease-in-out;
-
+    width: 250px;
 }
 
 .monster-box:hover {
     background-color: var(--french-violet);
-    transform: scale(1.05);
     cursor: pointer;
+    animation-name: monster-box-hover;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes monster-box-hover {
+    0% {
+        position: relative;
+        bottom: 0px
+    }
+    50% {
+        bottom: 7px;
+        position: relative;
+    }
+    100% {
+        background-color: var(--french-violet);
+        bottom: 3px;
+        position: relative;
+        transform: scale(1.05);
+    }
 }
 
 .monster-box img{
-    object-fit: contain;
-}
-
-.monster-img {
+    object-fit: cover;
     width: 200px;
     height: 200px;
 }
