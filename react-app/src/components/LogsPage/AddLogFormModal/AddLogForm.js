@@ -150,6 +150,7 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 					onChange={updateComment}
 					rows='7'
 					cols='32'
+					placeholder="(optional)"
 				/>
 				<div className="errors-container">
 					{errors.comment ? `${errors.comment}` : ""}

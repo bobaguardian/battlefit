@@ -10,10 +10,6 @@
     padding-bottom: 30px;
 }
 
-.exercise-form .form-input {
-    margin-top: 7px;
-}
-
 .select {
     display: flex;
     flex-direction: column;
@@ -59,4 +55,8 @@ textarea {
 
 input {
     height: 30px;
+}
+
+.form-input {
+    margin-top: 7px;
 }
