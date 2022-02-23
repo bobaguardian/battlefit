@@ -12,10 +12,14 @@
 
 }
 
+.logo {
+    margin-left: 45px;
+}
+
 #login-signup-container {
     /* border: 2px solid pink; */
     display: flex;
-    /* width: 25%; */
+    margin-right: 45px;
     justify-content: flex-end;
     align-items: center;
 }

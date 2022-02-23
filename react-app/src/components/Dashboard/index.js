@@ -16,7 +16,7 @@ const Dashboard = () => {
     return (
         <div>
             <nav className="dash-nav">
-                <a className="Logo" href="/"><h1>BattleFit</h1></a>
+                <a className="logo" href="/"><h1>BattleFit</h1></a>
                 <div className="nav-links">
                     <NavLink exact to='/exercises' activeClassName="active">Exercises</NavLink>
                     <NavLink exact to='/logs' activeClassName="active">My Logs</NavLink>
