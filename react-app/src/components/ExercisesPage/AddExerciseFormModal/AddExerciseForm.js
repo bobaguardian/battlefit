@@ -19,7 +19,7 @@ const AddExerciseForm = ({ showModal }) => {
 	const [muscle_group, setMuscleGroup] = useState("Abs");
 
 	useEffect(() => {
-        const errors = {};
+        const errors = [];
         if (name.length > 100)
             errors["name"] = "Exercise name must be less than 100 characters.";
         setErrors(errors);
@@ -40,7 +40,6 @@ const AddExerciseForm = ({ showModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		const formData = new FormData();
 		formData.append("name", name);
 		formData.append("muscle_group", muscle_group);

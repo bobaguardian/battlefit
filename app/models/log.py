@@ -10,7 +10,7 @@ class Log(db.Model):
     exercise_id = db.Column(db.Integer, db.ForeignKey("exercises.id"), nullable=False)
     unit_id = db.Column(db.Integer, db.ForeignKey("units.id"), nullable=False)
     unit_count = db.Column(db.Integer, nullable=False)
-    comment = db.Column(db.String)
+    comment = db.Column(db.String())
     date = db.Column(db.Date, default=datetime.now().date(), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
