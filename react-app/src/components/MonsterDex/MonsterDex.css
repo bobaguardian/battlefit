@@ -21,12 +21,32 @@
     width: 250px;
 }
 
+.monster-no-name {
+    position: relative;
+    bottom: 200px;
+    text-align: center;
+    margin-bottom: -200px;
+    z-index: -1;
+    background-color: rgba(47, 45, 46, 0.7);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .monster-box:hover {
     background-color: var(--french-violet);
     cursor: pointer;
     animation-name: monster-box-hover;
     animation-duration: 0.35s;
     animation-fill-mode: forwards;
+
+}
+
+.monster-box:hover .monster-no-name {
+    z-index: 1;
 }
 
 
@@ -52,6 +72,7 @@
     width: 200px;
     height: 200px;
 }
+
 
 /* MonsterDetails */
 .dash-main-container.monster-details-container {
