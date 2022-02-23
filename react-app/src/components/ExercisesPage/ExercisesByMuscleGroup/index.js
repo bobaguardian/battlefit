@@ -34,6 +34,7 @@ const ExercisesByMuscleGroup = () => {
                     name={name}
                     description={description}
                     image={image}
+                    muscle_group={muscle_group}
                     />
                 ))}
 

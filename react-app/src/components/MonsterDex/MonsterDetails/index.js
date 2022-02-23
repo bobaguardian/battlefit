@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import BattleRecord from "./BattleRecord";
@@ -7,6 +7,11 @@ const MonsterDetails = () => {
     const battlesById = useSelector(state => state.session.user.battles);
     const { id } = useParams();
     let battlesWithMonster = Object.values(battlesById).filter(battle => battle.monster.id === parseInt(id));
+
+    if (battlesWithMonster.length === 0) {
+        return <Redirect to='/error-page' />
+    }
+
     battlesWithMonster = battlesWithMonster.sort((a, b) => {
         if (new Date(a.date) < new Date(b.date)) return 1;
         return -1;
