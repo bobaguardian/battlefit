@@ -4,6 +4,6 @@ from app.models import db, Monster
 monster_routes = Blueprint('monsters', __name__)
 
 @monster_routes.route('/')
-def get_all_exercises():
+def get_all_monsters():
     monsters = Monster.query.all()
     return {'monsters': [monster.to_dict() for monster in monsters]}

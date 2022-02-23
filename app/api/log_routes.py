@@ -24,6 +24,7 @@ def get_user_logs():
 
 
 @log_routes.route('/', methods=["POST"])
+@login_required
 def add_log():
     form = LogForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -44,6 +45,7 @@ def add_log():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @log_routes.route('/<int:id>', methods=["PUT"])
+@login_required
 def edit_log(id):
     form = LogForm()
     form['csrf_token'].data = request.cookies['csrf_token']
