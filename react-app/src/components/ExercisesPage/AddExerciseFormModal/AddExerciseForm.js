@@ -149,7 +149,7 @@ const AddExerciseForm = ({ showModal }) => {
 					onChange={updateDescription}
 					rows="7"
 					cols='32'
-
+					placeholder="(optional)"
 				/>
 				<div className="errors-container">
 					{errors.description ? `${errors.description}` : ""}
