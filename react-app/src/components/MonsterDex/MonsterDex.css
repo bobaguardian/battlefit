@@ -69,8 +69,17 @@
     padding-bottom: 0px;
 }
 
+.monster-details-container {
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
 .monster-details-header p {
     padding-left: 20px;
+}
+
+.monster-no-lvl {
+    color: var(--lavender-blush-dark);
 }
 
 
@@ -80,9 +89,11 @@
 
 .monster-details-img {
     width: 70%;
-    height: 400px;
+    max-height: 500px;
     border-radius: 3px;
     margin-left: 15%;
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 
@@ -90,9 +101,19 @@
     margin: 30px;
 }
 
+.monster-stamp {
+    margin-top: 20px;
+    background-color: var(--french-violet-dark);
+    border-radius: 20px;
+    text-align: center;
+    width: max-content;
+    padding: 7px 20px;
+
+}
+
 /* Battle Record */
 .battle-records-container {
-    margin: 30px;
+    margin: 0px 30px 30px 35px;
 }
 
 .battle-records-container h3 {

@@ -37,6 +37,10 @@ h3 {
 	font-size: 18px;
 }
 
+p {
+	line-height: 22px;
+}
+
 *,
 body {
 	margin: 0;

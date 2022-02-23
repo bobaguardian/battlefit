@@ -27,16 +27,16 @@ const MonsterDetails = () => {
         <div className="dash-main-container monster-details-container">
             <div className="monster-details-header">
                 <h2>{monster.name}</h2>
-                <p>No. {monster.id} Level {monster.level}</p>
+                <p className="monster-no-lvl">No. {monster.id} Level {monster.level}</p>
 
             </div>
             <img className="monster-details-img" src={monster.image} alt={`${monster.name}-monster`}></img>
 
             <div className="monster-details-text">
                 <p className="monster-description">{monster.description}</p>
-                {defeatCount > 0 ? defeatCount === 1 ? <p>Defeated {defeatCount} time!</p>
-                    : <p>Defeated {defeatCount} times!</p>
-                    : <p>Encountered!</p>}
+                {defeatCount > 0 ? defeatCount === 1 ? <p className="monster-stamp">Defeated {defeatCount} time!</p>
+                    : <p className="monster-stamp">Defeated {defeatCount} times!</p>
+                    : <p className="monster-stamp">Encountered!</p>}
             </div>
 
             <div className="battle-records-container">
