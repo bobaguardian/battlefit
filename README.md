@@ -2,7 +2,7 @@
 
 BattleFit is a gamified workout tracker to motivate people to stay fit. Users to create custom exercises, keep logs of the exercises they've done and use these exercises to battle monsters with or without friends. This application is inspired by Habitica, WorkIt, and Pokemon.
 
-<!-- [See the site live here!](https://the-battle-fit.herokuapp.com/) -->
+[See the site live here!](https://the-battle-fit.herokuapp.com/)
 
 * [MVP Feature List Document](https://github.com/bobaguardian/battlefit/wiki/MVP-Feature-List)
 * [User Stories](https://github.com/bobaguardian/battlefit/wiki/User-Stories)
@@ -53,7 +53,11 @@ BattleFit is a gamified workout tracker to motivate people to stay fit. Users to
 
 #### Awesome! Now you can navigate to http://localhost:3000 and use the application!
 
-<!-- ## Future Implementations
+## Future Implementations
 
-## Redux Store Tree
- -->
+* Implement a calendar system into logs
+* Add search functionality for exercises
+* Add filtering functionality for the monster dex
+
+<!-- ## Redux Store Tree -->
+
