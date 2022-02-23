@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, session
-from flask_login import current_user
+from flask_login import current_user, login_required
 from datetime import datetime
 from app.aws_s3 import upload_file_to_s3, allowed_file, get_unique_filename
 from app.models import db, Exercise, MuscleGroup
@@ -29,6 +29,7 @@ def get_all_exercises():
 
 
 @exercise_routes.route('/', methods=["POST"])
+@login_required
 def add_exercise():
     form = AddExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -81,6 +82,7 @@ def add_exercise():
 
 
 @exercise_routes.route('/<int:exerciseId>', methods=["PUT"])
+@login_required
 def edit_exercise(exerciseId):
     form = EditExerciseForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -142,6 +144,7 @@ def edit_exercise(exerciseId):
 
 
 @exercise_routes.route('/<int:exerciseId>', methods=["DELETE"])
+@login_required
 def delete_exercise(exerciseId):
     exercise = Exercise.query.get(int(exerciseId))
     if not exercise:
