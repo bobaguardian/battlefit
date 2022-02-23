@@ -92,7 +92,9 @@
     border-radius: 3px;
     object-fit: cover;
     margin-right: 20px;
+    max-height: 200px;
 }
+
 
 .add-log-edit-delete-exercise {
     padding: 10px;

@@ -91,7 +91,7 @@ const AddExerciseForm = ({ showModal }) => {
 
 	return (
 		<form className="form-container exercise-form" onSubmit={handleSubmit}>
-			<h3 className="form-heading">Add a New Exercise</h3>
+			<h2 className="form-heading">Add a New Exercise</h2>
 
 			<div className="form-group">
 				<label className="form-label" htmlFor="name">

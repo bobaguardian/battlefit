@@ -35,7 +35,7 @@ const EditUserImage = ({ showModal, user }) => {
 	return (
 		<div className="edit-image-form">
 			<div className="modal-head" style={{ marginBottom: 20 }}>
-				<h3>Change Profile Picture</h3>
+				<h2>Change Profile Picture</h2>
 			</div>
 			{!image && (
 				<img

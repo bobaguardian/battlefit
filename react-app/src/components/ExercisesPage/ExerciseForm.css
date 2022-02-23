@@ -52,3 +52,11 @@
     cursor: pointer;
     background-color: var(--french-violet-dark);
 }
+
+textarea {
+    padding: 5px;
+}
+
+input {
+    height: 30px;
+}
