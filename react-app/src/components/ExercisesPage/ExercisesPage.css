@@ -28,8 +28,8 @@
 
 .muscle-box {
     /* border: 1px solid blue; */
-    border: 2px solid var(--lavender-blush);
-    border-radius: 3px;
+    border: 2px solid var(--lavender-blush-dark);
+    border-radius: 5px;
     text-align: center;
     padding: 30px 20px;
     margin: 15px;
