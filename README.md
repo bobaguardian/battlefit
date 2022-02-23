@@ -1,6 +1,6 @@
 # BattleFit
 
-BattleFit is a gamified workout tracker to motivate people to stay fit. Users to create custom exercises, keep logs of the exercises they've done and use these exercises to battle monsters with or without friends. This application is inspired by Habitica, WorkIt, and Pokemon.
+BattleFit is a gamified workout tracker to motivate people to stay fit. Users to create custom exercises, keep logs of the exercises they've done and use these exercises to battle and collect monsters. This application is inspired by Habitica, WorkIt, and Pokemon.
 
 [See the site live here!](https://the-battle-fit.herokuapp.com/)
 
