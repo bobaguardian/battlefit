@@ -107,7 +107,7 @@ button:hover {
 	0% {
 		opacity: 0;
 	}
-	50% {
+	80% {
 		opacity: 0.5;
 	}
 	100% {
