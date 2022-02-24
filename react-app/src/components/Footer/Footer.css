@@ -17,6 +17,7 @@ footer {
 
 .about-links {
     display: flex;
+    align-items: center;
     width: 25%;
     justify-content: flex-end;
     padding: 10px;
