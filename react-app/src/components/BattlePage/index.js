@@ -23,7 +23,6 @@ export const jsDateConverter = (str) => {
 }
 
 const BattlePage = () => {
-    // const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const battles = useSelector(state => state.session.user.battles)
@@ -32,6 +31,7 @@ const BattlePage = () => {
     const [exercises, setExercises] = useState([]);
     const [victory, setVictory] = useState(false);
 
+    // Set the current battle if one exists
     useEffect(() => { // when sessionUser state changes
         let lastBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
@@ -46,6 +46,7 @@ const BattlePage = () => {
 
     }, [dispatch, sessionUser, battles])
 
+    // Update battle exercises and HP
     useEffect(() => {
         if (currentBattle){
             setExercises(currentBattle.exercises);
@@ -54,16 +55,6 @@ const BattlePage = () => {
             setVictory(currentBattle.defeated)
         }
     }, [currentBattle])
-
-    useEffect(() => {
-        // When HP hits 0 dispatch update on battle, defeated = True
-        if (parseInt(hp) === 0 && !currentBattle.defeated) {
-            dispatch(setBattleVictory(currentBattle.id))
-            setVictory(true);
-        }
-
-    }, [dispatch, hp, currentBattle])
-
 
     // DECREASE HP BAR
     useEffect(() => {
@@ -85,8 +76,19 @@ const BattlePage = () => {
 
     }, [hp])
 
+
+    // Update battle victory
+    useEffect(() => {
+        // When HP hits 0 dispatch update on battle, defeated = True
+        if (parseInt(hp) === 0 && !currentBattle.defeated) {
+            dispatch(setBattleVictory(currentBattle.id))
+            setVictory(true);
+        }
+
+    }, [dispatch, hp, currentBattle])
+
+    // Generates a new battle
     const handleBattleGeneration = async (e) => {
-        // BUG CLICKING ON BUTTON DOESNT DISPLAY NEW BATTLE, displays old
         e.preventDefault();
         async function fetchNewBattle() {
             const data = await dispatch(generateBattle())
