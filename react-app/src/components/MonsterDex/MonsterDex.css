@@ -3,6 +3,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    animation: 1s ease-in-out appear;
+
 }
 
 
@@ -77,7 +79,7 @@
 .dash-main-container.monster-details-container {
     display: flex;
     flex-direction: column;
-    animation: 1s ease-in-out slide-in;
+    animation: 1.5s ease-in-out slide-in;
 }
 
 
