@@ -37,10 +37,6 @@ const BattlePage = () => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
-        // console.log(sessionUser.battles.filter(battle => {
-        //     return dateConverter(battle.date) === jsDateConverter(new Date()) &&
-        //         !battle.defeated;
-        // }));
 
         if(lastBattle) {
             console.log("CHANGING BATTLE TO", lastBattle);
@@ -60,7 +56,7 @@ const BattlePage = () => {
         }
     }, [currentBattle])
 
-    useEffect(() => {
+    useEffect(async () => {
         // When HP hits 0 dispatch update on battle, defeated = True
         if (parseInt(hp) === 0 && !currentBattle.defeated) {
             dispatch(setBattleVictory(currentBattle.id))
@@ -68,6 +64,27 @@ const BattlePage = () => {
         }
 
     }, [dispatch, hp, currentBattle])
+
+
+    // DECREASE HP BAR
+    useEffect(() => {
+        // hp = 100, width = 300
+        // hp = 50, width = 150
+
+        let barWidth = Math.floor((hp / 100) * 300) // 300px width bar
+        let bar = document.querySelector(".bar");
+        if (bar) {
+            if (hp < 30) {
+                bar.style.backgroundColor = "#F87575";
+            } else if (hp < 60) {
+                bar.style.backgroundColor = "#FFCF72";
+            } else {
+                bar.style.backgroundColor ="#BEFFC7";
+            }
+            bar.style.width = `${barWidth}px`;
+        }
+
+    }, [hp])
 
     const handleBattleGeneration = async (e) => {
         // BUG CLICKING ON BUTTON DOESNT DISPLAY NEW BATTLE, displays old
@@ -110,7 +127,13 @@ const BattlePage = () => {
                                 alt={`${currentBattle?.monster?.name}-monster`}></img>
                             <div className="battle-monster-name-hp">
                                 <h3>{currentBattle?.monster?.name}</h3>
-                                <p>HP: {hp}%</p>
+
+                                <div className="hp-monitor">
+                                    <div className="hp-bar">
+                                        <div className='bar'></div>
+                                    </div>
+                                    <p>{hp}%</p>
+                                </div>
                             </div>
 
                         </React.Fragment>
