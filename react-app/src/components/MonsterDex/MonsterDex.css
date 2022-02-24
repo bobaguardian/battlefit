@@ -80,23 +80,6 @@
     animation: 1s ease-in-out slide-in;
 }
 
-@keyframes slide-in {
-    0% {
-        position: relative;
-        left: -100px;
-        opacity: 0;
-    }
-    50% {
-        position: relative;
-        opacity: 0.5;
-    }
-    100% {
-        position: relative;
-        left: 0px;
-        opacity: 1;
-    }
-}
-
 
 
 .monster-details-header {
