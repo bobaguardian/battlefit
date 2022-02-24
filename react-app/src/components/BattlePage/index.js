@@ -9,9 +9,9 @@ import Exercise from "../ExercisesPage/Exercise";
 import "./BattlePage.css";
 
 const levelConverter = {
-    1: ["easy", 2],
-    2: ["medium", 4],
-    3: ["hard", 6]
+    1: ["Easy", 2, "#BEFFC7"],
+    2: ["Medium", 4, "#eca400"],
+    3: ["Hard", 6, "#F87575"]
 }
 
 export const jsDateConverter = (str) => {
@@ -23,7 +23,6 @@ export const jsDateConverter = (str) => {
 }
 
 const BattlePage = () => {
-    // const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const battles = useSelector(state => state.session.user.battles)
@@ -32,6 +31,7 @@ const BattlePage = () => {
     const [exercises, setExercises] = useState([]);
     const [victory, setVictory] = useState(false);
 
+    // Set the current battle if one exists
     useEffect(() => { // when sessionUser state changes
         let lastBattle = sessionUser.battles.filter(battle => {
             return dateConverter(battle.date) === jsDateConverter(new Date()) &&
@@ -46,6 +46,7 @@ const BattlePage = () => {
 
     }, [dispatch, sessionUser, battles])
 
+    // Update battle exercises and HP
     useEffect(() => {
         if (currentBattle){
             setExercises(currentBattle.exercises);
@@ -54,16 +55,6 @@ const BattlePage = () => {
             setVictory(currentBattle.defeated)
         }
     }, [currentBattle])
-
-    useEffect(() => {
-        // When HP hits 0 dispatch update on battle, defeated = True
-        if (parseInt(hp) === 0 && !currentBattle.defeated) {
-            dispatch(setBattleVictory(currentBattle.id))
-            setVictory(true);
-        }
-
-    }, [dispatch, hp, currentBattle])
-
 
     // DECREASE HP BAR
     useEffect(() => {
@@ -85,8 +76,19 @@ const BattlePage = () => {
 
     }, [hp])
 
+
+    // Update battle victory
+    useEffect(() => {
+        // When HP hits 0 dispatch update on battle, defeated = True
+        if (parseInt(hp) === 0 && !currentBattle.defeated) {
+            dispatch(setBattleVictory(currentBattle.id))
+            setVictory(true);
+        }
+
+    }, [dispatch, hp, currentBattle])
+
+    // Generates a new battle
     const handleBattleGeneration = async (e) => {
-        // BUG CLICKING ON BUTTON DOESNT DISPLAY NEW BATTLE, displays old
         e.preventDefault();
         async function fetchNewBattle() {
             const data = await dispatch(generateBattle())
@@ -125,7 +127,12 @@ const BattlePage = () => {
                                 src={currentBattle?.monster?.image}
                                 alt={`${currentBattle?.monster?.name}-monster`}></img>
                             <div className="battle-monster-name-hp">
-                                <h3>{currentBattle?.monster?.name}</h3>
+                                <div className="battle-monster-name-level">
+                                    <h3>{currentBattle?.monster?.name}</h3>
+                                    <p>Difficulty: <span style={{color: `${levelConverter[currentBattle.monster.level][2]}`}}>
+                                             {levelConverter[currentBattle.monster.level][0]}</span>
+                                    </p>
+                                </div>
 
                                 <div className="hp-monitor">
                                     <div className="hp-bar">
