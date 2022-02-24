@@ -52,7 +52,9 @@ const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, 
     }
 
 	return (
-        <div className="log-box">
+        // style={{display: "none"}}
+        <div className={`log-box log-${date}`}
+            style={{height: 0, overflow: "hidden", opacity: 0, padding: 0}} >
             <div className="log-details">
                 <div className="exercise-unit-div">
                     <h3>{exercise.name}</h3>
