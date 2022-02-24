@@ -29,19 +29,21 @@ const LogsPage = () => {
 
     const toggleDateDisplay = (e) => {
         e.preventDefault();
-
+        e.stopPropagation();
         let dateLogs = document.getElementsByClassName(`log-${e.target.id}`)
         for (let i = 0; i < dateLogs.length; i++) {
-            if (dateLogs[i].style.opacity == 0) {
+            if (dateLogs[i].style.opacity === "0") {
                 dateLogs[i].style.opacity = "1";
                 dateLogs[i].style.height = "150px";
                 dateLogs[i].style.overflow = "visible";
                 dateLogs[i].style.padding = "30px";
+                dateLogs[i].style.borderTop = "1px solid rgba(104, 105, 99, 0.8)";
             } else {
                 dateLogs[i].style.opacity = "0";
                 dateLogs[i].style.height = "0px";
                 dateLogs[i].style.overflow = "hidden";
                 dateLogs[i].style.padding = "0px";
+                dateLogs[i].style.borderTop = "none";
 
             }
         }
