@@ -109,7 +109,7 @@
     /* border: 1px solid red; */
     background-color: var(--dim-gray-dark);
     border-radius: 7px;
-    opacity: 70%;
+    opacity: 0.7;
     text-align: center;
     margin: 80px 100px 80px 100px;
     padding: 20px;
