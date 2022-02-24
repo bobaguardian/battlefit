@@ -59,7 +59,7 @@
 .exercises-container {
     padding: 10px 30px;
     min-width: 700px;
-    animation: 0.7s ease-in-out slide-in;
+    animation: 0.7s ease-in-out exercise-slide-in;
 
 
 }

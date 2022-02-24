@@ -103,6 +103,23 @@ button:hover {
 	}
 }
 
+@keyframes exercise-slide-in {
+	0% {
+		position: relative;
+		left: -50px;
+		opacity: 0;
+	}
+	50% {
+		position: relative;
+		opacity: 0.5;
+	}
+	100% {
+		position: relative;
+		left: 0px;
+		opacity: 1;
+	}
+}
+
 @keyframes appear {
 	0% {
 		opacity: 0;
@@ -130,10 +147,6 @@ button:hover {
 		left: -100px;
 		opacity: 0;
 	}
-	/* 70% {
-		position: relative;
-		opacity: 0.5;
-	} */
 	100% {
 		position: relative;
 		left: 0px;
