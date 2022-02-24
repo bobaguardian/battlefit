@@ -28,7 +28,7 @@
 
 .battle-monster-name-hp {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 70vw;
     margin-top: 30px;
@@ -45,17 +45,31 @@
 .battle-monster-img img {
     object-fit: contain;
 }
+.battle-monster-name-level {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 15%;
+}
+
+.battle-monster-name-level p {
+    padding: 0;
+}
+
 .hp-monitor {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .hp-bar {
-    width: 303px;
+    width: 307px;
     background: var(--lavender-blush);
     border: 1px solid  black;
     border-radius: 20px;
     height: 22px;
+    margin-top: 10px;
 }
 
 
@@ -67,7 +81,7 @@
     border: 1px solid var(--dim-gray);
     border-left: none;
     height: 18px;
-    margin-left: 1px;
+    margin-left: 3px;
     width: 300px;
 }
 
