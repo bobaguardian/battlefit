@@ -2,7 +2,6 @@
     padding: 10px 30px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* border: 1px solid red; */
     justify-items: center;
 }
 
@@ -68,7 +67,7 @@
 }
 
 .monster-box img{
-    object-fit: cover;
+    object-fit: contain;
     width: 200px;
     height: 200px;
 }
