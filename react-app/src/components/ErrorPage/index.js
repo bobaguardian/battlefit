@@ -7,9 +7,10 @@ const ErrorPage = () => {
 	return (
 		<div className="error-page-container">
 			<div className="error-code-message">
-				<h2 className="error-code">404: The resource you requested cannot be found.</h2>
+				<h1>404 <i className="fa-solid fa-triangle-exclamation"></i></h1>
+				<h2 className="error-code">Oops! You just left the fantasy world of BattleFit. The resource you requested cannot be found.</h2>
 				<Link to="/">
-					<h2 className="home-link">Return to Home</h2>
+					<h2 className="home-link">Return to Home Base <i className="fa-solid fa-house"></i></h2>
 				</Link>
 			</div>
 		</div>

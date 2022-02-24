@@ -74,11 +74,11 @@ const BattlePage = () => {
         let bar = document.querySelector(".bar");
         if (bar) {
             if (hp < 30) {
-                bar.style.backgroundColor = "#F87575";
+                bar.style.backgroundColor = "#bf1a2f";
             } else if (hp < 60) {
-                bar.style.backgroundColor = "#FFCF72";
+                bar.style.backgroundColor = "#eca400";
             } else {
-                bar.style.backgroundColor ="#BEFFC7";
+                bar.style.backgroundColor ="#71f79f";
             }
             bar.style.width = `${barWidth}px`;
         }

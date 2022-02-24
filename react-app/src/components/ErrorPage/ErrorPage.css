@@ -1,0 +1,47 @@
+.error-page-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.error-code-message {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: var(--max-blue-purple);
+    color: var(--jet);
+    text-align: center;
+    width: 70%;
+
+
+}
+
+.error-code-message h1 {
+    font-family: var(--base-font);
+    font-weight: bold;
+}
+
+.error-code-message h2 {
+    background-color: var(--max-blue-purple-dark);
+    padding-top: 20px;
+    font-family: var(--base-font);
+    font-weight: bold;
+}
+
+.error-code-message a {
+    background-color: var(--max-blue-purple-dark);
+    color: var(--jet);
+    padding-top: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.error-code-message a:hover {
+    cursor: pointer;
+    color: var(--french-violet-dark);
+    /* text-decoration: underline; */
+}

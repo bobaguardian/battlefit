@@ -81,30 +81,6 @@
     cursor: pointer;
 }
 
-.copyright {
-    padding: 10px;
-}
-
-.about-links {
-    display: flex;
-    width: 50%;
-    justify-content: flex-end;
-    padding: 10px;
-
-}
-
-.about-links a, p {
-    text-decoration: none;
-    color: var(--lavender-blush);
-    padding: 5px;
-    padding-left: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.about-links a:hover {
-    color: var(--french-violet);
-}
-
 .disclaimer-div {
     /* border: 1px solid red; */
     background-color: var(--dim-gray-dark);
