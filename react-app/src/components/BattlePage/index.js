@@ -39,7 +39,6 @@ const BattlePage = () => {
         })[0]
 
         if(lastBattle) {
-            console.log("CHANGING BATTLE TO", lastBattle);
             setCurrentBattle(lastBattle);
             setVictory(lastBattle.defeated);
             setHp(100);
@@ -56,7 +55,7 @@ const BattlePage = () => {
         }
     }, [currentBattle])
 
-    useEffect(async () => {
+    useEffect(() => {
         // When HP hits 0 dispatch update on battle, defeated = True
         if (parseInt(hp) === 0 && !currentBattle.defeated) {
             dispatch(setBattleVictory(currentBattle.id))
