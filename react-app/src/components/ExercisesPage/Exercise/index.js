@@ -38,7 +38,7 @@ const Exercise = ({ id, user_id, name, username, muscle_group, description, imag
                 { sessionUser.id === user_id ?
                     <>
                         <EditExerciseFormModal exercise={exercise} />
-                        <button className="delete-exercise-btn" onClick={handleDelete}>
+                        <button className="delete-exercise-btn  shake-icon" onClick={handleDelete}>
                             <i className="fa-solid fa-square-minus"></i>
                         </button>
                     </>

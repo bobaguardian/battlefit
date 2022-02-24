@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="copyright">
-                <p>(c) BattleFit</p>
+                <p><i className="fa-solid fa-copyright"></i> BattleFit</p>
             </div>
             <div className="about-links">
                 <a href='https://github.com/bobaguardian/'>Github</a>

@@ -28,7 +28,9 @@
 
 .battle-monster-name-hp {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70vw;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -42,6 +44,31 @@
 
 .battle-monster-img img {
     object-fit: contain;
+}
+.hp-monitor {
+    display: flex;
+    align-items: center;
+}
+
+.hp-bar {
+    width: 303px;
+    background: var(--lavender-blush);
+    border: 1px solid  black;
+    border-radius: 20px;
+    height: 22px;
+}
+
+
+.bar {
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    top: 1px;
+    border-radius: 20px;
+    border: 1px solid var(--dim-gray);
+    border-left: none;
+    height: 18px;
+    margin-left: 1px;
+    width: 300px;
 }
 
 .battle-exercises-container {

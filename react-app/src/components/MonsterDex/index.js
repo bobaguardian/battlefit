@@ -13,7 +13,7 @@ const MonsterDex = () => {
     });
 
     let monsters = battles.map(battle => battle.monster);
-    let lastMonster = "blah";
+    let lastMonster = "look! an easter egg!";
 
     const setLastMonster = (name) => {
         lastMonster = name;

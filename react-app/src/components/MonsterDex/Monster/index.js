@@ -13,8 +13,7 @@ const Monster = ({id, name, image, description, level}) => {
         <div className="monster-box" onClick={goToMonsterDetails}>
             <img className="monster-img" src={image} alt={`${name}-monster`}></img>
             <div className="monster-details">
-                <h3>No. {id} {name}</h3>
-                {/* <p>{description}</p> */}
+                <h3 className="monster-no-name">No. {id} {name}</h3>
             </div>
         </div>
     )

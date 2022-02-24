@@ -15,7 +15,7 @@ function AddBattleLogFormModal({ battleId, exercise_id, exerciseName, monsterNam
     return (
       <>
         <button
-          className='add-log-btn'
+          className='add-log-btn shake-icon'
           onClick={() => setShowModal(true)}>
           <i className="fa-solid fa-fire"></i>
         </button>

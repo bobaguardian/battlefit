@@ -52,7 +52,7 @@ const SplashPage = () => {
     return (
         <div className="splash-main-container">
             <nav className="splash-nav">
-                <a className="Logo" href="/"><h1>BattleFit</h1></a>
+                <a className="logo" href="/"><h1>BattleFit</h1></a>
                 <div id="login-signup-container">
                     <LoginFormModal />
                     <SignUpFormModal />
@@ -77,6 +77,14 @@ const SplashPage = () => {
                 </div>
                 <div id="splash-ready" onClick={openSignupFormModal}>Ready to Battle?</div>
             </main>
+            <div className="disclaimer-div">
+                <h3>Disclaimer</h3>
+                <p> BattleFit does not own any of these images. Monster descriptions are pulled from a wiki database and
+                    may be considered nonfactual.  Please don't believe everything they say. This application serves to motivate
+                    users to stay fit and is not liable for any physical or emotional damage for a user's choice
+                    to extensively battle and collect monsters.
+                </p>
+            </div>
             <Footer />
         </div>
     )

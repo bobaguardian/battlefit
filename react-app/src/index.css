@@ -37,6 +37,10 @@ h3 {
 	font-size: 18px;
 }
 
+p {
+	line-height: 22px;
+}
+
 *,
 body {
 	margin: 0;
@@ -45,6 +49,7 @@ body {
 	text-decoration: none;
 	list-style-type: none;
 }
+
 
 body, a {
 	font-family: var(--base-font);
@@ -65,3 +70,18 @@ input {
 button:hover {
 	cursor: pointer;
 }
+
+
+.shake-icon:hover {
+	animation: shake 0.5s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+}
+
+@keyframes shake {
+	0% { transform: rotate(0deg); }
+	25% { transform:  rotate(-10deg); }
+	50% { transform: rotate(0deg); }
+	75% { transform: rotate(10deg); }
+	100% { transform:  rotate(0deg); }
+  }

@@ -27,7 +27,7 @@ function EditLogFormModal({ eId, exerciseName, eDate, eUnit, eUnitCount, eCommen
     return (
       <>
         <button
-          className='edit-log-btn'
+          className='edit-log-btn shake-icon'
           onClick={handleShowModal}>
           <i className="fa-solid fa-pen-to-square"></i>
         </button>

@@ -1,5 +1,4 @@
 .dash-nav {
-    /* border: 2px solid green; */
     display: flex;
     align-items: center;
     padding: 20px;
@@ -7,12 +6,12 @@
 }
 
 .nav-links {
-    width: 50%;
-    margin-left: 100px;
+    width: 100%;
+    margin-left: 170px;
     margin-right: 100px;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .active {
@@ -21,6 +20,7 @@
 }
 .nav-links a {
     padding: 10px;
+    margin: 5px;
     padding-bottom: 7px; /* make up for border-bottom */
     height: 45px;
     width: 100px;
@@ -60,7 +60,7 @@
 }
 
 .user-info h3 {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .user-image-edit-div {
@@ -69,10 +69,12 @@
 }
 
 .user-image {
-    width: 65%;
+    width: 75%;
+    max-height: 400px;
     margin: 0 auto;
-    border: 1px solid var(--lavender-blush);
-    border-radius: 3px;
+    border: 5px solid var(--lavender-blush-dark);
+    padding: 5px;
+    border-radius: 10px;
     overflow: hidden;
 	position: relative;
 	display: flex;
