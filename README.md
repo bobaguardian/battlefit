@@ -14,7 +14,47 @@ BattleFit is a gamified workout tracker to motivate people to stay fit. Users to
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/>  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height=40/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
 
 
-<!-- ## Application Screenshots -->
+## Features
+
+### Splash Page
+
+The splash page features a image slideshow of a few monsters you can battle when using the application.  Users can log into an existing account or sign up to create a new account.  There is also a demo option so users can easily check out the site.
+
+![Splash Page](./images/splash-page.png)
+
+
+### Dashboard
+
+Once logged in, the user is redirected to their dashboard showing their information on the left side panel and a grid of muscle groups that users can click on to browse exercises on the site.  Users can also add an exercise of their own from this page and any exercise related page.
+
+![Dashboard](./images/dashboard-page.png)
+
+### Exercises
+Upon clicking on a muscle group from the dashboard, the user can see a list of exercises for that muscle group.  The calendar icon on the right side of an exercise allows users to add a log for that exercise.  The layout is identical to the My Exercises (on the side panel) page looks like, but with the user's created exercises instead.
+
+![Exercises List](./images//exercises-page.JPG)
+
+### Form Modals
+All forms appear in the form of modals.  Here is an example of a form modal to edit an existing exercise the user has created.  Image uploading and submission is implemented using Amazon Web Services S3.
+
+![Edit Exercise Form Modal](./images/edit-exercise-form-modal.JPG)
+
+### Logs
+On the My Logs tab, the user can see the logs they have created including its details and comments.  The logs are ordered by date with the most recent showing at the top.  The user can also edit or delete their logs with the green and red icons on the log box.
+
+![Log List](./images/logs-page.png)
+
+### Battles
+Users can participate in exciting battles with a random monster from a list of 55 seeded monsters!  Each monster has a level difficulty which dictates the amount of exercises that need to be logged.  Users can "damage" monsters by submitting a log for that exercise by clicking the fire icon.  Upon completing an exercise, there is a dynamic health bar that decreases.  There is no measurement converter based on how many reps or how long the user did an exercise because every user exercises at their own pace!  It's an honor system, so battle with honor!
+
+![Battle Page](./images/battle-page.JPG)
+
+### Monster Dex
+Users can collect the monsters that they have encountered in battles.  Monsters are layed out in a grid like fashion, with their number and name appearing on hover of each monster box.  Clicking on a monster here will redirect the user to that monster's detail page.  This page displays more details on the monster as well as the user's battle records with that monster.  Not all of the monsters are displayed in the monster dex right away, but that's the fun part!  Keep exercising and battling monsters to collect more!
+
+![Monster Dex](./images/monster-dex-page.png)
+![Monster Details Page](./images/monster-details.JPG)
+
 
 ## Getting started
 1. Clone this repository
@@ -60,4 +100,3 @@ BattleFit is a gamified workout tracker to motivate people to stay fit. Users to
 * Add filtering functionality for the monster dex
 
 <!-- ## Redux Store Tree -->
-
