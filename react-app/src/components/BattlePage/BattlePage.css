@@ -116,6 +116,8 @@
 .victory-header {
     display: flex;
     align-items: center;
+    /* color: var(--tea-green); */
+
 }
 
 .battle-page-victory {
@@ -123,6 +125,14 @@
     flex-direction: column;
 }
 
-.battle-page-victory p {
-    padding-left: 50px;
+.victory-message {
+    padding-top: 50px;
+
+}
+
+.battle-page-victory .victory-message p {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--tea-green);
 }

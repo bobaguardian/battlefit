@@ -113,8 +113,11 @@ const BattlePage = () => {
                             <h2>Victory!</h2>
                             <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
                         </div>
-                        <p>You defeated {currentBattle.monster.name}</p>
-                        <p>Rest up, or battle another monster!</p>
+                        <div className="victory-message">
+                            <p><i className="fa-solid fa-medal"></i> You defeated {currentBattle.monster.name} <i className="fa-solid fa-medal"></i></p>
+                            <p>Rest up, or battle another monster!</p>
+
+                        </div>
                     </div>
                     :
                     !currentBattle ?
