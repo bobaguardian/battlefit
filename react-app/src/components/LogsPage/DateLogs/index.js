@@ -23,7 +23,7 @@ const DateLogs = ({dateHeader}) => {
     return (
         <div className="logs-inner-container">
             <h3 className={`log-date-heading date-heading-${dateHeader}`}
-                onClick={toggleShowLogs}>{dateConverter(dateHeader)} Logs</h3>
+                onClick={toggleShowLogs}>{dateConverter(dateHeader)}</h3>
 
             { showLogs ?
                 <>
