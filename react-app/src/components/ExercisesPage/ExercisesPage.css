@@ -24,6 +24,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px 30px;
+    animation: 0.7s ease-in appear;
+
 }
 
 .muscle-box {
@@ -34,6 +36,8 @@
     padding: 30px 20px;
     margin: 15px;
     transition: all 0.2s ease-in-out;
+    animation: 0.7s ease-out scale-up;
+
 }
 
 .muscle-box:hover {
@@ -55,6 +59,8 @@
 .exercises-container {
     padding: 10px 30px;
     min-width: 700px;
+    animation: 0.7s ease-in-out exercise-slide-in;
+
 
 }
 

@@ -2,25 +2,31 @@
     padding: 10px 30px;
 }
 
-.logs-inner-container > div {
+/* .logs-inner-container > div {
     border-top: 1px solid var(--dim-gray);
 
-}
+} */
 
 
 .log-date-heading {
     border-bottom: 3px solid var(--dim-gray);
     color: var(--max-blue-purple);
     padding: 15px 10px;
-    padding-top: 0px;
     transition: all 0.2s ease-in-out;
 }
+
+.log-date-heading:hover {
+    border-bottom-color: var(--french-violet);
+    color: var(--french-violet);
+    cursor: pointer;
+}
+
 
 .log-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 30px;
+    transition: all 0.5s ease-in-out;
 }
 
 .log-box:hover .edit-delete-log {

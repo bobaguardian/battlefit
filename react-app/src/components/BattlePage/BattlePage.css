@@ -24,6 +24,7 @@
 
 .battle-monster-div {
     text-align: center;
+    animation: 1.7s ease-in-out monster-battle-slide-in;
 }
 
 .battle-monster-name-hp {
@@ -90,13 +91,12 @@
     padding-bottom: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    animation: 1.7s ease-in-out appear;
 }
 
 .battle-exercises-container .exercise-box {
     margin: 15px;
 }
-
-
 
 .generate-battle-btn {
     background-color: var(--french-violet);
