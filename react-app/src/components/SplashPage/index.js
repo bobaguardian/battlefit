@@ -61,7 +61,7 @@ const SplashPage = () => {
     return (
         <div className="splash-main-container">
             <nav className="splash-nav">
-                <a className="logo" href="/"><h1>BattleFit</h1></a>
+                <h1 className="logo">BattleFit</h1>
                 <div id="login-signup-container">
                     <LoginFormModal />
                     <SignUpFormModal />

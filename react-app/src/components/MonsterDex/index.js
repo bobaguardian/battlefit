@@ -21,7 +21,7 @@ const MonsterDex = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Monster Dex <i className="fa-solid fa-dragon"></i></h2>
+            <h2><i className="fa-solid fa-dragon"></i> Monster Dex ({monsters.length})</h2>
             { !monsters || monsters.length === 0 ?
                 <div className="empty-message-div">
                     <h2>No monsters encountered yet!</h2>

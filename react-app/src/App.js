@@ -6,6 +6,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage';
 import ErrorPage from "./components/ErrorPage";
 import Dashboard from './components/Dashboard';
+import AboutPage from './components/AboutPage';
 
 const musclePaths = [
   "/exercises/Abs",
@@ -45,6 +46,9 @@ function App() {
         <Route exact path={["/", "/exercises", "/logs", ...musclePaths,
           "/users/:id", "/monster-dex", "/monsters/:id", "/battle"]}>
           { sessionUser ? <Dashboard /> : <SplashPage /> }
+        </Route>
+        <Route exact path="/meet-the-maker">
+          <AboutPage />
         </Route>
         <Route>
           <ErrorPage />

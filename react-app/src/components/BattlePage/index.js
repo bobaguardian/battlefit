@@ -139,6 +139,7 @@ const BattlePage = () => {
                                             <p>Difficulty: <span style={{color: `${levelConverter[currentBattle.monster.level][2]}`}}>
                                                     {levelConverter[currentBattle.monster.level][0]}</span>
                                             </p>
+
                                         </div>
 
                                         <div className="hp-monitor">
@@ -147,8 +148,9 @@ const BattlePage = () => {
                                             </div>
                                             <p>{hp}%</p>
                                         </div>
-                                    </div>
 
+                                    </div>
+                                    <p className="midnight-msg">You have until midnight to defeat this monster</p>
                                 </React.Fragment>
                             : null}
                         </div>

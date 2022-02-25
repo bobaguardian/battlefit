@@ -17,8 +17,6 @@
     color: var(--jet);
     text-align: center;
     width: 70%;
-
-
 }
 
 .error-code-message h1 {
@@ -30,6 +28,7 @@
     background-color: var(--max-blue-purple-dark);
     padding-top: 20px;
     font-family: var(--base-font);
+    font-size: 22px;
     font-weight: bold;
 }
 
