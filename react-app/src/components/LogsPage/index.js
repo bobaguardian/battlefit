@@ -31,7 +31,7 @@ const LogsPage = () => {
 
     return (
         <div className="dash-main-container">
-            <h2>Your Logs <i className="fa-solid fa-calendar-days"></i></h2>
+            <h2><i className="fa-solid fa-calendar-days"></i> Your Logs</h2>
             { !logs || logs.length === 0 ?
             <div className="empty-message-div">
                 <h2> No logs to see yet!</h2>
