@@ -27,8 +27,8 @@ footer {
 .about-links a, p {
     text-decoration: none;
     color: var(--lavender-blush);
-    padding: 5px;
-    padding-left: 10px;
+    margin: 5px;
+    margin-left: 10px;
     transition: all 0.2s ease-in-out;
 }
 

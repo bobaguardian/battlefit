@@ -17,9 +17,9 @@ ReactDOM.render(
       <ModalProvider>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/admin-upload-image">
+            {/* <Route exact path="/admin-upload-image">
               <UploadImage />
-            </Route>
+            </Route> */}
             <Route>
               <App />
             </Route>
