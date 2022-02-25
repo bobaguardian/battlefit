@@ -30,24 +30,31 @@ const LogsPage = () => {
     const toggleDateDisplay = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log("Clicked", e.target.id);
-        let dateLogs = document.getElementsByClassName(`log-${e.target.id}`)
-        for (let i = 0; i < dateLogs.length; i++) {
-            if (dateLogs[i].style.opacity === "0") {
-                dateLogs[i].style.opacity = "1";
-                dateLogs[i].style.height = "150px";
-                dateLogs[i].style.overflow = "visible";
-                dateLogs[i].style.padding = "30px";
-                dateLogs[i].style.borderTop = "1px solid rgba(104, 105, 99, 0.8)";
-            } else {
-                dateLogs[i].style.opacity = "0";
-                dateLogs[i].style.height = "0px";
-                dateLogs[i].style.overflow = "hidden";
-                dateLogs[i].style.padding = "0px";
-                dateLogs[i].style.borderTop = "none";
+        // console.log("Clicked", e.target.id);
+        // let dateLogs = document.getElementsByClassName(`log-${e.target.id}`)
 
-            }
-        }
+        // let isShown = dateLogs[0].style.opacity;
+        // for (let i = 0; i < dateLogs.length; i++) {
+        //     // console.log(dateLogs[i])
+        //     if (isShown === "0" && dateLogs[i].style.opacity === "0") {
+        //         // console.log("Showing", dateLogs[i]);
+        //         dateLogs[i].style.opacity = "1";
+        //         dateLogs[i].style.height = "150px";
+        //         dateLogs[i].style.overflow = "visible";
+        //         dateLogs[i].style.padding = "30px";
+        //         dateLogs[i].style.backgroundColor = "purple";
+        //         dateLogs[i].style.borderTop = "1px solid rgba(104, 105, 99, 0.8)";
+        //     } else {
+        //         // console.log("Hiding", dateLogs[i]);
+        //         dateLogs[i].style.opacity = "0";
+        //         dateLogs[i].style.height = "0px";
+        //         dateLogs[i].style.overflow = "hidden";
+        //         dateLogs[i].style.padding = "0px";
+        //         dateLogs[i].style.borderTop = "none";
+
+        //     }
+        // }
+
     }
 
     return (
@@ -58,20 +65,18 @@ const LogsPage = () => {
                 <h2> No logs to see yet!</h2>
             </div> : null }
             <div className="logs-container">
-
-
                 {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
-                    <div key={`log-${index}`}className="logs-inner-container">
+                    <div key={`log-div-${index}`}className="logs-inner-container">
                         {(dateConverter(date) !== currentDate) ?
                             <h3 id={date} className={`log-date-heading date-heading-${date}`} onClick={toggleDateDisplay}>
                                 {currentDate = dateConverter(date)}
                             </h3>
                             : null}
-
                         <Log key={`log-${index}`} id={id} user={user} date={date}
                             comment={comment} exercise={exercise} unit={unit}
                             unit_count={unit_count} created_at={created_at}
                             updated_at={updated_at} />
+
 
                     </div>
                 ))}
