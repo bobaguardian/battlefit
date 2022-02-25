@@ -45,28 +45,14 @@ const dateConverter = (str) => {
 const Log = ({ id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}) => {
 	const dispatch = useDispatch();
 
-    const handleDelete = async (e) => {
+    const handleDelete = (e) => {
         e.preventDefault();
         e.stopPropagation();
-
-        // async function hideDiv() {
-
-        //     let div = document.getElementById(`log-${id}`);
-        //     div.style.opacity = "0";
-        //     div.style.height = "0px";
-        //     div.style.overflow = "hidden";
-        //     div.style.padding = "0px";
-        //     div.style.borderTop = "none";
-        // }
-
-        // hideDiv().then(dispatch(removeLog(id)));
-
         dispatch(removeLog(id))
     }
 
 	return (
-        // style={{height: "0px", overflow: "hidden", opacity: 0, padding: "0px"}}
-        <div className={`log-box log-${date}`} id={`log-${date}`}>
+        <div className={`log-box log-${date}`} id={`log-${id}`}>
             <div className="log-details">
                 <div className="exercise-unit-div">
                     <h3>{exercise.name}</h3>

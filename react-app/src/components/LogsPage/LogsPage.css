@@ -24,10 +24,13 @@
     transition: all 0.5s ease-in-out;
     padding: 30px;
     border-top: 1px solid var(--dim-gray);
-    animation: 0.5s ease-in-out appear;
+    animation: 0.3s ease-in-out log-slide-down;
 }
 
+.log-box::content {
+    animation: 0.3s ease-in-out log-slide-up;
 
+}
 
 
 

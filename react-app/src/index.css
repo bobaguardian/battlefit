@@ -152,3 +152,31 @@ button:hover {
 		opacity: 1;
 	}
 }
+
+@keyframes log-slide-down {
+	0% {
+		position: relative;
+		top: -5px;
+		opacity: 0;
+	}
+	100% {
+		position: relative;
+		top: 0px;
+		opacity: 1;
+
+	}
+}
+
+@keyframes log-slide-up {
+	0% {
+		position: relative;
+		top: 0px;
+		opacity: 1;
+	}
+	100% {
+		position: relative;
+		top: -5px;
+		opacity: 0;
+
+	}
+}
