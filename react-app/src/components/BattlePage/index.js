@@ -44,7 +44,7 @@ const BattlePage = () => {
             setHp(100);
         }
 
-    }, [dispatch, sessionUser, battles])
+    }, [dispatch, sessionUser])
 
     // Update battle exercises and HP
     useEffect(() => {
