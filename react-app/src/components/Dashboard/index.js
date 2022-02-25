@@ -1,5 +1,9 @@
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { getAllMuscles } from '../../store/muscles';
+import { getUserLogs } from '../../store/logs';
 import SidePanel from './SidePanel';
 import ExercisesPage from "../ExercisesPage";
 import ExercisesByMuscleGroup from "../ExercisesPage/ExercisesByMuscleGroup";
@@ -13,6 +17,14 @@ import Footer from '../Footer';
 import "./Dashboard.css";
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllMuscles());
+        dispatch(getUserLogs());
+    }, [dispatch])
+
+
     return (
         <div>
             <nav className="dash-nav">

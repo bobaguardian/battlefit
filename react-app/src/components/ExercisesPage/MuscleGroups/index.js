@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { getAllMuscles } from "../../../store/muscles";
+import { getAllExercises } from "../../../store/exercises";
+
 
 const MuscleGroups = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const MuscleGroups = () => {
     const muscles = Object.values(musclesById);
 
     useEffect(() => {
-        dispatch(getAllMuscles());
+        dispatch(getAllExercises(""));
     }, [dispatch])
 
     return (

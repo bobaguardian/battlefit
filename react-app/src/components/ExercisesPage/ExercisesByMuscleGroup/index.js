@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
-import { getAllExercises } from "../../../store/exercises";
 import Exercise from "../Exercise";
 import AddExerciseFormModal from "../AddExerciseFormModal";
+import { getAllExercises } from "../../../store/exercises";
 
 
 const ExercisesByMuscleGroup = () => {
@@ -12,11 +12,11 @@ const ExercisesByMuscleGroup = () => {
     const location = useLocation();
     const { muscle } = useParams();
     const exercisesbyId = useSelector(state => state.exercises.byId);
-    const exercises = Object.values(exercisesbyId)
+    const exercises = Object.values(exercisesbyId).filter(e => e.muscle_group.name === muscle);
 
     useEffect(() => {
-        dispatch(getAllExercises(muscle));
-    }, [dispatch, location.pathname, muscle])
+        dispatch(getAllExercises(""));
+    }, [dispatch, location.pathname])
 
     return (
         <div className="dash-main-container">
