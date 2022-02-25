@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,7 +13,7 @@ const Footer = () => {
             </div>
             <div className="about-links">
                 <a href='https://github.com/bobaguardian/'><i className="fa-brands fa-github"></i></a>
-                <a href='/meet-the-maker'>Vivian Thach</a>
+                <Link to='/meet-the-maker'>Vivian Thach</Link>
                 <a href='https://www.linkedin.com/in/vivianthach1023/'><i className="fa-brands fa-linkedin"></i></a>
             </div>
         </footer>
