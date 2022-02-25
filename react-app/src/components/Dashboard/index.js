@@ -1,4 +1,4 @@
-import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
     return (
         <div>
             <nav className="dash-nav">
-                <a className="logo" href="/exercises"><h1>BattleFit</h1></a>
+                <Link to="/exercises"><h1 className="logo">BattleFit</h1></Link>
                 <div className="nav-links">
                     <NavLink exact to='/exercises' activeClassName="active">Exercises</NavLink>
                     <NavLink exact to='/logs' activeClassName="active">My Logs</NavLink>
