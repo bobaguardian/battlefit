@@ -34,8 +34,8 @@ const MonsterDetails = () => {
 
             <div className="monster-details-text">
                 <p className="monster-description">{monster.description}</p>
-                {defeatCount > 0 ? defeatCount === 1 ? <p className="monster-stamp">Defeated {defeatCount} time!</p>
-                    : <p className="monster-stamp">Defeated {defeatCount} times!</p>
+                {defeatCount > 0 ? defeatCount === 1 ? <p className="monster-stamp"><i className="fa-solid fa-medal"></i> Defeated {defeatCount} time!</p>
+                    : <p className="monster-stamp"><i className="fa-solid fa-medal"></i> Defeated {defeatCount} times!</p>
                     : <p className="monster-stamp">Encountered!</p>}
             </div>
 

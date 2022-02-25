@@ -50,7 +50,6 @@ body {
 	list-style-type: none;
 }
 
-
 body, a {
 	font-family: var(--base-font);
 	background-color: var(--jet);
