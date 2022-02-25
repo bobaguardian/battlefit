@@ -25,7 +25,6 @@ export const jsDateConverter = (str) => {
 const BattlePage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const battles = useSelector(state => state.session.user.battles)
     const [hp, setHp] = useState(100);
     const [currentBattle, setCurrentBattle] = useState(null);
     const [exercises, setExercises] = useState([]);

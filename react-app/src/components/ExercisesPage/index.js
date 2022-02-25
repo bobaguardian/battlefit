@@ -1,16 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getAllMuscles } from "../../store/muscles";
 import AddExerciseFormModal from "./AddExerciseFormModal";
 import MuscleGroups from "./MuscleGroups";
 import './ExercisesPage.css';
 import './ExerciseForm.css';
 
 const ExercisesPage = () => {
-    const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getAllMuscles());
-    // }, [dispatch])
 
     return (
         <div className="dash-main-container">

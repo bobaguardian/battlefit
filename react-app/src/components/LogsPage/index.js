@@ -30,6 +30,7 @@ const LogsPage = () => {
     const toggleDateDisplay = (e) => {
         e.preventDefault();
         e.stopPropagation();
+        console.log("Clicked", e.target.id);
         let dateLogs = document.getElementsByClassName(`log-${e.target.id}`)
         for (let i = 0; i < dateLogs.length; i++) {
             if (dateLogs[i].style.opacity === "0") {
