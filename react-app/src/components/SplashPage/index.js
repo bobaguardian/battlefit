@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { getAllMuscles } from '../../store/muscles';
 import ImageGallery from 'react-image-gallery';
 import LoginFormModal from "../auth/LoginFormModal";
 import SignUpFormModal from "../auth/SignupFormModal";
@@ -34,6 +38,11 @@ const images = [
 ]
 
 const SplashPage = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllMuscles());
+    }, [dispatch])
 
     const openSignupFormModal = () => {
 		const events = ["mousedown", "click", "mouseup"];

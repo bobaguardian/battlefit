@@ -8,9 +8,9 @@ import './ExerciseForm.css';
 
 const ExercisesPage = () => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getAllMuscles());
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getAllMuscles());
+    // }, [dispatch])
 
     return (
         <div className="dash-main-container">
