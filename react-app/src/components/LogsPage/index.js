@@ -1,8 +1,9 @@
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getUserLogs } from "../../store/logs";
-import Log from "./Log";
+import DateLogs from "./DateLogs";
 import './LogsPage.css';
 
 export const dateConverter = (str) => {
@@ -20,42 +21,13 @@ const LogsPage = () => {
         if (new Date(a.date) < new Date(b.date)) return 1;
         return -1;
     });
-    let currentDate = "blah";
+    const dates = [...new Set(logs.map(log => log.date))];
+
 
     useEffect(() => {
         dispatch(getUserLogs());
     }, [dispatch])
 
-
-    const toggleDateDisplay = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // console.log("Clicked", e.target.id);
-        // let dateLogs = document.getElementsByClassName(`log-${e.target.id}`)
-
-        // let isShown = dateLogs[0].style.opacity;
-        // for (let i = 0; i < dateLogs.length; i++) {
-        //     // console.log(dateLogs[i])
-        //     if (isShown === "0" && dateLogs[i].style.opacity === "0") {
-        //         // console.log("Showing", dateLogs[i]);
-        //         dateLogs[i].style.opacity = "1";
-        //         dateLogs[i].style.height = "150px";
-        //         dateLogs[i].style.overflow = "visible";
-        //         dateLogs[i].style.padding = "30px";
-        //         dateLogs[i].style.backgroundColor = "purple";
-        //         dateLogs[i].style.borderTop = "1px solid rgba(104, 105, 99, 0.8)";
-        //     } else {
-        //         // console.log("Hiding", dateLogs[i]);
-        //         dateLogs[i].style.opacity = "0";
-        //         dateLogs[i].style.height = "0px";
-        //         dateLogs[i].style.overflow = "hidden";
-        //         dateLogs[i].style.padding = "0px";
-        //         dateLogs[i].style.borderTop = "none";
-
-        //     }
-        // }
-
-    }
 
     return (
         <div className="dash-main-container">
@@ -65,20 +37,10 @@ const LogsPage = () => {
                 <h2> No logs to see yet!</h2>
             </div> : null }
             <div className="logs-container">
-                {logs.map(({id, user, date, comment, exercise, unit, unit_count, created_at, updated_at}, index) => (
-                    <div key={`log-div-${index}`}className="logs-inner-container">
-                        {(dateConverter(date) !== currentDate) ?
-                            <h3 id={date} className={`log-date-heading date-heading-${date}`} onClick={toggleDateDisplay}>
-                                {currentDate = dateConverter(date)}
-                            </h3>
-                            : null}
-                        <Log key={`log-${index}`} id={id} user={user} date={date}
-                            comment={comment} exercise={exercise} unit={unit}
-                            unit_count={unit_count} created_at={created_at}
-                            updated_at={updated_at} />
-
-
-                    </div>
+                {dates.map((date, index) => (
+                    <React.Fragment key={`log-date-${index}`}>
+                        <DateLogs dateHeader={date} logs={logs} />
+                        </React.Fragment>
                 ))}
 
             </div>

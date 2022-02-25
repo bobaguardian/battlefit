@@ -10,11 +10,11 @@
     transition: all 0.2s ease-in-out;
 }
 
-/* .log-date-heading:hover {
+.log-date-heading:hover {
     border-bottom-color: var(--french-violet);
     color: var(--french-violet);
     cursor: pointer;
-} */
+}
 
 
 .log-box {
@@ -23,13 +23,14 @@
     justify-content: space-between;
     transition: all 0.5s ease-in-out;
     padding: 30px;
-    /* opacity: 0;
-    height: 0px;
-    padding: 0px;
-    overflow: hidden; */
+    border-top: 1px solid var(--dim-gray);
+    animation: 0.3s ease-in-out log-slide-down;
 }
 
+.log-box::content {
+    animation: 0.3s ease-in-out log-slide-up;
 
+}
 
 
 
