@@ -21,6 +21,11 @@
     border-bottom: 2px solid var(--light-coral);
 }
 
+.dash-main-container .midnight-msg {
+    text-align: center;
+    color: var(--lavender-blush-dark);
+}
+
 
 .battle-monster-div {
     text-align: center;
@@ -33,7 +38,7 @@
     align-items: center;
     width: 70vw;
     margin-top: 30px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .battle-monster-img {
