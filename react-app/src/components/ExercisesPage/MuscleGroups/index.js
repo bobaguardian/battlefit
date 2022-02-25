@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { getAllExercises } from "../../../store/exercises";
 
 
 const MuscleGroups = () => {
+    const dispatch = useDispatch();
     const musclesById = useSelector(state => state.muscles.byId);
     const muscles = Object.values(musclesById);
+
+    useEffect(() => {
+        dispatch(getAllExercises(""));
+    }, [dispatch])
 
     return (
         <div className="muscles-container">
