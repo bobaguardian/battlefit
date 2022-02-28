@@ -7,8 +7,8 @@ BattleFit is a gamified workout tracker to motivate people to stay fit. Users to
 * [MVP Feature List Document](https://github.com/bobaguardian/battlefit/wiki/MVP-Feature-List)
 * [User Stories](https://github.com/bobaguardian/battlefit/wiki/User-Stories)
 * [Database Schema](https://github.com/bobaguardian/battlefit/wiki/Database-Schema)
-* [Frontend Routes](https://github.com/choi-jihoon/SplittaBill/wiki/Frontend-Routes)
-* [API Documentation](https://github.com/choi-jihoon/SplittaBill/wiki/API-Documentation)
+* [Frontend Routes](https://github.com/bobaguardian/battlefit/wiki/Frontend-Routes)
+* [API Documentation](https://github.com/bobaguardian/battlefit/wiki/API-Documentation)
 
 ## Technologies Used
 BattleFit is built on a React frontend with a Flask backend using PostgreSQL as a database. It utilizes React libraries for all the display logic and Redux with thunks making API calls to the backend server to manage the state. The backend uses the Flask framework and a PostgreSQL database.  SQLAlchemy is the ORM used to handle all data manipulation of the database.  Image uploading on BattleFit is implemented through Amazon Web Services S3.
