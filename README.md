@@ -99,6 +99,7 @@ Users can collect the monsters that they have encountered in battles.  Monsters 
 
 * Implement a calendar system into logs
 * Add search functionality for exercises
-* Add filtering functionality for the monster dex
+* Add filtering by difficulty for the monster dex
+* Add a log history of the most recent log unit and count next to the exercise
 
 <!-- ## Redux Store Tree -->
