@@ -26,8 +26,6 @@ export const jsDateConverter = (str) => {
 const utcConversion = (d) => {
     let dateUTC = moment.utc(d);
     let localDate = moment(dateUTC).local();
-    console.log(dateUTC);
-    console.log(localDate);
     return localDate;
 }
 
@@ -43,7 +41,7 @@ const BattlePage = () => {
     // Set the current battle if one exists
     useEffect(() => { // when sessionUser state changes
         let lastBattle = sessionUser.battles.filter(battle => {
-            return dateConverter(utcConversion(battle.date)) === jsDateConverter(utcConversion(new Date())) &&
+            return dateConverter(utcConversion(battle.date)) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
 
