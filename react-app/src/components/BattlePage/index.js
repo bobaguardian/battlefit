@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import moment from 'moment';
 // import { useHistory, Redirect } from 'react-router-dom';
 
 import { generateBattle } from "../../store/session";
@@ -22,6 +23,14 @@ export const jsDateConverter = (str) => {
   return [mnth, day, theDate.getFullYear()].join("/");
 }
 
+const utcConversion = (d) => {
+    let dateUTC = moment.utc(d);
+    let localDate = moment(dateUTC).local();
+    console.log(dateUTC);
+    console.log(localDate);
+    return localDate;
+}
+
 const BattlePage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -34,7 +43,7 @@ const BattlePage = () => {
     // Set the current battle if one exists
     useEffect(() => { // when sessionUser state changes
         let lastBattle = sessionUser.battles.filter(battle => {
-            return dateConverter(battle.date) === jsDateConverter(new Date()) &&
+            return dateConverter(utcConversion(battle.date)) === jsDateConverter(utcConversion(new Date())) &&
                 !battle.defeated;
         })[0]
 
