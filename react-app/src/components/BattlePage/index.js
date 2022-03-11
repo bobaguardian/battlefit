@@ -23,11 +23,11 @@ export const jsDateConverter = (str) => {
   return [mnth, day, theDate.getFullYear()].join("/");
 }
 
-const utcConversion = (d) => {
-    let dateUTC = moment.utc(d);
-    let localDate = moment(dateUTC).local();
-    return localDate;
-}
+// const utcConversion = (d) => {
+//     let dateUTC = moment.utc(d);
+//     let localDate = moment(dateUTC).local();
+//     return localDate;
+// }
 
 const BattlePage = () => {
     const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const BattlePage = () => {
     // Set the current battle if one exists
     useEffect(() => { // when sessionUser state changes
         let lastBattle = sessionUser.battles.filter(battle => {
-            return dateConverter(utcConversion(battle.date)) === jsDateConverter(new Date()) &&
+            return dateConverter(battle.date) === jsDateConverter(new Date()) &&
                 !battle.defeated;
         })[0]
 
