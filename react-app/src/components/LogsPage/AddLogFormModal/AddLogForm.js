@@ -42,6 +42,7 @@ const AddLogForm = ({ showModal, exercise_id, exerciseName}) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		console.log(date);
 		const data = await dispatch(addLog(
 			date,
 			exercise_id,

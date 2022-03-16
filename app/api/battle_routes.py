@@ -1,8 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint, request
 import random
 from datetime import datetime
 from flask_login import login_required, current_user
 from app.models import db, Exercise, Monster, Battle
+from app.forms import BattleDateForm
 
 battle_routes = Blueprint('battles', __name__)
 
@@ -17,11 +18,13 @@ level_converter = {
 @login_required
 def add_battle():
     # CREATE a battle with a random monster
+
+    today =  request.get_json()["date"].split('T')[0]
     random_monster = random.choice(Monster.query.all())
     new_battle = Battle(
         user_id = current_user.get_id(),
         monster_id = random_monster.id,
-        date = datetime.now().date(),
+        date = today,
         defeated = False
     )
     db.session.add(new_battle)

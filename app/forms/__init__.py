@@ -4,3 +4,4 @@ from .add_exercise_form import AddExerciseForm
 from .edit_exercise_form import EditExerciseForm
 from .image_form import UploadImage
 from .log_form import LogForm
+from .battle_date_form import BattleDateForm
