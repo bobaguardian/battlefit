@@ -44,7 +44,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path={["/", "/exercises", "/logs", ...musclePaths,
-          "/users/:id", "/monster-dex", "/monsters/:id", "/battle"]}>
+          "/users/:id", "/monster-dex", "/monsters/:id", "/battle", "/exercises/search/:searchQuery"]}>
           { sessionUser ? <Dashboard /> : <SplashPage /> }
         </Route>
         <Route exact path="/meet-the-maker">

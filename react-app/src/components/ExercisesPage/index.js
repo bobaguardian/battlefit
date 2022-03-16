@@ -1,5 +1,6 @@
 import AddExerciseFormModal from "./AddExerciseFormModal";
 import MuscleGroups from "./MuscleGroups";
+import ExerciseSearchBar from "../ExerciseSearchBar";
 import './ExercisesPage.css';
 import './ExerciseForm.css';
 
@@ -12,6 +13,7 @@ const ExercisesPage = () => {
                 <div className="add-exercise-button-container">
                     <AddExerciseFormModal />
                 </div>
+                <ExerciseSearchBar query="" />
             </div>
             <MuscleGroups />
         </div>

@@ -13,6 +13,7 @@ import MonsterDex from '../MonsterDex';
 import MonsterDetails from '../MonsterDex/MonsterDetails';
 import BattlePage from '../BattlePage';
 import Footer from '../Footer';
+import ExercisesBySearch from '../ExercisesPage/ExercisesBySearch';
 
 import "./Dashboard.css";
 
@@ -41,11 +42,14 @@ const Dashboard = () => {
                     <Route exact path="/" >
                         <Redirect to="/exercises" />
                     </Route>
-                    <Route path='/exercises/:muscle'>
+                    <Route exact path='/exercises/:muscle'>
                         <ExercisesByMuscleGroup />
                     </Route>
                     <Route exact path='/exercises'>
                         <ExercisesPage />
+                    </Route>
+                    <Route exact path='/exercises/search/:searchQuery'>
+                        <ExercisesBySearch />
                     </Route>
                     <Route exact path='/logs'>
                         <LogsPage />

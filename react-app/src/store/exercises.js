@@ -139,6 +139,13 @@ export const generateMonsterExercises = (numExercises) => async (dispatch) => {
     return data['exercises'];
 }
 
+export const readExercisesSearch = (searchQuery) => async(dispatch) => {
+    const response = await fetch(`/api/exercises/search/${searchQuery}`);
+    const data = await response.json();
+    dispatch(readExercises(data['exercises']));
+    return data['exercises'];
+}
+
 
 const initialState = { byId: {}, monsterExercises: {} }
 
