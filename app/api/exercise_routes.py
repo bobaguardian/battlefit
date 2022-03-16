@@ -164,3 +164,9 @@ def get_exercises_by_muscle_group(muscle_name):
         return {'errors': ['Muscle group not found.']}, 401;
     exercises = Exercise.query.filter(Exercise.muscle_group == muscle_group).all()
     return {'exercises': [exercise.to_dict() for exercise in exercises]}
+
+
+@exercise_routes.route('/search/<string:search_query>')
+def get_exercises_by_search_query(search_query):
+    exercises = Exercise.query.filter(Exercise.name.ilike('%' + search_query + '%'))
+    return {'exercises': [exercise.to_dict() for exercise in exercises]}
