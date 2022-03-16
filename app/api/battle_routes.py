@@ -3,7 +3,6 @@ import random
 from datetime import datetime
 from flask_login import login_required, current_user
 from app.models import db, Exercise, Monster, Battle
-from app.forms import BattleDateForm
 
 battle_routes = Blueprint('battles', __name__)
 
