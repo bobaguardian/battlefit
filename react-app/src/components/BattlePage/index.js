@@ -7,6 +7,7 @@ import { generateBattle } from "../../store/session";
 import { setBattleVictory } from "../../store/session";
 import { dateConverter } from "../LogsPage";
 import Exercise from "../ExercisesPage/Exercise";
+import BattleInstructions from "./BattleInstructions";
 import "./BattlePage.css";
 
 const levelConverter = {
@@ -132,48 +133,51 @@ const BattlePage = () => {
                             <button className="generate-battle-btn" onClick={handleBattleGeneration}>Generate a New Battle</button>
                         </div>
                     :
-                    <div className="battle-monster-container">
-                        <h2 className="fight-text">FIGHT</h2>
-                        <div className="battle-monster-div">
-                            { currentBattle ?
-                                <React.Fragment key={`battle-monster-div`}>
-                                    <img className="battle-monster-img"
-                                        src={currentBattle?.monster?.image}
-                                        alt={`${currentBattle?.monster?.name}-monster`}></img>
-                                    <div className="battle-monster-name-hp">
-                                        <div className="battle-monster-name-level">
-                                            <h3>{currentBattle?.monster?.name}</h3>
-                                            <p>Difficulty: <span style={{color: `${levelConverter[currentBattle.monster.level][2]}`}}>
-                                                    {levelConverter[currentBattle.monster.level][0]}</span>
-                                            </p>
+                    <>
+                        <BattleInstructions />
+                        <div className="battle-monster-container">
+                            <h2 className="fight-text">FIGHT</h2>
+                            <div className="battle-monster-div">
+                                { currentBattle ?
+                                    <React.Fragment key={`battle-monster-div`}>
+                                        <img className="battle-monster-img"
+                                            src={currentBattle?.monster?.image}
+                                            alt={`${currentBattle?.monster?.name}-monster`}></img>
+                                        <div className="battle-monster-name-hp">
+                                            <div className="battle-monster-name-level">
+                                                <h3>{currentBattle?.monster?.name}</h3>
+                                                <p>Difficulty: <span style={{color: `${levelConverter[currentBattle.monster.level][2]}`}}>
+                                                        {levelConverter[currentBattle.monster.level][0]}</span>
+                                                </p>
 
-                                        </div>
-
-                                        <div className="hp-monitor">
-                                            <div className="hp-bar">
-                                                <div className='bar'></div>
                                             </div>
-                                            <p>{hp}%</p>
+
+                                            <div className="hp-monitor">
+                                                <div className="hp-bar">
+                                                    <div className='bar'></div>
+                                                </div>
+                                                <p>{hp}%</p>
+                                            </div>
+
                                         </div>
+                                        <p className="midnight-msg">You have until midnight to defeat this monster</p>
+                                    </React.Fragment>
+                                : null}
+                            </div>
 
-                                    </div>
-                                    <p className="midnight-msg">You have until midnight to defeat this monster</p>
-                                </React.Fragment>
-                            : null}
+                            <div className="battle-exercises-container">
+                            {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
+                                    <Exercise key={`monster-exercise-${index}`}
+                                    id={id}
+                                    name={name}
+                                    monsterName={currentBattle.monster.name}
+                                    battleId={currentBattle.id}
+                                    />
+                                ))}
+                            </div>
+
                         </div>
-
-                        <div className="battle-exercises-container">
-                        {exercises?.map(({id, user_id, name, muscle_group, description, image}, index) => (
-                                <Exercise key={`monster-exercise-${index}`}
-                                id={id}
-                                name={name}
-                                monsterName={currentBattle.monster.name}
-                                battleId={currentBattle.id}
-                                />
-                            ))}
-                        </div>
-
-                    </div>
+                    </>
                     }
                 </>
             }
