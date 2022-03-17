@@ -16,7 +16,8 @@ const ExerciseSearchBar = ({ query }) => {
   const handleExerciseSearch = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    history.push(`/exercises/search/${searchQuery}`);
+    if (searchQuery !== "")
+      history.push(`/exercises/search/${searchQuery}`);
 
   }
 

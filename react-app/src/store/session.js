@@ -128,8 +128,17 @@ export const updateUserImage = (formData, id) => async (dispatch) => {
 }
 
 export const generateBattle = () => async (dispatch) => {
+  let today = new Date();
+  const offset = today.getTimezoneOffset();
+  today = new Date(today.getTime() - (offset*60*1000));
+  today = today.toISOString().split('T')[0];
+
   const res = await fetch("/api/battles/", {
-    method: "POST"
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({"date": today})
   });
   const data = await res.json();
   if (res.ok) {
