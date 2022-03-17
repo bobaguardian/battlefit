@@ -6,8 +6,12 @@
   border-radius: 5px;
   background-color: var(--dim-gray);
   color: var(--lavender-blush);
-  top: 37em;
+  top: 36em;
   left: 1.5em;
   padding: 10px;
   width: 225px;
+}
+
+.instructions-box p {
+  font-size: 14px;
 }
