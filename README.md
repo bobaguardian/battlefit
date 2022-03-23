@@ -97,8 +97,8 @@ Users can collect the monsters that they have encountered in battles.  Monsters 
 
 ## Future Implementations
 
+* Make the app mobile and tablet responsive
 * Implement a calendar system into logs
-* Add search functionality for exercises
 * Add filtering by difficulty for the monster dex
 * Add a log history of the most recent log unit and count next to the exercise
 
