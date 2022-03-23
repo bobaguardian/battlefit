@@ -1,4 +1,6 @@
 from app.models import db, User
+from app.seeds.battles import seed_battles
+from app.seeds.logs import seed_logs
 
 
 # Adds a demo user, you can add other users here if you want
@@ -22,4 +24,19 @@ def seed_users():
 # dependent entities
 def undo_users():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.commit()
+
+def seed_demo():
+    demo = User(
+        username='deMOUSEr', email='demouser@aa.io', password='password',
+        image="https://battle-fit.s3.us-west-1.amazonaws.com/5bbcef95484347d8b026bad7218aca08.png")
+
+    db.session.add(demo)
+    db.session.commit()
+    seed_battles(demo.id)
+    seed_logs(demo.id)
+
+def undo_demo():
+    demo = User.query.filter(User.username=="deMOUSEr").first()
+    db.session.delete(demo)
     db.session.commit()
