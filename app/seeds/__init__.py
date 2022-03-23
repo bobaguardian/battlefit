@@ -1,5 +1,5 @@
 from flask.cli import AppGroup
-from .users import seed_users, undo_users
+from .users import seed_users, undo_users, seed_demo, undo_demo
 from .muscle_groups import seed_muscle_groups, undo_muscle_groups
 from .units import seed_units, undo_units
 from .exercises import seed_exercises, undo_exercises
@@ -36,3 +36,14 @@ def undo():
     undo_monsters()
     undo_battles()
     # Add other undo functions here
+
+# Creates the `flask seed demo` command
+@seed_commands.command('demo')
+def seed_demouser():
+    seed_demo()
+
+
+# Creates the `flask seed demo undo` command
+@seed_commands.command('demo-undo')
+def seed_demouser():
+    undo_demo()

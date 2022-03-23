@@ -23,3 +23,16 @@ def seed_users():
 def undo_users():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
+
+def seed_demo():
+    demo = User(
+        username='deMOUSEr', email='demouser@aa.io', password='password',
+        image="https://battle-fit.s3.us-west-1.amazonaws.com/5bbcef95484347d8b026bad7218aca08.png")
+
+    db.session.add(demo)
+    db.session.commit()
+
+def undo_demo():
+    demo = User.query.filter(User.username=="deMOUSEr").first()
+    db.session.delete(demo)
+    db.session.commit()
