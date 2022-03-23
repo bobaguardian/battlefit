@@ -15,9 +15,9 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
-    exercises = db.relationship("Exercise", back_populates="user")
-    logs = db.relationship("Log", back_populates="user")
-    battles = db.relationship("Battle", back_populates="user")
+    exercises = db.relationship("Exercise", back_populates="user", cascade="all, delete")
+    logs = db.relationship("Log", back_populates="user", cascade="all, delete")
+    battles = db.relationship("Battle", back_populates="user", cascade="all, delete")
 
     @property
     def password(self):

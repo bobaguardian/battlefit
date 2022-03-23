@@ -1,4 +1,6 @@
 from app.models import db, User
+from app.seeds.battles import seed_battles
+from app.seeds.logs import seed_logs
 
 
 # Adds a demo user, you can add other users here if you want
@@ -31,6 +33,8 @@ def seed_demo():
 
     db.session.add(demo)
     db.session.commit()
+    seed_battles(demo.id)
+    seed_logs(demo.id)
 
 def undo_demo():
     demo = User.query.filter(User.username=="deMOUSEr").first()

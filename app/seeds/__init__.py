@@ -19,9 +19,9 @@ def seed():
     seed_muscle_groups()
     seed_units()
     seed_exercises()
-    seed_logs()
+    seed_logs(2)
     seed_monsters()
-    seed_battles()
+    seed_battles(2)
     # Add other seed functions here
 
 
@@ -44,6 +44,6 @@ def seed_demouser():
 
 
 # Creates the `flask seed demo undo` command
-@seed_commands.command('demo-undo')
+@seed_commands.command('undo_demo')
 def seed_demouser():
     undo_demo()
