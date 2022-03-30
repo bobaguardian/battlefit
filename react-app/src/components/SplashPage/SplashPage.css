@@ -1,15 +1,9 @@
-.splash-main-container {
-    /* border: 2px solid red; */
-}
-
 .splash-nav {
-    /* border: 2px solid green; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid var(--dim-gray);
-
 }
 
 .logo {
@@ -17,7 +11,6 @@
 }
 
 #login-signup-container {
-    /* border: 2px solid pink; */
     display: flex;
     margin-right: 45px;
     justify-content: flex-end;
@@ -30,7 +23,6 @@
     margin: 5% auto;
     margin-left: 10%;
     margin-right: 10%;
-    /* height: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +74,6 @@
 }
 
 .disclaimer-div {
-    /* border: 1px solid red; */
     background-color: var(--dim-gray-dark);
     border-radius: 7px;
     opacity: 0.7;
@@ -90,3 +81,51 @@
     margin: 80px 100px 80px 100px;
     padding: 20px;
 }
+
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .splash-nav {
+        display: none;
+    }
+
+    #splash-text h2 {
+        font-size: 2em;
+    }
+    #splash-text p {
+        margin-left: 5%;
+        margin-right: 5%;
+        line-height: 1.3em;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .splash-main-content {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .carousel {
+        margin: 10px;
+    }
+
+    .carousel-image img {
+        height: 350px;
+        max-width: 800px;
+    }
+
+    #splash-ready {
+        margin-top: 1em;
+        margin-bottom: 2em;
+        width: 50%;
+        text-align: center;
+        font-size: 1.5em;
+    }
+}
+
+/* @media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+} */
