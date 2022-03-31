@@ -129,13 +129,15 @@
         width: 80%;
         margin: 0 auto;
         display: block;
+        margin-bottom: 5%;
+
     }
 
 
     .splash-footer p, a {
         margin-left: 10%;
         margin-right: 10%;
-        padding: 2em;
+        padding: 1em;
         font-size: 1.5em;
     }
 
@@ -145,8 +147,8 @@
 
     .splash-footer .about-links {
         width: 100%;
-        display: inline;
-        margin-left: 25%;
+        display: flex;
+        justify-content: center;
     }
 
     .splash-footer .about-links a {
