@@ -6,8 +6,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import UploadImage from './components/UploadImage';
-
+// import UploadImage from './components/UploadImage';
 
 const store = configureStore();
 

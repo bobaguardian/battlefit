@@ -22,7 +22,7 @@ const ExercisesBySearch = () => {
       } else {
         dispatch(getAllExercises(""));
       }
-    }, [dispatch, location.pathname])
+    }, [dispatch, location.pathname, searchQuery])
 
 
   return (

@@ -50,3 +50,18 @@
     cursor: pointer;
     color: var(--max-blue-purple);
 }
+
+.signup-form #login {
+    margin: 0;
+}
+
+.signup-form #login.login-on-signup {
+    margin-top: 25px;
+    border: none;
+    background-color: var(--jet);
+    text-decoration: underline;
+    text-align: center;
+    color: var(--lavender-blush);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}

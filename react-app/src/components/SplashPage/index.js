@@ -94,7 +94,7 @@ const SplashPage = () => {
                     to extensively battle and collect monsters.
                 </p>
             </div>
-            <Footer />
+            <Footer className="splash-footer"/>
         </div>
     )
 }

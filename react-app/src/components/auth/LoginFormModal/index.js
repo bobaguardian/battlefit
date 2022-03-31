@@ -3,17 +3,19 @@ import { Modal } from "../../../context/Modal";
 import LoginForm from "./LoginForm";
 import './LoginForm.css';
 
-function LoginFormModal() {
+function LoginFormModal({ text }) {
 	const [showModal, setShowModal] = useState(false);
+
+	text = text ? text : "Log In";
 
 	return (
 		<>
 			<div
 				id="login"
-				className="login-signup"
+				className="login-signup login-on-signup"
 				onClick={() => setShowModal(true)}
 			>
-				Log In
+				{text}
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
