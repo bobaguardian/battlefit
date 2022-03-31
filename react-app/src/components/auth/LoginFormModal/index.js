@@ -12,7 +12,7 @@ function LoginFormModal({ text }) {
 		<>
 			<div
 				id="login"
-				className="login-signup"
+				className="login-signup login-on-signup"
 				onClick={() => setShowModal(true)}
 			>
 				{text}

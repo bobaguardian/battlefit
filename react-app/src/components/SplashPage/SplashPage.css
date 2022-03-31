@@ -84,7 +84,7 @@
 
 /* Mobile */
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 300px) and (max-width: 992px) {
     .splash-nav {
         display: none;
     }
