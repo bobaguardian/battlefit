@@ -63,3 +63,21 @@
 #project-links p {
     margin-bottom: 5px;
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 1200px) {
+
+    #image-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-page-container img {
+        width: 300px;
+        border-radius: 10px;
+        border: 5px solid var(--lavender-blush);
+        margin-bottom: 2em;
+    }
+
+}
