@@ -32,3 +32,9 @@
     overflow-x: hidden;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.9);
 }
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    #modal-content {
+        transform:scale(1.5);
+    }
+}
