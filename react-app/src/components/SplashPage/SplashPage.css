@@ -82,6 +82,7 @@
     padding: 20px;
 }
 
+/* Mobile */
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .splash-nav {
@@ -119,6 +120,37 @@
         width: 50%;
         text-align: center;
         font-size: 1.5em;
+    }
+
+    .splash-footer {
+        position: static;
+        border: 1px solid var(--max-blue-purple);
+        border-radius: 5px;
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+
+    .splash-footer p, a {
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 2em;
+        font-size: 1.5em;
+    }
+
+    .splash-footer .copyright {
+        display: none;
+    }
+
+    .splash-footer .about-links {
+        width: 100%;
+        display: inline;
+        margin-left: 25%;
+    }
+
+    .splash-footer .about-links a {
+        padding: 0.5em 1em;
     }
 }
 
