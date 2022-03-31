@@ -43,7 +43,7 @@
     min-width: 800px;
 }
 
-.side-panel-container{
+.side-panel-container {
     border-right: 1px solid var(--dim-gray);
     display: flex;
     flex-direction: column;
@@ -202,4 +202,48 @@
 
 .dash-main-container h2 {
     padding: 30px 20px;
+}
+
+.side-panel-burger {
+    display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    .side-panel-container {
+        display: none;
+        background-color: var(--jet);
+    }
+
+    .side-panel-burger {
+        display: block;
+        position: absolute;
+        top: 0.3em;
+        left: -3.5em;
+    }
+
+    .dash-nav a {
+        display: none;
+    }
+
+    .nav-links {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1.7em;
+        padding: 0;
+        margin-left: 1em;
+        margin-right: 1em;
+        width: 6em;
+    }
+
+    .dash-side-main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-width: 800px;
+    }
+
 }

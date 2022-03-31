@@ -19,11 +19,40 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
     const dispatch = useDispatch();
+    const sidePanel = document.querySelector(".side-panel-container");
+    const dashMainContainer = document.querySelector(".dash-side-main-container");
 
     useEffect(() => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
-    }, [dispatch])
+    }, [dispatch]);
+
+    useEffect(() => { // need to show side panel if screeen goes
+        // back to desktop size
+        if (window.innerWidth > 900) {
+            sidePanel.style.display = "flex";
+            sidePanel.style.position = "static";
+        } else {
+            sidePanel.style.position = "absolute";
+        }
+    }, [window.innerWidth])
+
+    const showSidePanel = (e) => {
+        e.preventDefault();
+
+
+        if (sidePanel.style.display === "none"){
+            sidePanel.style.display = "flex";
+            // if (window.innerWidth < 900)
+            //     sidePanel.style.position = "absolute";
+
+            dashMainContainer.style.gridTemplateColumns = "275px 1fr";
+        }
+        else {
+            sidePanel.style.display = "none";
+            dashMainContainer.style.gridTemplateColumns = "1fr";
+        }
+    }
 
 
     return (
@@ -37,6 +66,10 @@ const Dashboard = () => {
                 </div>
             </nav>
             <main className="dash-side-main-container">
+
+                <a className="side-panel-burger" onClick={showSidePanel}>
+                    <i className="fa fa-bars"></i>
+                </a>
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >
