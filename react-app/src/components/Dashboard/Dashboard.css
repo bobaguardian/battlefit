@@ -204,10 +204,21 @@
     padding: 30px 20px;
 }
 
+.side-panel-burger {
+    display: none;
+}
 
 @media screen and (min-width: 300px) and (max-width: 992px) {
     .side-panel-container {
         display: none;
+        background-color: var(--jet);
+    }
+
+    .side-panel-burger {
+        display: block;
+        position: absolute;
+        top: 0.3em;
+        left: -3.5em;
     }
 
     .dash-nav a {
