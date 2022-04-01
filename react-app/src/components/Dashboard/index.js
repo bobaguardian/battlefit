@@ -27,28 +27,19 @@ const Dashboard = () => {
         dispatch(getUserLogs());
     }, [dispatch]);
 
-    useEffect(() => { // need to show side panel if screeen goes
-        // back to desktop size
-        if (window.innerWidth > 900) {
-            sidePanel.style.display = "flex";
-            sidePanel.style.position = "static";
-        } else {
-            sidePanel.style.position = "absolute";
-        }
-    }, [window.innerWidth])
 
     const showSidePanel = (e) => {
         e.preventDefault();
 
+        console.log("toggle side panel");
 
-        if (sidePanel.style.display === "none"){
+        if (sidePanel && sidePanel.style.display === "none"){
             sidePanel.style.display = "flex";
             // if (window.innerWidth < 900)
-            //     sidePanel.style.position = "absolute";
 
-            dashMainContainer.style.gridTemplateColumns = "275px 1fr";
+            // dashMainContainer.style.gridTemplateColumns = "275px 1fr";
         }
-        else {
+        else if (sidePanel) {
             sidePanel.style.display = "none";
             dashMainContainer.style.gridTemplateColumns = "1fr";
         }

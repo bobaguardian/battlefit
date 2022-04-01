@@ -50,6 +50,8 @@
     align-items: center;
     height: 90vh;
     min-height: 100%;
+    position: static;
+
 }
 
 .user-info {
@@ -212,6 +214,7 @@
     .side-panel-container {
         display: none;
         background-color: var(--jet);
+        position: absolute;
     }
 
     .side-panel-burger {
