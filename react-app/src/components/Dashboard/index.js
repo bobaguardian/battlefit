@@ -19,12 +19,22 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const sidePanel = document.querySelector(".side-panel-container");
-    const dashMainContainer = document.querySelector(".dash-side-main-container");
+
+
 
     useEffect(() => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
+        const sidePanel = document.querySelector(".side-panel-container");
+        const dashMainContainer = document.querySelector(".dash-side-main-container");
+        const hamburger = document.querySelector(".side-panel-burger");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("change");
+            sidePanel.classList.toggle("nav-change")
+            console.log("hamburger clicked!");
+        })
+
     }, [dispatch]);
 
 
@@ -44,6 +54,7 @@ const Dashboard = () => {
         //     dashMainContainer.style.gridTemplateColumns = "1fr";
         // }
     }
+
 
 
     return (

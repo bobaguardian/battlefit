@@ -224,6 +224,14 @@
         left: -3.5em;
     }
 
+    .side-panel-burger.change {
+        color: red;
+    }
+
+    .side-panel-container.nav-change {
+        display: flex;
+    }
+
     .dash-nav a {
         display: none;
     }
