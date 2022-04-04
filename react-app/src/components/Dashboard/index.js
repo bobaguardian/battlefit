@@ -69,9 +69,15 @@ const Dashboard = () => {
             </nav>
             <main className="dash-side-main-container">
 
-                <a className="side-panel-burger" onClick={showSidePanel}>
+                {/* <a className="side-panel-burger" onClick={showSidePanel}>
                     <i className="fa fa-bars"></i>
-                </a>
+                </a> */}
+
+                <div className="side-panel-burger" >
+                    <span className="bar1"></span>
+                    <span className="bar2"></span>
+                    <span className="bar3"></span>
+                </div>
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >
