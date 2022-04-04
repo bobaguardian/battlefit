@@ -19,40 +19,42 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const sidePanel = document.querySelector(".side-panel-container");
-    const dashMainContainer = document.querySelector(".dash-side-main-container");
+
+
 
     useEffect(() => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
+        const sidePanel = document.querySelector(".side-panel-container");
+        const dashMainContainer = document.querySelector(".dash-side-main-container");
+        const hamburger = document.querySelector(".side-panel-burger");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("change");
+            sidePanel.classList.toggle("nav-change")
+            console.log("hamburger clicked!");
+        })
+
     }, [dispatch]);
 
-    useEffect(() => { // need to show side panel if screeen goes
-        // back to desktop size
-        if (window.innerWidth > 900) {
-            sidePanel.style.display = "flex";
-            sidePanel.style.position = "static";
-        } else {
-            sidePanel.style.position = "absolute";
-        }
-    }, [window.innerWidth])
 
     const showSidePanel = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
+        // console.log("toggle side panel");
 
-        if (sidePanel.style.display === "none"){
-            sidePanel.style.display = "flex";
-            // if (window.innerWidth < 900)
-            //     sidePanel.style.position = "absolute";
+        // if (sidePanel && sidePanel.style.display === "none"){
+        //     sidePanel.style.display = "flex";
+        //     // if (window.innerWidth < 900)
 
-            dashMainContainer.style.gridTemplateColumns = "275px 1fr";
-        }
-        else {
-            sidePanel.style.display = "none";
-            dashMainContainer.style.gridTemplateColumns = "1fr";
-        }
+        //     // dashMainContainer.style.gridTemplateColumns = "275px 1fr";
+        // }
+        // else if (sidePanel) {
+        //     sidePanel.style.display = "none";
+        //     dashMainContainer.style.gridTemplateColumns = "1fr";
+        // }
     }
+
 
 
     return (
@@ -67,9 +69,15 @@ const Dashboard = () => {
             </nav>
             <main className="dash-side-main-container">
 
-                <a className="side-panel-burger" onClick={showSidePanel}>
+                {/* <a className="side-panel-burger" onClick={showSidePanel}>
                     <i className="fa fa-bars"></i>
-                </a>
+                </a> */}
+
+                <div className="side-panel-burger" >
+                    <span className="bar1"></span>
+                    <span className="bar2"></span>
+                    <span className="bar3"></span>
+                </div>
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >

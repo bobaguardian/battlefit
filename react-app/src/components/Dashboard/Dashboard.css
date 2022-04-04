@@ -18,10 +18,12 @@
     border-bottom: 3px solid var(--french-violet);
 
 }
+
 .nav-links a {
     padding: 10px;
     margin: 5px;
-    padding-bottom: 7px; /* make up for border-bottom */
+    padding-bottom: 7px;
+    /* make up for border-bottom */
     height: 45px;
     width: 100px;
     text-align: center;
@@ -50,6 +52,8 @@
     align-items: center;
     height: 90vh;
     min-height: 100%;
+    position: static;
+
 }
 
 .user-info {
@@ -76,13 +80,13 @@
     padding: 5px;
     border-radius: 10px;
     overflow: hidden;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.user-image img{
+.user-image img {
     object-fit: contain;
 }
 
@@ -106,11 +110,11 @@
 }
 
 .edit-image-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
 .edit-image-form img {
@@ -119,8 +123,8 @@
     object-fit: contain;
 }
 
-.edit-image-form > form > input[type="file"] {
-	display: none;
+.edit-image-form>form>input[type="file"] {
+    display: none;
 }
 
 .edit-image-form label {
@@ -196,7 +200,8 @@
 .dash-main-container {
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 50px; /* make up for footer */
+    margin-bottom: 50px;
+    /* make up for footer */
 }
 
 
@@ -212,13 +217,45 @@
     .side-panel-container {
         display: none;
         background-color: var(--jet);
+        position: absolute;
+        z-index: 2;
     }
 
     .side-panel-burger {
-        display: block;
+        padding: 5px;
         position: absolute;
-        top: 0.3em;
-        left: -3.5em;
+        display: block;
+        cursor: pointer;
+        z-index: 5;
+        top: 1.3em;
+        left: 1.3em;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        display: block;
+        width: 35px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        transform: rotate(45deg) translate(8px, 3px);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        transform: rotate(-45deg) translate(8px, -3px);
+    }
+
+    .side-panel-container.nav-change {
+        display: flex;
     }
 
     .dash-nav a {
