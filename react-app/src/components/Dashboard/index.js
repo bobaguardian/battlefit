@@ -29,20 +29,20 @@ const Dashboard = () => {
 
 
     const showSidePanel = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
-        console.log("toggle side panel");
+        // console.log("toggle side panel");
 
-        if (sidePanel && sidePanel.style.display === "none"){
-            sidePanel.style.display = "flex";
-            // if (window.innerWidth < 900)
+        // if (sidePanel && sidePanel.style.display === "none"){
+        //     sidePanel.style.display = "flex";
+        //     // if (window.innerWidth < 900)
 
-            // dashMainContainer.style.gridTemplateColumns = "275px 1fr";
-        }
-        else if (sidePanel) {
-            sidePanel.style.display = "none";
-            dashMainContainer.style.gridTemplateColumns = "1fr";
-        }
+        //     // dashMainContainer.style.gridTemplateColumns = "275px 1fr";
+        // }
+        // else if (sidePanel) {
+        //     sidePanel.style.display = "none";
+        //     dashMainContainer.style.gridTemplateColumns = "1fr";
+        // }
     }
 
 
