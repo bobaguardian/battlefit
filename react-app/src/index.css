@@ -184,3 +184,15 @@ button:hover {
 .errors-container {
 	color: var(--light-coral);
 }
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+
+	h2 {
+		font-size: 3em;
+	}
+
+	h3 {
+		font-size: 1em;
+	}
+
+}

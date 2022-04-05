@@ -28,7 +28,7 @@ const ExercisesBySearch = () => {
   return (
     <div className="dash-main-container">
             <div className="heading-add-exercise-div">
-                <h2>Exercise Search Results for "{searchQuery}"</h2>
+                <h2>Exercise Results for "{searchQuery}"</h2>
                 <div className="add-exercise-button-container">
                     <AddExerciseFormModal />
                 </div>

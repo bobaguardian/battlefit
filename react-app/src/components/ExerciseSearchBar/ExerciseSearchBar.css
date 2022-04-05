@@ -46,3 +46,16 @@
   background-color: var(--max-blue-purple-dark);
 
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+  .exercise-search-form {
+    position: absolute;
+  }
+
+  .search-bar, .search-submit {
+    font-size: 1.5em;
+    bottom: 3em;
+    left: 18.8em;
+  }
+}
