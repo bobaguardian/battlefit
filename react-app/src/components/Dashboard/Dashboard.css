@@ -213,9 +213,20 @@
     display: none;
 }
 
+/* Animations for side panel */
+.slidein {
+    animation: 0.8s ease-in-out side-panel-slide-in;
+    left: 0px;
+}
+
+.slideout {
+    animation: 0.8s ease-in-out side-panel-slide-out;
+    left: -400px;
+}
+
 @media screen and (min-width: 300px) and (max-width: 992px) {
     .side-panel-container {
-        display: none;
+        left: -400px;
         background-color: var(--jet);
         position: absolute;
         z-index: 2;
@@ -256,6 +267,7 @@
 
     .side-panel-container.nav-change {
         display: flex;
+        left: 0px;
     }
 
     .dash-nav a {
@@ -283,4 +295,23 @@
         min-width: 800px;
     }
 
+}
+
+
+@keyframes side-panel-slide-in {
+	0% {
+		left: -400px;
+	}
+	100% {
+		left: 0px;
+	}
+}
+
+@keyframes side-panel-slide-out {
+	0% {
+		left: 0px;
+	}
+	100% {
+		left: -400px;
+	}
 }

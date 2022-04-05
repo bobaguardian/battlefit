@@ -90,14 +90,14 @@
     }
 
     #splash-text h2 {
-        font-size: 2em;
+        font-size: 2.2em;
     }
     #splash-text p {
         margin-left: 5%;
         margin-right: 5%;
         line-height: 1.3em;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.9em;
     }
 
     .splash-main-content {
@@ -117,9 +117,14 @@
     #splash-ready {
         margin-top: 1em;
         margin-bottom: 2em;
-        width: 50%;
+        width: 80%;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 2em;
+        padding: 1em;;
+    }
+
+    .disclaimer-div {
+        font-size: 0.7em;
     }
 
     .splash-footer {
@@ -132,13 +137,15 @@
         margin-bottom: 5%;
 
     }
-
+    .splash-footer p {
+        line-height: 1em;
+    }
 
     .splash-footer p, a {
         margin-left: 10%;
         margin-right: 10%;
         padding: 1em;
-        font-size: 1.5em;
+        font-size: 2em;
     }
 
     .splash-footer .copyright {
@@ -155,11 +162,3 @@
         padding: 0.5em 1em;
     }
 }
-
-/* @media screen and (min-width: 992px) {
-
-}
-
-@media screen and (min-width: 1200px) {
-
-} */
