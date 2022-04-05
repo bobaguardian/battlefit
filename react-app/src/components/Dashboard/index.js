@@ -20,8 +20,6 @@ import "./Dashboard.css";
 const Dashboard = () => {
     const dispatch = useDispatch();
 
-
-
     useEffect(() => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
@@ -38,25 +36,6 @@ const Dashboard = () => {
     }, [dispatch]);
 
 
-    const showSidePanel = (e) => {
-        // e.preventDefault();
-
-        // console.log("toggle side panel");
-
-        // if (sidePanel && sidePanel.style.display === "none"){
-        //     sidePanel.style.display = "flex";
-        //     // if (window.innerWidth < 900)
-
-        //     // dashMainContainer.style.gridTemplateColumns = "275px 1fr";
-        // }
-        // else if (sidePanel) {
-        //     sidePanel.style.display = "none";
-        //     dashMainContainer.style.gridTemplateColumns = "1fr";
-        // }
-    }
-
-
-
     return (
         <div>
             <nav className="dash-nav">
@@ -68,11 +47,6 @@ const Dashboard = () => {
                 </div>
             </nav>
             <main className="dash-side-main-container">
-
-                {/* <a className="side-panel-burger" onClick={showSidePanel}>
-                    <i className="fa fa-bars"></i>
-                </a> */}
-
                 <div className="side-panel-burger" >
                     <span className="bar1"></span>
                     <span className="bar2"></span>

@@ -219,6 +219,7 @@
         background-color: var(--jet);
         position: absolute;
         z-index: 2;
+        animation: 0.8s ease-in-out side-panel-slide-in;
     }
 
     .side-panel-burger {
@@ -283,4 +284,14 @@
         min-width: 800px;
     }
 
+}
+
+
+@keyframes side-panel-slide-in {
+	0% {
+		left: -400px;
+	}
+	100% {
+		left: 0px;
+	}
 }
