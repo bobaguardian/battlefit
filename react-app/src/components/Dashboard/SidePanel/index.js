@@ -19,10 +19,23 @@ const SidePanel = () => {
         hamburger = document.querySelector(".side-panel-burger");
     })
 
+    const animateSidePanel = () => {
+        if (sidePanel.classList.contains('slidein')) {
+            sidePanel.classList.remove('slidein');
+            sidePanel.classList.add('slideout');
+        } else if (sidePanel.classList.contains('slideout')) {
+            sidePanel.classList.remove('slideout');
+            sidePanel.classList.add('slidein');
+        } else {
+            sidePanel.classList.add('slidein');
+        }
+    }
+
     const goToMyExercises = async (e) => {
         await dispatch(getUserExercises(sessionUser.id));
         hamburger.classList.toggle("change");
         sidePanel.classList.toggle("nav-change");
+        animateSidePanel();
         history.push(`/users/${sessionUser.id}`);
     }
 
@@ -30,6 +43,7 @@ const SidePanel = () => {
         await dispatch(getAllMonsters());
         hamburger.classList.toggle("change");
         sidePanel.classList.toggle("nav-change");
+        animateSidePanel();
         history.push("/monster-dex");
     }
 

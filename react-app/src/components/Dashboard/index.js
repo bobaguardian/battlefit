@@ -30,14 +30,16 @@ const Dashboard = () => {
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("change");
             sidePanel.classList.toggle("nav-change");
-            // sidePanel.style.animationName = "slidein";
-            // if (hamburger.classList.contains("change")) {
-            //     sidePanel.classList.toggle("slideout");
 
-            // } else {
-
-            //     sidePanel.classList.toggle("slidein");
-            // }
+            if (sidePanel.classList.contains('slidein')) {
+                sidePanel.classList.remove('slidein');
+                sidePanel.classList.add('slideout');
+            } else if (sidePanel.classList.contains('slideout')) {
+                sidePanel.classList.remove('slideout');
+                sidePanel.classList.add('slidein');
+            } else {
+                sidePanel.classList.add('slidein');
+            }
         })
 
     }, [dispatch]);
