@@ -24,7 +24,6 @@ const Dashboard = () => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
         const sidePanel = document.querySelector(".side-panel-container");
-        const dashMainContainer = document.querySelector(".dash-side-main-container");
         const hamburger = document.querySelector(".side-panel-burger");
 
         hamburger.addEventListener("click", () => {
