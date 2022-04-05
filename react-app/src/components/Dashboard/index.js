@@ -29,8 +29,15 @@ const Dashboard = () => {
 
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("change");
-            sidePanel.classList.toggle("nav-change")
-            console.log("hamburger clicked!");
+            sidePanel.classList.toggle("nav-change");
+            // sidePanel.style.animationName = "slidein";
+            // if (hamburger.classList.contains("change")) {
+            //     sidePanel.classList.toggle("slideout");
+
+            // } else {
+
+            //     sidePanel.classList.toggle("slidein");
+            // }
         })
 
     }, [dispatch]);
