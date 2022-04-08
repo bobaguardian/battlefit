@@ -170,4 +170,19 @@
     .hp-monitor {
         font-size: 1.5em;
     }
+
+    .battle-page-victory .victory-message p {
+        font-size: 2.5em;
+    }
+
+    .generate-battle-btn {
+        font-size: 3em;
+        margin: 0.2em;
+        padding: 0.2em 0.5em;
+
+    }
+
+    .victory-header  h2{
+        font-size: 3em;
+    }
 }
