@@ -122,6 +122,18 @@
     .log-box {
         margin-top: -1.5em;
         font-size: 2em;
+        margin-bottom: 1.5em;
+
     }
+
+    .edit-delete-log i {
+        font-size: 1.9em;
+    }
+
+    .edit-log-btn,
+    .delete-log-btn {
+        margin-bottom: 1.8em;
+    }
+
 
 }
