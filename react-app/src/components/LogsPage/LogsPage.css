@@ -111,3 +111,17 @@
 .dash-main-container .empty-message-div h2 {
     padding-top: 0;
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    .log-date-heading {
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+
+    .log-box {
+        margin-top: -1.5em;
+        font-size: 2em;
+    }
+
+}
