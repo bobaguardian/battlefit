@@ -22,15 +22,18 @@
   .instructions-box {
     position: static;
     width: 80%;
+    margin-top: 1em;
+    text-align: center;
   }
 
   .instructions-box h4 {
-    font-size: 1.3em;
+    font-size: 1.8em;
+    width: 100%;
     padding-bottom: 0.5em;
   }
 
   .instructions-box p {
-    font-size: 1em;
+    font-size: 1.33em;
   }
 
 }
