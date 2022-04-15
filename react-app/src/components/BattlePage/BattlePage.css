@@ -141,3 +141,56 @@
     justify-content: center;
     color: var(--tea-green);
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    .battle-monster-container .fight-text{
+        font-size: 5em;
+    }
+
+    .battle-monster-name-level {
+        font-size: 2em;
+        padding-bottom: 1em;
+    }
+
+    .battle-exercises-container .exercise-box {
+        align-items: center;
+        font-size: 2em;
+    }
+
+    .battle-exercises-container .exercise-box i {
+        font-size: 2em;
+    }
+
+    .dash-main-container .midnight-msg {
+        font-size: 1.3em;
+        margin-bottom: 1em;
+    }
+
+    .battle-monster-name-hp {
+        align-items: flex-start;
+    }
+
+    .hp-monitor {
+        font-size: 1.5em;
+    }
+
+    .hp-monitor p {
+        padding-top: 0.5em;
+    }
+
+    .battle-page-victory .victory-message p {
+        font-size: 2.5em;
+    }
+
+    .generate-battle-btn {
+        font-size: 3em;
+        margin: 0.2em;
+        padding: 0.2em 0.5em;
+
+    }
+
+    .victory-header  h2{
+        font-size: 3em;
+    }
+}

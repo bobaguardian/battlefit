@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import DemoButton from '../DemoButton';
+import LoginFormModal from '../LoginFormModal';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState({});
@@ -81,7 +82,6 @@ const SignUpForm = () => {
 			setImageLoading(false);
 		};
 	}, []);
-
 
   if (user) {
     return <Redirect to='/' />;
@@ -169,6 +169,7 @@ const SignUpForm = () => {
       </div>
       <button className='login-submit-btn' type='submit'>Sign Up</button>
       <DemoButton />
+      <LoginFormModal text="Already have an account?" />
     </form>
   );
 };

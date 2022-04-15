@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 import "./ExerciseSearchBar.css";
 
 const ExerciseSearchBar = ({ query }) => {
-  const dispatch = useDispatch();
   const history = useHistory();
   const [searchQuery, setSearchQuery] = useState(query);
 
@@ -18,7 +16,6 @@ const ExerciseSearchBar = ({ query }) => {
     e.stopPropagation();
     if (searchQuery !== "")
       history.push(`/exercises/search/${searchQuery}`);
-
   }
 
   return (

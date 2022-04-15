@@ -133,7 +133,7 @@ const BattlePage = () => {
                         </div>
                     :
                     <>
-                        <BattleInstructions />
+                        {/* <BattleInstructions /> */}
                         <div className="battle-monster-container">
                             <h2 className="fight-text">FIGHT</h2>
                             <div className="battle-monster-div">
@@ -174,6 +174,8 @@ const BattlePage = () => {
                                     />
                                 ))}
                             </div>
+                            <BattleInstructions />
+
 
                         </div>
                     </>

@@ -43,7 +43,7 @@ def seed_demouser():
     seed_demo()
 
 
-# Creates the `flask seed demo undo` command
+# Creates the `flask seed undo_demo` command
 @seed_commands.command('undo_demo')
 def seed_demouser():
     undo_demo()

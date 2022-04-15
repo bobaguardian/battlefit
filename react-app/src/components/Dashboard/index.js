@@ -23,7 +23,25 @@ const Dashboard = () => {
     useEffect(() => {
         dispatch(getAllMuscles());
         dispatch(getUserLogs());
-    }, [dispatch])
+        const sidePanel = document.querySelector(".side-panel-container");
+        const hamburger = document.querySelector(".side-panel-burger");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("change");
+            sidePanel.classList.toggle("nav-change");
+
+            if (sidePanel.classList.contains('slidein')) {
+                sidePanel.classList.remove('slidein');
+                sidePanel.classList.add('slideout');
+            } else if (sidePanel.classList.contains('slideout')) {
+                sidePanel.classList.remove('slideout');
+                sidePanel.classList.add('slidein');
+            } else {
+                sidePanel.classList.add('slidein');
+            }
+        })
+
+    }, [dispatch]);
 
 
     return (
@@ -37,6 +55,11 @@ const Dashboard = () => {
                 </div>
             </nav>
             <main className="dash-side-main-container">
+                <div className="side-panel-burger" >
+                    <span className="bar1"></span>
+                    <span className="bar2"></span>
+                    <span className="bar3"></span>
+                </div>
                 <SidePanel />
                 <Switch>
                     <Route exact path="/" >

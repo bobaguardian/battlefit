@@ -20,7 +20,6 @@
 /* Muscle Groups */
 
 .muscles-container {
-    /* border: 1px solid purple; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px 30px;
@@ -29,7 +28,6 @@
 }
 
 .muscle-box {
-    /* border: 1px solid blue; */
     border: 2px solid var(--lavender-blush-dark);
     border-radius: 5px;
     text-align: center;
@@ -169,4 +167,67 @@
 
 .add-log-edit-delete-exercise i {
     font-size: 20px;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+
+    .heading-add-exercise-div {
+        display: block;
+    }
+
+    .add-exercise-btn {
+        position: relative;
+        left: 1.9em;
+        font-size: 1.6em;
+        margin-bottom: 1em;
+    }
+
+    .muscles-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .muscle-box {
+        border: 2px solid var(--lavender-blush-dark);
+        border-radius: 5px;
+        text-align: center;
+        padding: 20px 20px;
+        margin: 15px;
+        transition: all 0.2s ease-in-out;
+        animation: 0.7s ease-out scale-up;
+    }
+
+    .muscle-img{
+        margin-top: 15px;
+        width: 100px;
+        border-radius: 5px;
+    }
+
+    .exercise-box {
+        margin-bottom: 2em;
+    }
+
+
+    .exercises-container h3 {
+		font-size: 2em;
+	}
+
+	.exercises-container p {
+		font-size: 2em;
+	}
+
+
+    .edit-exercise-btn i,
+    .delete-exercise-btn i,
+    .add-log-btn i {
+        font-size: 1.9em;
+
+    }
+
+    .edit-exercise-btn,
+    .delete-exercise-btn,
+    .add-log-btn {
+        margin-bottom: 1.8em !important;
+    }
+
 }

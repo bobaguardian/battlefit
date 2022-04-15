@@ -18,10 +18,12 @@
     border-bottom: 3px solid var(--french-violet);
 
 }
+
 .nav-links a {
     padding: 10px;
     margin: 5px;
-    padding-bottom: 7px; /* make up for border-bottom */
+    padding-bottom: 7px;
+    /* make up for border-bottom */
     height: 45px;
     width: 100px;
     text-align: center;
@@ -43,13 +45,15 @@
     min-width: 800px;
 }
 
-.side-panel-container{
+.side-panel-container {
     border-right: 1px solid var(--dim-gray);
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 90vh;
     min-height: 100%;
+    position: static;
+
 }
 
 .user-info {
@@ -76,13 +80,13 @@
     padding: 5px;
     border-radius: 10px;
     overflow: hidden;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.user-image img{
+.user-image img {
     object-fit: contain;
 }
 
@@ -106,11 +110,11 @@
 }
 
 .edit-image-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
 .edit-image-form img {
@@ -119,8 +123,8 @@
     object-fit: contain;
 }
 
-.edit-image-form > form > input[type="file"] {
-	display: none;
+.edit-image-form>form>input[type="file"] {
+    display: none;
 }
 
 .edit-image-form label {
@@ -196,10 +200,132 @@
 .dash-main-container {
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 50px; /* make up for footer */
+    margin-bottom: 50px;
+    /* make up for footer */
 }
 
 
 .dash-main-container h2 {
     padding: 30px 20px;
+}
+
+.side-panel-burger {
+    display: none;
+}
+
+/* Animations for side panel */
+.slidein {
+    animation: 0.8s ease-in-out side-panel-slide-in;
+    left: 0px;
+}
+
+.slideout {
+    animation: 0.8s ease-in-out side-panel-slide-out;
+    left: -400px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    .side-panel-container {
+        left: -400px;
+        background-color: var(--jet);
+        position: absolute;
+        z-index: 2;
+    }
+
+    .side-panel-burger {
+        padding: 5px;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        z-index: 5;
+        top: 1.3em;
+        left: 1.3em;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        display: block;
+        width: 35px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: 0.4s;
+    }
+
+    .change .bar1 {
+        transform: rotate(45deg) translate(8px, 3px);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        transform: rotate(-45deg) translate(8px, -3px);
+    }
+
+    .side-panel-container.nav-change {
+        display: flex;
+        left: 0px;
+    }
+
+    .user-info h3 {
+        font-size: 2em;
+    }
+
+    .logout-btn,
+    #my-exercises-btn,
+    #monster-dex-btn {
+        font-size: 2em;
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 1em;
+    }
+
+
+    .dash-nav a {
+        display: none;
+    }
+
+    .nav-links {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 2.3em;
+        padding: 0;
+        margin-left: 1em;
+        margin-right: 1em;
+        width: 5em;
+        padding-bottom: 1.3em;
+    }
+
+    .dash-side-main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-width: 800px;
+    }
+}
+
+
+@keyframes side-panel-slide-in {
+	0% {
+		left: -400px;
+	}
+	100% {
+		left: 0px;
+	}
+}
+
+@keyframes side-panel-slide-out {
+	0% {
+		left: 0px;
+	}
+	100% {
+		left: -400px;
+	}
 }

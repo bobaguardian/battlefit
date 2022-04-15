@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ className }) => {
     return (
-        <footer>
+        <footer className={`${className}`}>
             <div className="copyright">
                 <p><i className="fa-solid fa-copyright"></i> BattleFit</p>
             </div>
