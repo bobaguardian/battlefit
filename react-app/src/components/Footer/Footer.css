@@ -24,7 +24,8 @@ footer {
 
 }
 
-.about-links a, p {
+.about-links a,
+.about-links p {
     text-decoration: none;
     color: var(--lavender-blush);
     margin: 5px;
