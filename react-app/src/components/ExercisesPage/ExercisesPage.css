@@ -208,4 +208,23 @@
         margin-bottom: 2em;
     }
 
+    /* .exercises-container.exercise-box {
+        font-size: 1.3em;
+
+    } */
+
+
+    .edit-exercise-btn i,
+    .delete-exercise-btn i,
+    .add-log-btn i {
+        font-size: 1.9em;
+
+    }
+
+    .edit-exercise-btn,
+    .delete-exercise-btn,
+    .add-log-btn {
+        margin-bottom: 1.8em !important;
+    }
+
 }
