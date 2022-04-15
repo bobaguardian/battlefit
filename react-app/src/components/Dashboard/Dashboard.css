@@ -282,11 +282,12 @@
 
     .nav-links a {
         display: block;
-        font-size: 1.7em;
+        font-size: 2.3em;
         padding: 0;
         margin-left: 1em;
         margin-right: 1em;
-        width: 6em;
+        width: 5em;
+        padding-bottom: 1.3em;
     }
 
     .dash-side-main-container {
