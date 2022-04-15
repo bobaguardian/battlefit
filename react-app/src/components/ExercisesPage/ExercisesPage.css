@@ -204,13 +204,16 @@
     }
 
     .exercise-box {
-        /* display: block; */
         margin-bottom: 2em;
     }
 
-    /* .exercises-container.exercise-box {
-        font-size: 1.3em;
 
+    /* .exercise-detail-container h3 {
+        font-size: 2em;
+    }
+
+    .exercise-detail-container p {
+        font-size: 1.2em;
     } */
 
 

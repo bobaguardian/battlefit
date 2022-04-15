@@ -37,10 +37,6 @@ h3 {
 	font-size: 18px;
 }
 
-p {
-	line-height: 22px;
-}
-
 *,
 body {
 	margin: 0;
@@ -192,7 +188,11 @@ button:hover {
 	}
 
 	h3 {
-		font-size: 1em;
+		font-size: 2em;
+	}
+
+	p {
+		font-size: 2em;
 	}
 
 }
