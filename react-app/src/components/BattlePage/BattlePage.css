@@ -167,8 +167,16 @@
         margin-bottom: 1em;
     }
 
+    .battle-monster-name-hp {
+        align-items: flex-start;
+    }
+
     .hp-monitor {
         font-size: 1.5em;
+    }
+
+    .hp-monitor p {
+        padding-top: 0.5em;
     }
 
     .battle-page-victory .victory-message p {
