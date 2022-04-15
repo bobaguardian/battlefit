@@ -270,6 +270,20 @@
         left: 0px;
     }
 
+    .user-info h3 {
+        font-size: 2em;
+    }
+
+    .logout-btn,
+    #my-exercises-btn,
+    #monster-dex-btn {
+        font-size: 2em;
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 1em;
+    }
+
+
     .dash-nav a {
         display: none;
     }
@@ -282,11 +296,12 @@
 
     .nav-links a {
         display: block;
-        font-size: 1.7em;
+        font-size: 2.3em;
         padding: 0;
         margin-left: 1em;
         margin-right: 1em;
-        width: 6em;
+        width: 5em;
+        padding-bottom: 1.3em;
     }
 
     .dash-side-main-container {
@@ -294,7 +309,6 @@
         grid-template-columns: 1fr;
         min-width: 800px;
     }
-
 }
 
 

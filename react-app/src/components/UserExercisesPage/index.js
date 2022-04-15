@@ -6,6 +6,7 @@ import { useParams, useHistory } from "react-router-dom";
 import Exercise from "../ExercisesPage/Exercise";
 import AddExerciseFormModal from "../ExercisesPage/AddExerciseFormModal";
 import { getUserExercises } from "../../store/exercises";
+import "../ExercisesPage/ExercisesPage.css";
 
 
 const UserExercisesPage = () => {

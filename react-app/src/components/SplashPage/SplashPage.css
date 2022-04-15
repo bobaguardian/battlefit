@@ -141,7 +141,8 @@
         line-height: 1em;
     }
 
-    .splash-footer p, a {
+    .splash-footer p,
+    .splash-footer a {
         margin-left: 10%;
         margin-right: 10%;
         padding: 1em;
