@@ -208,13 +208,13 @@
     }
 
 
-    /* .exercise-detail-container h3 {
-        font-size: 2em;
-    }
+    .exercises-container h3 {
+		font-size: 2em;
+	}
 
-    .exercise-detail-container p {
-        font-size: 1.2em;
-    } */
+	.exercises-container p {
+		font-size: 2em;
+	}
 
 
     .edit-exercise-btn i,

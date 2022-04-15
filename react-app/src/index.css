@@ -37,6 +37,7 @@ h3 {
 	font-size: 18px;
 }
 
+
 *,
 body {
 	margin: 0;
@@ -188,11 +189,7 @@ button:hover {
 	}
 
 	h3 {
-		font-size: 2em;
-	}
-
-	p {
-		font-size: 2em;
+		font-size: 1em;
 	}
 
 }
