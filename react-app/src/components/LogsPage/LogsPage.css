@@ -48,6 +48,10 @@
     align-items: center;
 }
 
+.exercise-unit-div p {
+    padding-left: 1em;
+}
+
 .log-comment {
     padding-top: 15px;
 }
