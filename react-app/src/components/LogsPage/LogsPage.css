@@ -119,19 +119,19 @@
 
 @media screen and (min-width: 300px) and (max-width: 992px) {
     .log-date-heading {
-        font-size: 3em;
+        font-size: 2em;
         margin-bottom: 1em;
     }
 
     .log-box {
-        margin-top: -1.5em;
+        margin-top: -1em;
         font-size: 2em;
         margin-bottom: 1.5em;
 
     }
 
     .edit-delete-log i {
-        font-size: 1.9em;
+        font-size: 1.8em;
     }
 
     .edit-log-btn,
