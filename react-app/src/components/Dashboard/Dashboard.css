@@ -284,6 +284,10 @@
     }
 
 
+    .dash-nav {
+        min-width: 800px;
+    }
+
     .dash-nav a {
         display: none;
     }
