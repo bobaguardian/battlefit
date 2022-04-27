@@ -139,6 +139,7 @@
 /* Battle Record */
 .battle-records-container {
     margin: 0px 30px 30px 35px;
+
 }
 
 .battle-records-container h3 {
@@ -163,4 +164,22 @@
 
 .victory-text, .defeat-text {
     padding-left: 1em;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 992px) {
+    .monster-details-text,
+    .monster-details-header p,
+    .battle-records-container h3,
+    .battle-records-container p {
+        font-size: 2em;
+    }
+
+    .monster-details-header,
+    .monster-details-img,
+    .monster-stamp,
+    .monster-description {
+        margin-bottom: 1em;
+    }
+
 }
