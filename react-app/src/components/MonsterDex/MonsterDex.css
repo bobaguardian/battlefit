@@ -160,3 +160,7 @@
 .defeat-text {
     color: var(--light-coral);
 }
+
+.victory-text, .defeat-text {
+    padding-left: 1em;
+}
